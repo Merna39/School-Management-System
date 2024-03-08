@@ -1,91 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>School Management System</title>
-
- <!-- Font Awesome -->
- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-  <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-  <!-- Bootstrap core CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Material Design Bootstrap -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Domine:wght@500&display=swap" rel="stylesheet">
-</head>
-<body>
-
-
-<style>
-
-  html,
-  body,
-  header,
-  .view {
-    height: 100%;
-  }
-
-  @media (max-width: 740px) {
-    html,
-    body,
-    header,
-    .view {
-      height: 1100px;
-    }
-  }
-  @media (min-width: 800px) and (max-width: 850px) {
-    html,
-    body,
-    header,
-    .view {
-      height: 700px;
-    }
-  }
-
-  .top-nav-collapse {
-    background-color: #39448c !important;
-  }
-
-  /* .navbar:not(.top-nav-collapse) {
-    background: transparent !important ;
-  } */
-  .navbar{
-    transparent:all 0.5s;
-  }
-  .scrolling-navbar{
-    background-color:#39448c ;
-    box-shadow:0 3px 10px rgba(0,0,0,0.15)
-  }
-  @media (max-width: 991px) {
-   .navbar:not(.top-nav-collapse) {
-  
-   }
-  }
-
-  h6 {
-    line-height: 1.7;
-  }
-
-</style>
+<?php include('header.php')?>
 
 <!-- Main navigation -->
 <header>
+
+
+
+
   <!--Navbar-->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar ">
+  <nav class="mb-1 navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar ">
     <div class="container" >
       <a class="navbar-brand" href="#">
         <strong>SMS</strong>
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
-        aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+        aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#">Home
@@ -98,16 +29,35 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Profile</a>
           </li>
+          </ul>
+          <ul class="navbar-nav ml-auto nav-flex-icons">
+          <li class="nav-item">
+        <a href="login.php" class="nav-link waves-effect waves-light">
+        <i class="fas fa-user"></i>
+        <!-- <?php if (isset($_SESSION['login'])) {?> -->
+      
+          <!-- <?php } ?> -->
+        </a>
+      </li>
+          <!-- <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle " id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user"></i>
+        </a>
+        <div class=" dropdown-menu dropdown-menu-right dropdown-default"
+          aria-labelledby="navbarDropdownMenuLink-333">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li> -->
         </ul>
-        <form class="form-inline">
-          <div class="md-form my-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          </div>
-        </form>
+        
       </div>
     </div>
   </nav>
   <!-- Navbar -->
+
   <!-- Full Page Intro -->
   <div class="view " style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/89.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
     <!-- Mask & flexbox options-->
@@ -140,20 +90,20 @@
                 <!--Body-->
                 <div class="md-form">
                   <i class="fas fa-user prefix grey-text"></i>
-                  <input type="text" id="form3" class="form-control">
-                  <label for="form3">Your name</label>
+                  <input type="text" id="form1" class="form-control" placeholder="Your name">
+                  <!-- <label for="form1">Your name</label> -->
                 </div>
                 <div class="md-form">
                   <i class="fas fa-envelope prefix grey-text"></i>
-                  <input type="text" id="form2" class="form-control">
-                  <label for="form2">Your email</label>
+                  <input type="email" id="email" class="form-control" placeholder="Your e-mail">
+                  <!-- <label for="form2">Your email</label> -->
                 </div>
                 <!--Textarea with icon prefix-->
                 <div class="md-form">
                   <i class="fas fa-phone prefix grey-text"></i>
                   
-                  <input type="text" id="form8" class=" form-control" ></input>
-                  <label for="form8">Your phone</label>
+                  <input type="text" id="form8" class=" form-control"  placeholder="Your phone"></input>
+                  <!-- <label for="form8">Your phone</label> -->
                 </div>
                 <div class="text-center mt-3">
                   <button class="btn btn-indigo btn-rounded">Sign in</button>
@@ -164,6 +114,7 @@
         </p>
 
         <p>or sign in with:</p>
+        
         <a type="button" class="indigo-text mx-2">
             <i class="fab fa-facebook-f"></i>
         </a>
@@ -521,10 +472,4 @@
 </footer>
 <!-- Footer -->
 
-  <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery.min.js"></script>
-<script type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
-<script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>
-
-</body>
-</html>
+<?php include('footer.php')?>
