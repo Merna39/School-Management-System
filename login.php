@@ -1,5 +1,7 @@
 <?php include('header.php')?>
+
 <!-- Default form login -->
+<div class="container-fluid">
 <section class=" vh-100 d-flex ">
   <div class="col-3 m-auto"  >
 <form  method="POST" class="text-center border border-light p-5" >
@@ -62,9 +64,9 @@ $password = "admin@sms";
       echo 'Invailid Credentials';
     }
   }
-  ?>
+   ?>
 </div>
 </section>
-
+</div>
 <!-- Default form login -->
 <?php include('footer.php')?>
