@@ -1,15 +1,4 @@
-<?php
-session_start();
-if(isset($_SESSION['login']))
-{
-  echo 'log in';
-  exit;
 
-}
-else{
- header('Location: ../login.php');
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
