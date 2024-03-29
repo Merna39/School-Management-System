@@ -125,9 +125,9 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="<?=$site_url?>/admin/dashboard.php" class="brand-link">
-      <!-- <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <!-- <img src="./dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8"> -->
-           <i class="fas fa-school"></i>
+           <i class="fas fa-school "></i>
       <span class="brand-text font-weight-light">SMS Admin</span>
     </a>
 
@@ -140,7 +140,7 @@
           <!-- Dashboard -->
           <li class="nav-item">
             <a href="<?=$site_url?>admin/dashboard.php" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-tachometer-alt "></i>
               <p>Dashboard</p>
             </a>
           </li>
@@ -155,7 +155,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../user-account.php?user=counseller" class="nav-link">
+                <a href="./user-account.php?user=counseller" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Counseller</p>
                 </a>
@@ -179,7 +179,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../user-account.php?user=librarian" class="nav-link">
+                <a href="./user-account.php?user=librarian" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Librarian</p>
                 </a>

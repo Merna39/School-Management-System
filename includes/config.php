@@ -1,6 +1,6 @@
 <?php
  
-  $db_conn = mysqli_connect('localhost', 'root','' ,'school-management-system_project');
+  $db_conn = mysqli_connect('localhost', 'root','' ,'sms_project');
   if (!$db_conn) {
      echo 'Connection Failed';
 

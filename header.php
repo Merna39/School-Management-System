@@ -49,21 +49,21 @@ header,
   background-color: #39448c !important;
 }
 
-/* .navbar:not(.top-nav-collapse) {
+.navbar:not(.top-nav-collapse) {
   background: transparent !important ;
-} */
-.navbar{
-  transparent:all 0.5s;
 }
+/* .navbar{
+  transparent:all 0.5s;
+} */
 .scrolling-navbar{
   background-color:#39448c ;
   box-shadow:0 3px 10px rgba(0,0,0,0.15)
 }
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
  .navbar:not(.top-nav-collapse) {
 
- }
-}
+ } */
+
 
 h6 {
   line-height: 1.7;
