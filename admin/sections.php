@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive bg-black">
+                    <div class="table-responsive bg-white">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
