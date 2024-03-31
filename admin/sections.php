@@ -58,7 +58,7 @@
                                 $query = mysqli_query($db_conn , 'SELECT * FROM sections');
                                 while($section = mysqli_fetch_object($query)) { ?>
                                 <tr>
-                                    <td><?=$count++?></td>
+                                    <td><?=$count?></td>
                                     <td><?=$section->title?></td>
                                     <td></td>
                                 </tr>
