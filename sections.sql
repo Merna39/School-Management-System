@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2024 at 11:42 PM
+-- Generation Time: Mar 31, 2024 at 11:59 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,27 +24,43 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `accounts`
+-- Table structure for table `sections`
 --
 
-CREATE TABLE `accounts` (
+CREATE TABLE `sections` (
   `id` int(11) NOT NULL,
-  `type` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` text NOT NULL,
-  `name` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `title` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `accounts`
+-- Dumping data for table `sections`
 --
 
-INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`) VALUES
-(0, 'teacher', 'teacher.1@example.com', 'asdfasdfasdf', ''),
-(0, 'teacher', 'teacher.2@example.com', 'asdfasdfasdf1', ''),
-(0, 'teacher', 'teacher.1@example.com', 'asdfasdfasdf', ''),
-(0, 'teacher', 'teacher.2@example.com', 'asdfasdfasdf1', ''),
-(0, 'student', 'student.1@example.com', '123456789', '');
+INSERT INTO `sections` (`id`, `title`) VALUES
+(1, 'section A'),
+(2, 'section B'),
+(3, 'section C'),
+(10, 'section D');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `sections`
+--
+ALTER TABLE `sections`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `sections`
+--
+ALTER TABLE `sections`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
