@@ -42,7 +42,7 @@
         <div class="card-header py-2">
             <h3 class="card-title">Add New Class</h3>
             <div class="card-tools">
-                <a href="?action=add-new" class="btn btn-success btn-xs"><i class="fa fa-plus mr-2"></i>Add New</a>
+                <a href="?action=add-new" class="btn btn-primary btn-xs"><i class="fa fa-plus mr-2"></i>Add New</a>
             </div>
         </div>
         <div class="card-body">
@@ -68,7 +68,7 @@
                 } ?>
                 </div>
 
-                <button name="submit" class="btn btn-success">Submit</button>
+                <button name="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
 
@@ -82,12 +82,12 @@
         <div class="card-header py-2">
             <h3 class="card-title">Classes</h3>
             <div class="card-tools">
-                <a href="?action=add-new" class="btn btn-success btn-xs"><i class="fa fa-plus mr-2"></i>Add New</a>
+                <a href="?action=add-new" class="btn btn-primary btn-xs"><i class="fa fa-plus mr-2"></i>Add New</a>
             </div>
         </div>
         <div class="card-body">
-            <div class="table-responsive bg-black">
-                <table class="table table-bordered">
+            <div class="table-responsive bg-white">
+                <table class="table table-bordered border-info  table-striped table-hover">
                     <thead>
                         <tr>
                             <th>S.No</th>

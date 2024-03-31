@@ -31,16 +31,16 @@
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
+          <span class="badge badge-danger navbar-badge">2</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="<?=$site_url?>dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="./dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                  Brad Diesel
+                  Adel Nabel
                   <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
                 </h3>
                 <p class="text-sm">Call me whenever you can...</p>
@@ -53,23 +53,23 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="<?=$site_url?>dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="./dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                  John Pierce
+                  John Ayman
                   <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
                 </h3>
-                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm">I got your message </p>
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
             </div>
             <!-- Message End -->
           </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <!-- <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item"> -->
             <!-- Message Start -->
-            <div class="media">
-              <img src="<?=$site_url?>dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+            <!-- <div class="media">
+              <img src="./dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -78,7 +78,7 @@
                 <p class="text-sm">The subject goes here</p>
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
-            </div>
+            </div> -->
             <!-- Message End -->
           </a>
           <div class="dropdown-divider"></div>
@@ -124,7 +124,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="<?=$site_url?>/admin/dashboard.php" class="brand-link">
+    <a href="http://localhost/School-Management-System/admin/dashboard.php" class="brand-link">
       <!-- <img src="./dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8"> -->
            <i class="fas fa-school "></i>
@@ -139,7 +139,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Dashboard -->
           <li class="nav-item">
-            <a href="<?=$site_url?>admin/dashboard.php" class="nav-link">
+            <a href="http://localhost/School-Management-System/admin/dashboard.php" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt "></i>
               <p>Dashboard</p>
             </a>
@@ -155,31 +155,31 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./user-account.php?user=counseller" class="nav-link">
+                <a href="http://localhost/School-Management-System/admin/user-account.php?user=counseller" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Counseller</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./user-account.php?user=teacher" class="nav-link">
+                <a href="http://localhost/School-Management-System/admin/user-account.php?user=teacher" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Teachers</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./user-account.php?user=student" class="nav-link">
+                <a href="http://localhost/School-Management-System/admin/user-account.php?user=student" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Students</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./user-account.php?user=parent" class="nav-link">
+                <a href="http://localhost/School-Management-System/admin/user-account.php?user=parent" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Parents</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./user-account.php?user=librarian" class="nav-link">
+                <a href="http://localhost/School-Management-System/admin/user-account.php?user=librarian" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Librarian</p>
                 </a>
@@ -200,31 +200,31 @@
               
               
               <li class="nav-item">
-                <a href="sections.php" class="nav-link">
+                <a href="http://localhost/School-Management-System/admin/sections.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Sections</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="classes.php" class="nav-link">
+                <a href="http://localhost/School-Management-System/admin/classes.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Classes</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="courses.php" class="nav-link">
+                <a href="http://localhost/School-Management-System/admin/courses.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Courses</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="subjects.php" class="nav-link">
+                <a href="http://localhost/School-Management-System/admin/subjects.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Subects</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="lessons.php" class="nav-link">
+                <a href="http://localhost/School-Management-System/admin/lessons.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lessons</p>
                 </a>

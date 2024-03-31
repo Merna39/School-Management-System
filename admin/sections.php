@@ -44,7 +44,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive bg-white">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered border-info  table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>S.No</th>
@@ -85,7 +85,7 @@
                         </div>
                         
 
-                        <button name="submit" class="btn btn-success float-right">Submit</button>
+                        <button name="submit" class="btn btn-primary float-right">Submit</button>
                     </form>
                 </div>
 

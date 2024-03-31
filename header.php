@@ -1,4 +1,8 @@
-<?php session_start();?>
+<?php
+ session_start();
+$site_url= 'http://localhost/School-Management-System/';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
