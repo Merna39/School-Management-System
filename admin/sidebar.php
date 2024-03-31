@@ -118,7 +118,7 @@
         </a>
       </li>
     </ul>
-  </nav>
+</nav>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -198,32 +198,33 @@
             </a>
             <ul class="nav nav-treeview">
               
+              
               <li class="nav-item">
-                <a href="<?=$site_url?>admin/sections.php" class="nav-link">
+                <a href="sections.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Sections</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=$site_url?>admin/classes.php" class="nav-link">
+                <a href="classes.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Classes</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=$site_url?>admin/courses.php" class="nav-link">
+                <a href="courses.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Courses</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=$site_url?>admin/subjects.php" class="nav-link">
+                <a href="subjects.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Subects</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=$site_url?>admin/lessons.php" class="nav-link">
+                <a href="lessons.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lessons</p>
                 </a>

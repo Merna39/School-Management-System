@@ -1,4 +1,4 @@
-<?php include('../includes/config.php') ?>
+<?php include('../admin/includes/config.php') ?>
 <?php include('header.php') ?>
 <?php include('sidebar.php') ?>
 <!-- Content Header (Page header) -->
@@ -22,12 +22,13 @@
 <section class="content">
   <div class="container-fluid">
     <!-- Info boxes -->
-    <div class="table-responsive">
+    <div class="table-responsive bg-white">
       <table class="table table-bordered">
         <thead>
           <tr>
            <th>S.No</th>
            <th>Name</th>
+           <th>Email</th>
            <th>Action</th>
          </tr>
         </thead>
@@ -42,7 +43,8 @@
         ?>
           <tr>
            <td><?=$count++?></td>
-           <td></td>
+           <td><?=$users->name?></td>
+           <td><?=$users->email?></td>
            <td></td>
           </tr>
           <?php }?>
