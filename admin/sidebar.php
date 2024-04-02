@@ -178,12 +178,12 @@
                   <p>Parents</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="http://localhost/School-Management-System/admin/user-account.php?user=librarian" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Librarian</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
 
@@ -217,7 +217,7 @@
                   <p>Courses</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="http://localhost/School-Management-System/admin/subjects.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Subects</p>
@@ -228,7 +228,7 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lessons</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
           
@@ -242,12 +242,12 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="<?=$site_url?>admin/periods.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Periods</p>
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a href="<?=$site_url?>admin/timetable.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -273,18 +273,18 @@
                   <p>Examination Form</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="<?=$site_url?>admin/admin-card.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Admin card</p>
                 </a>
-              </li>
-              <li class="nav-item">
+              </li> -->
+              <!-- <li class="nav-item">
                 <a href="<?=$site_url?>admin/paper-schedule.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Paper Schedule</p>
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a href="<?=$site_url?>admin/results.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -310,12 +310,12 @@
                   <p>Attendance</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="<?=$site_url?>admin/leave.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Leave</p>
                 </a>
-              </li>
+              </li> -->
             </ul>       
           </li>
 
@@ -367,12 +367,12 @@
               </p>
             </a>     
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="<?=$site_url?>admin/campus-functions.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Campus Functions</p>
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a href="<?=$site_url?>admin/webinar-seminar.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
