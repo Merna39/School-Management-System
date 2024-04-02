@@ -1,8 +1,7 @@
 <?php include('../admin/includes/config.php') ?>
-<?php include('header.php') ?>
-<?php include('sidebar.php') ?>
 
 <?php
+  // header('Location: ./classes.php' );
 if (isset($_POST['submit'])) {
   $name = $_POST['name'];
   $category = $_POST['category'];
@@ -47,22 +46,35 @@ if (isset($_POST['submit'])) {
   } else {
     if (move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $target_file)) {
       mysqli_query($db_conn, "INSERT INTO courses (`name`, `category`, `duration`,`image`, `date`)
-       VALUES ('$name', '$category', '$duration', '$image', '$today')")
-        or die(mysqli_error($db_conn));
+      VALUES ('$name', '$category', '$duration', '$image', '$today')")
+      or die(mysqli_error($db_conn));
+
+      $_SESSION['success_msg'] = 'Course has been uplouded successfuly';
+      header('Location: courses.php'); 
+      exit;
     } else {
       echo "Sorry, there was an error uploading your file.";
     }
   }
+  // ob_start();
 
+  //ob_end_flush();
+  
 }
+
 ?>
+
+<?php include('header.php') ?>
+<?php include('sidebar.php') ?>
+
+
 
 <!-- Content Header (Page header) -->
 <div class="content-header">
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Manage Courses</h1>
+        <h1 class="m-0 text-dark">Manage Courses </h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -70,6 +82,17 @@ if (isset($_POST['submit'])) {
           <li class="breadcrumb-item active">Courses</li>
         </ol>
       </div><!-- /.col -->
+      <?php
+        
+        if(isset($_SESSION['success_msg'])) {
+         ?>
+            <div class="col_12">
+             <small class="text-primary" style="font-size:16px" > <?=$_SESSION['success_msg']?></small>
+            </div>
+         <?php
+         unset($_SESSION['success_msg']);
+       }
+      ?>
     </div><!-- /.row -->
   </div><!-- /.container-fluid -->
 </div>
@@ -101,6 +124,7 @@ if (isset($_POST['submit'])) {
                 <option value="">Select Category</option>
                 <option value="web-design-and-development">Web Design & Development</option>
                 <option value="app-developement">App Development</option>
+                <option value="programming">Programming</option>
               </select>
             </div>
             <div class="form-group">

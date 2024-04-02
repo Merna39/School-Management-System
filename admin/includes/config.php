@@ -6,5 +6,6 @@
 
          exit;
      }
+     session_start();
        
 ?>
