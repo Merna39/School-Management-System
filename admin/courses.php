@@ -10,10 +10,13 @@ if (isset($_POST['submit'])) {
   $image = $_FILES["thumbnail"]["name"];
   $today = date('Y-m-d');
 
-  $target_dir = "../admin/dist/uploads/";
+  $target_dir = "./dist/uploads";
   $target_file = $target_dir . basename($_FILES["thumbnail"]["name"]);
-  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+  $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
   $uploadOk = 1;
+
+
+
 
   // Check if file already exists
   if (file_exists($target_file)) {
@@ -28,30 +31,31 @@ if (isset($_POST['submit'])) {
   }
 
   // Allow certain file formats
-  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-  && $imageFileType != "gif" ) {
+  if (
+    $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+    && $imageFileType != "gif"
+  ) {
     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOk = 0;
   }
 
+
   // Check if $uploadOk is set to 0 by an error
   if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
-  // if everything is ok, try to upload file
+    // if everything is ok, try to upload file
   } else {
     if (move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $target_file)) {
-      mysqli_query($db_conn, "INSERT INTO courses (`name`, `category`, `duration`,`image`, `date`) VALUES ('$name', '$category', '$duration', '$image', '$today')") or die(mysqli_error($db_conn));
-      $_SESSION['success_msg'] = 'Course has been uploaded successfuly';
-      header('Location: courses.php'); exit;
+      mysqli_query($db_conn, "INSERT INTO courses (`name`, `category`, `duration`,`image`, `date`)
+       VALUES ('$name', '$category', '$duration', '$image', '$today')")
+        or die(mysqli_error($db_conn));
     } else {
       echo "Sorry, there was an error uploading your file.";
     }
   }
-  // ob_start();
-  
-  // ob_end_flush();
-  
-} ?>
+
+}
+?>
 
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -118,7 +122,7 @@ if (isset($_POST['submit'])) {
       <!-- Info boxes -->
       <div class="card">
         <div class="card-header py-2">
-          <h3 class="card-title">Classes</h3>
+          <h3 class="card-title">Courses</h3>
           <div class="card-tools">
             <a href="?action=add-new" class="btn btn-primary btn-xs"><i class="fa fa-plus mr-2"></i>Add New</a>
           </div>
@@ -128,10 +132,10 @@ if (isset($_POST['submit'])) {
             <table class="table table-bordered border-info  table-striped table-hover">
               <thead>
                 <tr>
-                  <th>S.No</th>
+                  <th>S.No.</th>
                   <th>Image</th>
                   <th>Name</th>
-                  <th>category</th>
+                  <th>Category</th>
                   <th>Duration</th>
                   <th>Date</th>
                 </tr>
@@ -143,14 +147,12 @@ if (isset($_POST['submit'])) {
                 while ($course = mysqli_fetch_object($curse_query)) { ?>
                   <tr>
                     <td><?= $count++ ?></td>
-                    <td><img src="../admin/dist/uploads/ $course->image ?>" height="100"></td>
+                    <td><img src="./dist/uploads/<?= $course->image ?>" height="100" alt="<?= $course->name ?>" class="border"></td>
                     <td><?= $course->name ?></td>
                     <td><?= $course->category ?></td>
                     <td><?= $course->duration ?></td>
                     <td><?= $course->date ?></td>
-                    
                   </tr>
-
                 <?php } ?>
               </tbody>
             </table>
