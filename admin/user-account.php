@@ -18,6 +18,7 @@ if(isset($_POST['submit']))
   $email    = $_POST['email'];
   $password = md5(1234567890);
   $type     = $_POST['type'];
+  $level    = $_POST['level'];
 
   $check_query = mysqli_query($db_conn, "SELECT * FROM accounts WHERE email = '$email'");
   if(mysqli_num_rows($check_query) > 0)
@@ -26,7 +27,7 @@ if(isset($_POST['submit']))
   }
   else
   {    
-    mysqli_query($db_conn, "INSERT INTO accounts (`name`,`email`,`password`,`type`) VALUES ('$name','$email','$password','$type')") or die(mysqli_error($db_conn));
+    mysqli_query($db_conn, "INSERT INTO accounts (`name`,`email`,`password`,`type` ,`level`) VALUES ('$name','$email','$password','$type','$level')") or die(mysqli_error($db_conn));
     $_SESSION['success_msg'] = 'User has been succefuly registered';
     header('location: user-account.php?user='.$type);
     exit;
@@ -46,9 +47,9 @@ if(isset($_POST['submit']))
           <div class="col-sm-6">
             <div class="d-flex">
               <h1 class="m-0 text-dark">Manage Accounts</h1>
-              <a href="user-account.php?user=<?php echo $_REQUEST['user'] ?>&action=add-new" class="btn btn-primary btn-sm">Add New</a>
+              
             </div>
-
+              
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -86,6 +87,9 @@ if(isset($_POST['submit']))
               <div class="form-group">
                 <input type="email" class="form-control" placeholder="Email Address" name="email">
               </div>
+              <div class="form-group">
+                <input type="level" class="form-control" placeholder="Level" name="Level">
+              </div>
               <input type="hidden" name="type" value="<?php echo $_REQUEST['user'] ?>">
               <input type="submit" name="submit" class="btn btn-primary" value="Register">
             </form>
@@ -93,13 +97,27 @@ if(isset($_POST['submit']))
         </div>
         <?php } else {?>
         <!-- Info boxes -->
+
+        <div class="card">
+        <div class="card-header py-2">
+          <h3 class="card-title">Accounts</h3>
+          <div class="card-tools">
+          <a href="user-account.php?user=<?php echo $_REQUEST['user'] ?>&action=add-new" class="btn btn-primary btn-sm">Add New</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive bg-white">
+            <table class="table table-bordered border-info  table-striped table-hover">
+              <thead>
+
         <div class="table-responsive bg-white">
-          <table class="table table-bordered">
+          <table class="table table-bordered border-info  table-striped table-hover">
             <thead>
               <tr>
                 <th>S.No.</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Level</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -117,6 +135,7 @@ if(isset($_POST['submit']))
                 <td><?=$count++?></td>
                 <td><?=$users->name?></td>
                 <td><?=$users->email?></td> 
+                <td><?=$users->level?></td> 
                 <td></td>
               </tr>
               <?php } ?>

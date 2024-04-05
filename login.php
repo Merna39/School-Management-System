@@ -1,9 +1,10 @@
 <?php include('header.php') ?>
 
+
 <!-- Default form login -->
 <div class="container-fluid">
   <section class=" vh-100 d-flex ">
-    <div class="col-3 m-auto">
+    <div class="col col-lg-4 col-sm-4   m-auto">
       <form method="POST" class="text-center border border-light p-5">
         <!-- action="actions/login.php" -->
         <p class="h4 mb-4 text-center">Sign in</p>
@@ -32,17 +33,17 @@
         <button class="btn btn-info btn-block my-4" name="login" type="submit">Login </button>
 
         <!-- Register -->
-        <p>Not a member?
+        <!-- <p>Not a member?
           <a href="">Register</a>
-        </p>
+        </p> -->
 
         <!-- Social login -->
-        <p>or sign in with:</p>
+        <!-- <p>or sign in with:</p>
 
         <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
         <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
         <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
-        <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+        <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a> -->
 
       </form>
 
