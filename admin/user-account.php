@@ -88,7 +88,7 @@ if(isset($_POST['submit']))
                 <input type="email" class="form-control" placeholder="Email Address" name="email">
               </div>
               <div class="form-group">
-                <input type="level" class="form-control" placeholder="Level" name="Level">
+                <input type="level" class="form-control" placeholder="Level" name="level">
               </div>
               <input type="hidden" name="type" value="<?php echo $_REQUEST['user'] ?>">
               <input type="submit" name="submit" class="btn btn-primary" value="Register">
