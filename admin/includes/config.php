@@ -10,3 +10,6 @@ if (!$db_conn) {
 if (!isset($_SESSION['login'])) {
   session_start();
 }
+include('functions.php');
+
+?>

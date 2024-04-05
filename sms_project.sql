@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2024 at 09:06 PM
+-- Generation Time: Apr 05, 2024 at 10:52 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,17 +32,23 @@ CREATE TABLE `accounts` (
   `type` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` text NOT NULL,
-  `name` text NOT NULL
+  `name` text NOT NULL,
+  `level` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`) VALUES
-(1, 'teacher', 'teacher.1@example.com', 'asdfasdfasdf', 'Teacher1'),
-(2, 'teacher', 'teacher.2@example.com', 'zxcvzxcvzxcv', 'Teacher2'),
-(3, 'student', 'student.1@example.com', 'qwerqwerqwer', 'Student1');
+INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`) VALUES
+(1, 'teacher', 'teacher.1@example.com', 'asdfasdfasdf', 'Teacher1', 3),
+(2, 'teacher', 'teacher.2@example.com', 'zxcvzxcvzxcv', 'Teacher2', 1),
+(3, 'student', 'student.1@example.com', 'qwerqwerqwer', 'Student1', 3),
+(4, 'teacher', 'teacher.3@example.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'teacher 3', 2),
+(5, 'student', 'student.2@example.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'student', 5),
+(6, 'student', 'student.3@example.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'student3', 4),
+(7, 'student', 'student.4@example.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'student4', 0),
+(8, 'teacher', 'teacher.4@example.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'teacher 4', 0);
 
 -- --------------------------------------------------------
 
@@ -63,11 +69,8 @@ CREATE TABLE `classes` (
 
 INSERT INTO `classes` (`id`, `title`, `section`, `added_date`) VALUES
 (1, 'Class-1', '1', '2024-03-31'),
-(3, 'Class-1', '1', '2024-03-31'),
-(4, 'Class-2', '1', '2024-03-31'),
 (5, 'Class-2', '1,2,3', '2024-03-31'),
 (6, 'Class-3', '1,2,3', '2024-03-31'),
-(7, 'Class-3', '1,2,3', '2024-03-31'),
 (8, 'Class-4', '1,3', '2024-03-31');
 
 -- --------------------------------------------------------
@@ -99,6 +102,55 @@ INSERT INTO `courses` (`id`, `name`, `category`, `duration`, `date`, `image`) VA
 (24, 'REACT JS', 'web-design-and-development', '2 Hours', '2024-04-02 00:00:00', 'react.js-img.png'),
 (25, 'JQUERY', 'web-design-and-development', '3 Hours', '2024-04-02 00:00:00', 'Bootstrap_logo.svg.png'),
 (27, 'PYTHON', 'web-design-and-development', '2 Hours', '2024-04-02 00:00:00', 'Python-logo-notext.svg.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `metadata`
+--
+
+CREATE TABLE `metadata` (
+  `id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `meta_key` text NOT NULL,
+  `meta_value` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `metadata`
+--
+
+INSERT INTO `metadata` (`id`, `item_id`, `meta_key`, `meta_value`) VALUES
+(1, 2, 'section', '3'),
+(2, 2, 'section', '4');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL,
+  `author` int(11) NOT NULL,
+  `title` text NOT NULL,
+  `description` text NOT NULL,
+  `type` varchar(100) NOT NULL,
+  `publish_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `modified_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `status` varchar(50) NOT NULL,
+  `parent` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `author`, `title`, `description`, `type`, `publish_date`, `modified_date`, `status`, `parent`) VALUES
+(1, 1, 'Class -1', 'Class -1 Description', 'class', '2024-03-15 06:02:16', '2024-03-25 06:02:16', 'publish', 0),
+(2, 1, 'Class -2', 'Class -2 Description', 'class', '2024-03-15 06:02:16', '2024-03-25 06:02:16', 'publish', 0),
+(3, 1, 'Section A', 'Section A Description', 'section', '2024-03-15 06:03:48', '2024-03-25 06:03:48', 'publish', 0),
+(4, 1, 'Section B', 'Section B Description', 'section', '2024-03-15 06:03:48', '2024-03-25 06:03:48', 'publish', 0);
 
 -- --------------------------------------------------------
 
@@ -144,6 +196,18 @@ ALTER TABLE `courses`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `metadata`
+--
+ALTER TABLE `metadata`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sections`
 --
 ALTER TABLE `sections`
@@ -157,7 +221,7 @@ ALTER TABLE `sections`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `classes`

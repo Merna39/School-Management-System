@@ -217,12 +217,13 @@
                   <p>Courses</p>
                 </a>
               </li>
-              <!-- <li class="nav-item">
+              <li class="nav-item">
                 <a href="http://localhost/School-Management-System/admin/subjects.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Subects</p>
                 </a>
               </li>
+              <!-- 
               <li class="nav-item">
                 <a href="http://localhost/School-Management-System/admin/lessons.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -249,7 +250,7 @@
                 </a>
               </li> -->
               <li class="nav-item">
-                <a href="<?=$site_url?>admin/timetable.php" class="nav-link">
+                <a href="http://localhost/School-Management-System/admin/timetable.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Time Table</p>
                 </a>
