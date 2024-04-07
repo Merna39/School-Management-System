@@ -223,13 +223,13 @@
                   <p>Subects</p>
                 </a>
               </li>
-              <!-- 
+              
               <li class="nav-item">
                 <a href="http://localhost/School-Management-System/admin/lessons.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lessons</p>
                 </a>
-              </li> -->
+              </li>
             </ul>
           </li>
           
@@ -243,12 +243,12 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <!-- <li class="nav-item">
-                <a href="<?=$site_url?>admin/periods.php" class="nav-link">
+              <li class="nav-item">
+                <a href="http://localhost/School-Management-System/admin/periods.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Periods</p>
                 </a>
-              </li> -->
+              </li>
               <li class="nav-item">
                 <a href="http://localhost/School-Management-System/admin/timetable.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -269,7 +269,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=$site_url?>admin/exam-form.php" class="nav-link">
+                <a href="http://localhost/School-Management-System/admin/exam-form.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Examination Form</p>
                 </a>

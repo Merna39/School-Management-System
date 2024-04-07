@@ -27,7 +27,7 @@ if(isset($_POST['submit']))
   }
   else
   {    
-    mysqli_query($db_conn, "INSERT INTO accounts (`name`,`email`,`password`,`type` ,`level`) VALUES ('$name','$email','$password','$type','$level')") or die(mysqli_error($db_conn));
+    mysqli_query($db_conn, "INSERT INTO accounts (name,email,password,type ,level) VALUES ('$name','$email','$password','$type','$level')") or die(mysqli_error($db_conn));
     $_SESSION['success_msg'] = 'User has been succefuly registered';
     header('location: user-account.php?user='.$type);
     exit;
@@ -109,8 +109,7 @@ if(isset($_POST['submit']))
           <div class="table-responsive bg-white">
             <table class="table table-bordered border-info  table-striped table-hover">
               <thead>
-
-        <div class="table-responsive bg-white">
+              <div class="table-responsive bg-white">
           <table class="table table-bordered border-info  table-striped table-hover">
             <thead>
               <tr>
@@ -125,7 +124,7 @@ if(isset($_POST['submit']))
               <?php
               
               $count =1; 
-              $user_query = 'SELECT * FROM accounts WHERE `type` = "'.$_REQUEST['user'].'"';
+              $user_query = 'SELECT * FROM accounts WHERE type = "'.$_REQUEST['user'].'"';
               $user_result = mysqli_query($db_conn , $user_query);
               while ($users = mysqli_fetch_object($user_result)) 
               {  
