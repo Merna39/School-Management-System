@@ -118,7 +118,7 @@
               <div class="form-group">
                 <input type="file" name="thumbnail" id="thumbnail" required>
               </div>
-              <button name="submit" class="btn btn-success">
+              <button name="submit" class="btn btn-primary">
                 Submit
               </button>
             </form>
@@ -179,7 +179,7 @@
                         Subjects
                         </h3>
                         <div class="card-tools">
-                            <a href="?action=add-new" class="btn btn-success btn-xs"><i class="fa fa-plus mr-2"></i>Add New</a>
+                            <a href="?action=add-new" class="btn btn-primary btn-xs"><i class="fa fa-plus mr-2"></i>Add New</a>
                         </div>
                     </div>
                     <div class="card-body">

@@ -97,7 +97,7 @@
                     <input type="text" name="title" placeholder="Title" required class="form-control">
                   </div>
                   
-                  <button name="submit" class="btn btn-success float-right">
+                  <button name="submit" class="btn btn-primary float-right">
                     Submit
                   </button>
                 </form>
