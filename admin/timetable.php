@@ -138,8 +138,8 @@
                 <label for="subject_id">Select Subject</label>
                 <select require name="subject_id" id="subject_id" class="form-control">
                   <option value="">-Select Subject-</option>
-                  <option value="1">Mathematics</option>
-                  <option value="2">English</option>
+                  <option value="12">Mathematics</option>
+                  <option value="13">English</option>
                 </select>
               </div>
             </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2024 at 08:05 PM
+-- Generation Time: Apr 08, 2024 at 12:56 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -126,7 +126,7 @@ INSERT INTO `metadata` (`id`, `item_id`, `meta_key`, `meta_value`) VALUES
 (2, 2, 'section', '4'),
 (3, 7, 'day_name', 'Saturday'),
 (4, 7, 'teacher_id', '2'),
-(5, 7, 'subject_id', '11'),
+(5, 7, 'subject_id', '12'),
 (6, 7, 'period_id', '5'),
 (7, 0, 'from', '08:30'),
 (8, 0, 'to', '09:15'),
@@ -139,7 +139,21 @@ INSERT INTO `metadata` (`id`, `item_id`, `meta_key`, `meta_value`) VALUES
 (17, 8, 'from', '08:30'),
 (18, 8, 'to', '09:15'),
 (19, 11, 'from', '10:35'),
-(20, 11, 'to', '11:20');
+(20, 11, 'to', '11:20'),
+(21, 18, 'class_id', '1'),
+(22, 18, 'section_id', '4'),
+(23, 18, 'teacher_id', '2'),
+(24, 18, 'period_id', '5'),
+(25, 18, 'day_name', 'sunday'),
+(26, 18, 'subject_id', '12'),
+(27, 7, 'class_id', '1'),
+(28, 7, 'section_id', '4'),
+(29, 14, 'class_id', '1'),
+(30, 14, 'section_id', '3'),
+(31, 14, 'teacher_id', '1'),
+(32, 14, 'period_id', '6'),
+(33, 14, 'day_name', 'saturday'),
+(34, 14, 'subject_id', '13');
 
 -- --------------------------------------------------------
 
@@ -173,7 +187,10 @@ INSERT INTO `posts` (`id`, `author`, `title`, `description`, `type`, `publish_da
 (7, 1, 'Saturday-First Period', 'Saturday-First Period Description', 'timetable', '2024-04-07 14:57:30', '2024-04-07 16:10:44', 'publish', 0),
 (8, 1, 'Third Period', '', 'period', '2024-04-07 02:59:10', '2024-04-07 16:10:47', 'publish', 0),
 (10, 1, 'Fourth Period', '', 'period', '2024-04-07 04:34:20', '2024-04-07 16:34:20', 'publish', 0),
-(11, 1, 'Fifth Period', '', 'period', '2024-04-07 06:04:56', '2024-04-07 18:04:56', 'publish', 0);
+(11, 1, 'Fifth Period', '', 'period', '2024-04-07 06:04:56', '2024-04-07 18:04:56', 'publish', 0),
+(12, 1, 'Mathematics', '', 'subject', '2024-04-08 10:42:56', '2024-04-08 10:42:56', 'publish', 0),
+(13, 1, 'English', '', 'subject', '2024-04-08 10:42:56', '2024-04-08 10:42:56', 'publish', 0),
+(14, 1, '', '', 'timetable', '2024-04-08 10:53:42', '2024-04-08 10:53:42', 'publish', 0);
 
 -- --------------------------------------------------------
 
@@ -263,13 +280,13 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `metadata`
 --
 ALTER TABLE `metadata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `sections`
