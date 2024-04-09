@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2024 at 12:56 PM
+-- Generation Time: Apr 09, 2024 at 07:58 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,7 +43,7 @@ CREATE TABLE `accounts` (
 INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`) VALUES
 (1, 'teacher', 'teacher.1@example.com', 'asdfasdfasdf', 'Teacher1', 3),
 (2, 'teacher', 'teacher.2@example.com', 'zxcvzxcvzxcv', 'Teacher2', 5),
-(3, 'student', 'student.1@example.com', 'qwerqwerqwer', 'Student1', 2),
+(3, 'student', 'student.1@example.com', '25f9e794323b453885f5181f1b624d0b', 'Student1', 2),
 (4, 'student', 'student.2@example.com', 'test', 'Student2', 3),
 (5, 'student', 'mohamed@stud.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'mohamed', 1),
 (6, 'student', 'ali@stud.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'ali ', 2),
