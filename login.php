@@ -48,24 +48,45 @@
       </form>
 
       <?php
+      include('./admin/includes/config.php') ;
+
       $email = "admin@example.com";
       $password = "admin@sms";
       if (isset($_POST['login'])) {
         $getemail = $_POST['email'];
         $getpassword = $_POST['password'];
 
-        if ($email == $getemail && $password == $getpassword) {
-          session_start();
+        $getpassword_md5 = md5($getpassword);
+ 
+         $query = mysqli_query($db_conn,"SELECT * FROM `accounts` WHERE `email` ='$getemail' AND `password` = '$getpassword_md5' ");
+
+         if (mysqli_num_rows($query) > 0){
+          $user = mysqli_fetch_object($query);
           $_SESSION['LOGIN'] = true;
-          $_SESSION['email'] =   $getemail;
-          $_SESSION['password'] = $getpassword;
+          $_SESSION['session_id'] = uniqid();
+          $user_type = $user->type;
+          $_SESSION['user_type'] = $user_type;
+          // $_SESSION['user_id'] = $user->id;
+          header('Location: ./admin/student/dashboard.php');
+          exit();
+
+         }
+         else if ($email == $getemail && $password == $getpassword) {
+        
+          $_SESSION['LOGIN'] = true;
+          // $_SESSION['email'] =   $getemail;
+          // $_SESSION['password'] = $getpassword;
           // echo"<script> location.replace('../admin/dashboard.php') </script>" ;
           header('Location:./admin/dashboard.php');
-        } else {
+        } 
+        else {
           echo 'Invailid Credentials';
         }
       }
       ?>
+
+
+
     </div>
   </section>
 </div>
