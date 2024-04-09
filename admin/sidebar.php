@@ -220,7 +220,7 @@
               <li class="nav-item">
                 <a href="http://localhost/School-Management-System/admin/subjects.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Subects</p>
+                  <p>Subjects</p>
                 </a>
               </li>
               
