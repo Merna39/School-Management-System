@@ -1,3 +1,4 @@
+<?php include('../includes/config.php') ?>
 <?php include('header.php') ?>
 <?php include('sidebar.php') ?>
     <!-- Content Header (Page header) -->
@@ -9,7 +10,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Admin</a></li>
+              <li class="breadcrumb-item"><a href="#">Student</a></li>
               <li class="breadcrumb-item active">Dashboard</li>
             </ol>
           </div><!-- /.col -->
