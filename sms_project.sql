@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2024 at 07:58 PM
+-- Generation Time: Apr 11, 2024 at 02:28 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -48,7 +48,14 @@ INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`) VALU
 (5, 'student', 'mohamed@stud.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'mohamed', 1),
 (6, 'student', 'ali@stud.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'ali ', 2),
 (7, 'teacher', 'teacher@tech.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'teacher ', 1),
-(9, 'student', 'student.5@example.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'student', 2);
+(9, 'student', 'student.5@example.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'student', 2),
+(13, 'student', 'asdf@asdf.asdf', '3ab8e8739c50726bceeb9a382e7e1959', 'Test user', 0),
+(14, 'student', 'modifiercrazy@gmail.com', 'c1368ca1ed59971a44f6dec37b6ecd8e', 'Test user 2', 0),
+(15, 'student', 'modifiercrazy-1@gmail.com', 'c1368ca1ed59971a44f6dec37b6ecd8e', 'Test user 2', 0),
+(18, 'student', 'test@test.test', 'c3a1e14cfd1ff4cec66d163ff7a350fe', 'test 3', 0),
+(32, 'student', 'mm@mm.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'madonnaa', 0),
+(33, 'student', 't@t.t', 'e807f1fcf82d132f9bb018ca6738a19f', 'test user3 ', 0),
+(34, 'parent', 'parent@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'parentt', 0);
 
 -- --------------------------------------------------------
 
@@ -153,7 +160,19 @@ INSERT INTO `metadata` (`id`, `item_id`, `meta_key`, `meta_value`) VALUES
 (31, 14, 'teacher_id', '1'),
 (32, 14, 'period_id', '6'),
 (33, 14, 'day_name', 'saturday'),
-(34, 14, 'subject_id', '13');
+(34, 14, 'subject_id', '13'),
+(35, 15, 'class_id', '1'),
+(36, 15, 'section_id', '3'),
+(37, 15, 'teacher_id', '1'),
+(38, 15, 'period_id', '10'),
+(39, 15, 'day_name', 'monday'),
+(40, 15, 'subject_id', '13'),
+(41, 16, 'class_id', '1'),
+(42, 16, 'section_id', '3'),
+(43, 16, 'teacher_id', '2'),
+(44, 16, 'period_id', '10'),
+(45, 16, 'day_name', 'monday'),
+(46, 16, 'subject_id', '12');
 
 -- --------------------------------------------------------
 
@@ -190,7 +209,9 @@ INSERT INTO `posts` (`id`, `author`, `title`, `description`, `type`, `publish_da
 (11, 1, 'Fifth Period', '', 'period', '2024-04-07 06:04:56', '2024-04-07 18:04:56', 'publish', 0),
 (12, 1, 'Mathematics', '', 'subject', '2024-04-08 10:42:56', '2024-04-08 10:42:56', 'publish', 0),
 (13, 1, 'English', '', 'subject', '2024-04-08 10:42:56', '2024-04-08 10:42:56', 'publish', 0),
-(14, 1, '', '', 'timetable', '2024-04-08 10:53:42', '2024-04-08 10:53:42', 'publish', 0);
+(14, 1, '', '', 'timetable', '2024-04-08 10:53:42', '2024-04-08 10:53:42', 'publish', 0),
+(15, 1, '', '', 'timetable', '2024-04-08 23:38:04', '2024-04-09 11:38:04', 'publish', 0),
+(16, 1, '', '', 'timetable', '2024-04-08 23:51:07', '2024-04-09 11:51:07', 'publish', 0);
 
 -- --------------------------------------------------------
 
@@ -213,6 +234,19 @@ INSERT INTO `sections` (`id`, `title`) VALUES
 (3, 'section C'),
 (10, 'section D'),
 (12, 'Section C');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `usermeta`
+--
+
+CREATE TABLE `usermeta` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `meta_key` text NOT NULL,
+  `meta_value` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -255,6 +289,12 @@ ALTER TABLE `sections`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `usermeta`
+--
+ALTER TABLE `usermeta`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -262,7 +302,7 @@ ALTER TABLE `sections`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `classes`
@@ -280,19 +320,25 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `metadata`
 --
 ALTER TABLE `metadata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `usermeta`
+--
+ALTER TABLE `usermeta`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
