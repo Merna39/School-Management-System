@@ -98,6 +98,14 @@
                   <option value="">-Select Teacher-</option>
                   <option value="1">Teacher 1</option>
                   <option value="2">Teacher 2</option>
+                  <option value="7">Teacher 3</option>
+                  <option value="44">Teacher 4</option>
+                  <option value="45">Teacher 5</option>
+                  <option value="46">Teacher 6</option>
+                  <option value="47">Teacher 7</option>
+                  <option value="48">Teacher 8</option>
+                  <option value="49">Teacher 9</option>
+                  <option value="50">Teacher 10</option>
                 </select>
               </div>
             </div>
@@ -140,6 +148,16 @@
                   <option value="">-Select Subject-</option>
                   <option value="12">Mathematics</option>
                   <option value="13">English</option>
+                  <option value="17">Sciences</option>
+                  <option value="18">Computer</option>
+                  <option value="19">History</option>
+                  <option value="20">Geography</option>
+                  <option value="21">Chemistry</option>
+                  <option value="22">Physics</option>
+                  <option value="23">Philosophy</option>
+                  <option value="24">Psychology</option>
+                  <option value="25">Biology</option>
+                  <option value="26">Geology</option>
                 </select>
               </div>
             </div>

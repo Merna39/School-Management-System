@@ -324,7 +324,7 @@ i.fas.fa-circle-notch.fa-spin {
           
         </div>
       </div>
-
+     
     <?php  } else { ?>
       <!-- Info boxes -->
       <div class="card">
@@ -333,7 +333,7 @@ i.fas.fa-circle-notch.fa-spin {
               <?php echo ucfirst($_REQUEST['user']) ?>s
             </h3>
             <div class="card-tools">
-              <a href="?user=<?php echo $_REQUEST['user'] ?>&action=add-new" class="btn btn-success btn-xs"><i class="fa fa-plus mr-2"></i>Add New</a>
+              <a href="?user=<?php echo $_REQUEST['user'] ?>&action=add-new" class="btn btn-primary btn-xs"><i class="fa fa-plus mr-2"></i>Add New</a>
             </div>
           </div>
         <div class="card-body">
@@ -405,7 +405,7 @@ i.fas.fa-circle-notch.fa-spin {
         type: "post",
         url: "http://localhost/School-Management-System/actions/student-registration.php",
         data: formdata,
-        dataType: 'json',
+        // dataType: 'json',
         beforeSend: function() {
           jQuery('#loader').show();
         },

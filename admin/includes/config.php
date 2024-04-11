@@ -6,7 +6,7 @@ if (!$db_conn) {
 
   exit;
 }
-// session_start();
+ //session_start();
 // if (!isset($_SESSION['login'])) {
 //   session_start();
 // }
