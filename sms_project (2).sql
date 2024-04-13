@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2024 at 02:28 PM
+-- Generation Time: Apr 11, 2024 at 06:54 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -47,7 +47,7 @@ INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`) VALU
 (4, 'student', 'student.2@example.com', 'test', 'Student2', 3),
 (5, 'student', 'mohamed@stud.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'mohamed', 1),
 (6, 'student', 'ali@stud.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'ali ', 2),
-(7, 'teacher', 'teacher@tech.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'teacher ', 1),
+(7, 'teacher', 'teacher.3@tech.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'Teacher3 ', 1),
 (9, 'student', 'student.5@example.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'student', 2),
 (13, 'student', 'asdf@asdf.asdf', '3ab8e8739c50726bceeb9a382e7e1959', 'Test user', 0),
 (14, 'student', 'modifiercrazy@gmail.com', 'c1368ca1ed59971a44f6dec37b6ecd8e', 'Test user 2', 0),
@@ -55,7 +55,16 @@ INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`) VALU
 (18, 'student', 'test@test.test', 'c3a1e14cfd1ff4cec66d163ff7a350fe', 'test 3', 0),
 (32, 'student', 'mm@mm.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'madonnaa', 0),
 (33, 'student', 't@t.t', 'e807f1fcf82d132f9bb018ca6738a19f', 'test user3 ', 0),
-(34, 'parent', 'parent@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'parentt', 0);
+(34, 'parent', 'parent@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'parentt', 0),
+(35, 'student', 'student.10@example.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'student 10', 0),
+(43, 'student', 'student.11@example.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'student11', 0),
+(44, 'teacher', 'teacher.4@example.com', 'asdfasdfasdf', 'Teacher4', 1),
+(45, 'teacher', 'teacher.5@example.com', 'zxcvzxcvzxcv', 'Teacher5', 2),
+(46, 'teacher', 'teacher.6@example.com', 'asdfasdfasdf', 'Teacher6', 5),
+(47, 'teacher', 'teacher.7@example.com', 'zxcvzxcvzxcv', 'Teacher7', 2),
+(48, 'teacher', 'teacher.8@example.com', 'asdfasdfasdf', 'Teacher8', 3),
+(49, 'teacher', 'teacher.9@example.com', 'zxcvzxcvzxcv', 'Teacher9', 4),
+(50, 'teacher', 'teacher.10@example.com', 'zxcvzxcvzxcv', 'Teacher10', 2);
 
 -- --------------------------------------------------------
 
@@ -79,7 +88,7 @@ INSERT INTO `classes` (`id`, `title`, `section`, `added_date`) VALUES
 (5, 'Class-2', '1,2,3', '2024-03-31'),
 (6, 'Class-3', '1,2,3', '2024-03-31'),
 (8, 'Class-4', '1,3', '2024-03-31'),
-(9, 'Class-3', '1,2,3', '2024-04-07');
+(9, 'Class-5', '1,2,3', '2024-04-07');
 
 -- --------------------------------------------------------
 
@@ -211,7 +220,17 @@ INSERT INTO `posts` (`id`, `author`, `title`, `description`, `type`, `publish_da
 (13, 1, 'English', '', 'subject', '2024-04-08 10:42:56', '2024-04-08 10:42:56', 'publish', 0),
 (14, 1, '', '', 'timetable', '2024-04-08 10:53:42', '2024-04-08 10:53:42', 'publish', 0),
 (15, 1, '', '', 'timetable', '2024-04-08 23:38:04', '2024-04-09 11:38:04', 'publish', 0),
-(16, 1, '', '', 'timetable', '2024-04-08 23:51:07', '2024-04-09 11:51:07', 'publish', 0);
+(16, 1, '', '', 'timetable', '2024-04-08 23:51:07', '2024-04-09 11:51:07', 'publish', 0),
+(17, 1, 'Sciences', '', 'subject', '2024-04-08 10:42:56', '2024-04-08 10:42:56', 'publish', 0),
+(18, 1, 'Computer', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:32:38', 'publish', 0),
+(19, 1, 'History', '', 'subject', '2024-04-08 10:42:56', '2024-04-08 10:42:56', 'publish', 0),
+(20, 1, 'Geography', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:32:46', 'publish', 0),
+(21, 1, 'Chemistry', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:32:52', 'publish', 0),
+(22, 1, 'Physics', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:32:58', 'publish', 0),
+(23, 1, 'Philosophy', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:33:05', 'publish', 0),
+(24, 1, 'Psychology', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:33:10', 'publish', 0),
+(25, 1, 'Biology', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:33:17', 'publish', 0),
+(26, 1, 'Geology', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:33:17', 'publish', 0);
 
 -- --------------------------------------------------------
 
@@ -233,7 +252,7 @@ INSERT INTO `sections` (`id`, `title`) VALUES
 (2, 'section B'),
 (3, 'section C'),
 (10, 'section D'),
-(12, 'Section C');
+(12, 'Section F');
 
 -- --------------------------------------------------------
 
@@ -302,7 +321,7 @@ ALTER TABLE `usermeta`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `classes`
@@ -326,7 +345,7 @@ ALTER TABLE `metadata`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `sections`
