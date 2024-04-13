@@ -269,21 +269,35 @@
               </li> -->
             </ul>       
           </li>
-
-           <!-- fee details -->
-           <li class="nav-item has-treeview">
+    <!-- Fees -->
+    <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-dollar-sign"></i>
+              <i class="nav-icon fas fa-money-check"></i>
               <p>
-                Fee details
+                Fee Details
                 <i class="fas fa-angle-left right"></i>
               </p>
-            </a>     
+            </a>    
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+              <a href="http://localhost/School-Management-System/admin/student/fee-details.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tuition Fee</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=$site_url?>student/examination-fee.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Examination Fee</p>
+                </a>
+              </li>
+            </ul>        
+          </li>  
 
             <!-- Study Materials -->
            <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-book-open"></i>
+           <a href="http://localhost/School-Management-System/admin/student/fee-details.php" class="nav-link">
+           <i class="nav-icon fas fa-book-open"></i>
               <p>
               Study Materials
                 <i class="fas fa-angle-left right"></i>

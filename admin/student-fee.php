@@ -92,13 +92,19 @@
                                         ?>
                                     </td>
                                     <td>
-                                        <?php if ($paid) { ?>
-                                            <a href="?action=view-invoice&month=<?php echo $value ?>&std_id=<?php echo $std_id ?>" class="btn btn-sm btn-primary"><i class="fa fa-eye fa-fw"></i> View</a>
-                                        <?php } else { ?>
-                                            <a href="#" data-toggle="modal" data-month="<?php echo ucwords($value) ?>" data-target="#paynow-popup" class="btn btn-sm btn-warning paynow-btn"><i class="fa fa-money-check-alt fa-fw"></i> Pay Now</a>
-                                        <?php } ?>
+                                     
+                                      <a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
+                                      ?>" class="btn btn-sm btn-primary"><i class="fa fa-eye fa-fw"></i> View</a>
+                                      <a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
+                                      ?>" class="btn btn-sm btn-warning"><i class="fa fa-money-check-alt fa-fw"></i> Pay Now</a>
+                                       
+                                       <a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
+                                      ?>" class="btn btn-sm btn-dark"><i class="fa fa-envelope fa-fw"></i>Send message</a>
 
+                                      <a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
+                                      ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-fw"></i>Delete</a>
 
+                                     
                                     </td>
                                 </tr>
                             <?php } ?>
