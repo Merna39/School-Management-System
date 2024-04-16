@@ -237,7 +237,7 @@
               <tr>
                 <td><?php echo date('h:i A' , strtotime($from)) ?> - <?php  echo date('h:i A' , strtotime($to)) ?></td>
                 <?php
-                $days = ['saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+                $days = ['saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday'];
                 foreach ($days as  $day) {
 
                   $query =  mysqli_query($db_conn, "SELECT * FROM posts AS p 
