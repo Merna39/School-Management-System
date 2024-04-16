@@ -24,7 +24,7 @@
     <section class="content">
       <div class="container-fluid">
        
-                <div class="table-responsive ">
+                <div class="table-responsive  bg-white ">
                   <table class="table table-bordered">
                     <thead>
                       <tr>
