@@ -55,7 +55,7 @@ i.fas.fa-circle-notch.fa-spin {
       <div class="col-sm-6">
         <div class="d-flex">
           <h1 class="m-0 text-dark">Manage Accounts</h1>
-          <a href="user-account.php?user=<?php echo $_REQUEST['user'] ?>&action=add-new" class="btn btn-primary btn-sm">Add New</a>
+          <!-- <a href="user-account.php?user=<?php echo $_REQUEST['user'] ?>&action=add-new" class="btn btn-primary btn-sm">Add New</a> -->
         </div>
 
       </div><!-- /.col -->
