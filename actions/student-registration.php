@@ -1,6 +1,8 @@
+
+
 <?php 
 include('../admin/includes/config.php');
-
+header('Access-Control-Allow-Origin: *');
 if(isset($_POST['type']) && $_POST['type'] == 'student' && isset($_POST['email']) && !empty($_POST['email']))
 {
     $name = isset($_POST['name'])?$_POST['name']:'';
@@ -96,10 +98,10 @@ if(isset($_POST['type']) && $_POST['type'] == 'student' && isset($_POST['email']
             'date' => $i
         ];
     }
-    $att_data = serialize($att_data);
-    foreach ($months as $key => $value) {
-        mysqli_query($db_conn, "INSERT INTO `attendance` (`attendance_month`,`attendance_value`,`std_id`) VALUES ('$value','$att_data','$user_id')") or die(mysqli_error($db_conn));
-    }
+    // $att_data = serialize($att_data);
+    // foreach ($months as $key => $value) {
+    //     mysqli_query($db_conn, "INSERT INTO `attendance` (`attendance_month`,`attendance_value`,`std_id`) VALUES ('$value','$att_data','$user_id')") or die(mysqli_error($db_conn));
+    // }
 
 
     // Parent registration
