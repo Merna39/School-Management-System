@@ -405,7 +405,7 @@ i.fas.fa-circle-notch.fa-spin {
         type: "post",
         url: "http://localhost/School-Management-System/actions/student-registration.php",
         data: formdata,
-        // dataType: 'json',
+        dataType: 'json',
         beforeSend: function() {
           jQuery('#loader').show();
         },

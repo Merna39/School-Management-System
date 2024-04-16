@@ -39,7 +39,7 @@ if(isset($_POST['type']) && $_POST['type'] == 'student' && isset($_POST['email']
     $type = isset($_POST['type'])?$_POST['type']:'';
     $date_add = date('Y-m-d');
 
-    // $payment_method = isset($_POST['payment_method'])?$_POST['payment_method']:'';
+    $payment_method = isset($_POST['payment_method'])?$_POST['payment_method']:'';
 
     $check_query = mysqli_query($db_conn, "SELECT * FROM accounts WHERE email = '$email'");
     if(mysqli_num_rows($check_query) > 0)
@@ -59,8 +59,8 @@ if(isset($_POST['type']) && $_POST['type'] == 'student' && isset($_POST['email']
     $usermeta = array(
         'dob' => $dob,
         'mobile' => $mobile,
-        // 'payment_method' => $payment_method,
-        // 'class' => $class,
+        'payment_method' => $payment_method,
+        'class' => $class,
         // 'address' => $address,
         // 'country' => $country,
         // 'state' => $state,
@@ -131,12 +131,12 @@ if(isset($_POST['type']) && $_POST['type'] == 'student' && isset($_POST['email']
     //     mysqli_query($db_conn, "INSERT INTO usermeta (`user_id`,`meta_key`,`meta_value`) VALUES ('$parent_id','children','$chld')") or die(mysqli_error($db_conn));
     // }
 
-    // $response = array(
-    //     'success' => TRUE,
-    //     'payment_method' => $payment_method,
-    //     'std_id' => $user_id
-    // );
-    echo json_encode($password);die;
+    $response = array(
+        'success' => TRUE,
+        'payment_method' => $payment_method,
+        'std_id' => $user_id
+    );
+    echo json_encode($response);die;
 }
 
 ?>
