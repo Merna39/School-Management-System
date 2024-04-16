@@ -1,4 +1,4 @@
-<?php include('./includes/config.php') ?>
+<?php include('../admin/includes/config.php') ?>
 <?php
    
 

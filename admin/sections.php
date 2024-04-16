@@ -1,4 +1,4 @@
-<?php include('./includes/config.php') ?>
+<?php include('../admin/includes/config.php') ?>
 <?php include('header.php') ?>
 <?php include('sidebar.php') ?>
 
@@ -47,7 +47,7 @@
               </div>
               <div class="card-body">
                 <div class="table-responsive bg-white">
-                  <table class="table table-bordered">
+                <table class="table table-bordered border-info  table-striped table-hover">
                     <thead>
                       <tr>
                         <th>S.No.</th>
@@ -65,7 +65,7 @@
                       <tr>
                         <td><?=$count++?></td>
                         <td><?=$section->title?></td>
-                        <!-- <td></td> -->
+                        <td></td>
                       </tr>
 
                       <?php } ?>

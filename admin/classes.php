@@ -1,4 +1,4 @@
-<?php include('./includes/config.php') ?>
+<?php include('../admin/includes/config.php') ?>
 <?php include('header.php'); ?>
 <?php include('sidebar.php'); ?>
 
@@ -76,57 +76,58 @@
           </div>
           </div>
           <?php }else{?>
-          <div class="card">
-          <div class="card-header py-2">
-          <h3 class="card-title">Classes</h3>
-          <div class="card-tools">
-          <a href="?action=add-new" class="btn btn-primary btn-xs"><i class="fa fa-plus mr-2"></i>Add New</a>
-          </div>
-          <div class ="card-body">
-          <div class="table-responsive bg-white">
-          <table class="table table-bordered">
-          <thead>
-          <tr>
-          <th>S.No</th>
-          <th>Name</th>
-          <th>section</th>
-          <th>Date</th>
-          <th>Action</th>
-          </tr>
-          </thead>
-          <tbody>
-          <?php 
-          $count = 1;
-          $args = array(
-            'type' => 'class',
-            'status' => 'publish',
-          );
-          $classes = get_posts($args);
-          foreach($classes as $class){?>
-              <tr>
-              <td><?=$count++?></td>
-              <td><?=$class->title?></td>
-              <td>
-              <?php 
-              $class_meta = get_metadata($class->id,'section');
-              foreach ($class_meta as $meta){
-                $section = get_post(array('id'=>$meta->meta_value));
-                echo $section->title;
-              }?>
-              </td>
-              <td><?=$class->publish_date?></td>
-              <td></td>
-              </tr>
-           <?php } ?>
-          </tbody>
-          </table>
-          </div>
-          
-          </div>
-          </div>
-      </div>
-      <?php }?>
-      </div>
-    </section>
-    <!-- /.content -->
-<?php include('footer.php'); ?>
+            <!-- Info boxes -->
+    <div class="card">
+        <div class="card-header py-2">
+            <h3 class="card-title">Classes</h3>
+            <div class="card-tools">
+                <a href="?action=add-new" class="btn btn-primary btn-xs"><i class="fa fa-plus mr-2"></i>Add New</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive bg-white">
+                <table class="table table-bordered border-info  table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Name</th>
+                            <th>Section</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <?php
+                                $count = 1;
+                                $cla_query = mysqli_query($db_conn , 'SELECT * FROM classes');
+                                while($class = mysqli_fetch_object($cla_query)) { ?>
+                                <tr>
+                                    <td><?=$count++?></td>
+                                    <td><?=$class->title?></td>
+                                    <td>
+                                        <?php
+                                          $sections = explode(',',$class->section);
+                                          foreach($sections as $section){
+                                            $sec_query = mysqli_query($db_conn , 'SELECT * FROM sections WHERE id='.$section.'');
+                                            $sec = mysqli_fetch_object($sec_query);
+
+                                            echo $sec-> title . '<br>';
+                                          }
+                                        ?>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                            <?php }?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    <!-- /.info-box-content -->
+    </div>
+    <?php } ?>
+</div> <!--/. container-fluid-->
+
+</section>
+<!-- /.content -->
+<?php include('footer.php') ?>
