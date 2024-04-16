@@ -89,7 +89,7 @@ i.fas.fa-circle-notch.fa-spin {
       <div class="card">
         <div class="card-body" id="form-container">
         <?php if(isset($_GET['action']) && $_GET['action']) { ?>
-          <form action="" method="post">
+          <form action="" id="student-registration" method="post">
               <fieldset class="border border-secondary p-3 form-group">
                 <legend class="d-inline w-auto h6">Student Information</legend>
                 <div class="row">
@@ -378,23 +378,23 @@ i.fas.fa-circle-notch.fa-spin {
 <!-- /.content -->
 
 <script>
-  jQuery(document).ready(function(){
-    jQuery('#users-table').DataTable({
-      ajax: {
-        url: 'ajax.php?user=<?php echo $_GET['user']?>',
-        type: 'POST'
-      },
-      columns: [
-          { data: 'serial' },
-          { data: 'name' },
-          { data: 'email' },
-          { data: 'action' ,orderable: false}
-      ],
-      processing: true,
-      serverSide: true,
+  // jQuery(document).ready(function(){
+  //   jQuery('#users-table').DataTable({
+  //     ajax: {
+  //       url: 'ajax.php?user=<?php echo $_GET['user']?>',
+  //       type: 'POST'
+  //     },
+  //     columns: [
+  //         { data: 'serial' },
+  //         { data: 'name' },
+  //         { data: 'email' },
+  //         { data: 'action' ,orderable: false}
+  //     ],
+  //     processing: true,
+  //     serverSide: true,
       
-    });
-  })
+  //   });
+  // })
 
   jQuery('#student-registration').on('submit', function() {
     console.log();
@@ -403,7 +403,7 @@ i.fas.fa-circle-notch.fa-spin {
 
       jQuery.ajax({
         type: "post",
-        url: "http://localhost/School-Management-System/actions/student-registration.php",
+        url: "http://localhost:8080/School-Management-System/actions/student-registration.php",
         data: formdata,
         // dataType: 'json',
         beforeSend: function() {
@@ -412,7 +412,7 @@ i.fas.fa-circle-notch.fa-spin {
         success: function(response) {
           console.log(response);
           if (response.success == true) {
-            location.href = 'http://localhost/School-Management-System/admin/user-account.php?user=student&action=fee-payment&std_id=' + response.std_id + '&payment_method=' + response.payment_method;
+            location.href = 'http://localhost:8080/School-Management-System/admin/user-account.php?user=student&action=fee-payment&std_id=' + response.std_id + '&payment_method=' + response.payment_method;
           }
         },
         complete: function() {
