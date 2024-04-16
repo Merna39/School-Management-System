@@ -172,7 +172,7 @@
         </div>
       </div>
     <?php }else{?>
-    <div class="card">
+    <!-- <div class="card">
       <div class="card-body">
         <form action="">
           <div class="row">
@@ -204,7 +204,7 @@
           </div>
         </form>
       </div>
-    </div>
+    </div> -->
 
 
     <div class="card">
@@ -219,7 +219,7 @@
               <th>Tuesday</th>
               <th>Wednesday</th>
               <th>Thursday</th>
-              <!-- <th>Friday</th> -->
+              <th>Friday</th>
             </tr>
           </thead>
           <tbody>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2024 at 06:54 PM
+-- Generation Time: Apr 16, 2024 at 09:23 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -64,7 +64,9 @@ INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`) VALU
 (47, 'teacher', 'teacher.7@example.com', 'zxcvzxcvzxcv', 'Teacher7', 2),
 (48, 'teacher', 'teacher.8@example.com', 'asdfasdfasdf', 'Teacher8', 3),
 (49, 'teacher', 'teacher.9@example.com', 'zxcvzxcvzxcv', 'Teacher9', 4),
-(50, 'teacher', 'teacher.10@example.com', 'zxcvzxcvzxcv', 'Teacher10', 2);
+(50, 'teacher', 'teacher.10@example.com', 'zxcvzxcvzxcv', 'Teacher10', 2),
+(54, 'student', 'student.12@example.com', '68fdf102297da1530d4cbbcd13cbb958', 'student 12', 0),
+(55, 'student', 'student.13@example.com', '7d89f0e36783f169e2de744b03612d4d', 'student 13', 0);
 
 -- --------------------------------------------------------
 
@@ -268,6 +270,16 @@ CREATE TABLE `usermeta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `usermeta`
+--
+
+INSERT INTO `usermeta` (`id`, `user_id`, `meta_key`, `meta_value`) VALUES
+(52, 54, 'dob', '2003-02-02'),
+(53, 54, 'mobile', ''),
+(54, 55, 'dob', '2004-02-03'),
+(55, 55, 'mobile', '');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -321,7 +333,7 @@ ALTER TABLE `usermeta`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `classes`
@@ -357,7 +369,7 @@ ALTER TABLE `sections`
 -- AUTO_INCREMENT for table `usermeta`
 --
 ALTER TABLE `usermeta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

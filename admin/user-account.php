@@ -89,7 +89,7 @@ i.fas.fa-circle-notch.fa-spin {
       <div class="card">
         <div class="card-body" id="form-container">
         <?php if(isset($_GET['action']) && $_GET['action']) { ?>
-          <form action="" method="post">
+          <form action="" id="student-registration" method="post">
               <fieldset class="border border-secondary p-3 form-group">
                 <legend class="d-inline w-auto h6">Student Information</legend>
                 <div class="row">
@@ -378,23 +378,23 @@ i.fas.fa-circle-notch.fa-spin {
 <!-- /.content -->
 
 <script>
-  jQuery(document).ready(function(){
-    jQuery('#users-table').DataTable({
-      ajax: {
-        url: 'ajax.php?user=<?php echo $_GET['user']?>',
-        type: 'POST'
-      },
-      columns: [
-          { data: 'serial' },
-          { data: 'name' },
-          { data: 'email' },
-          { data: 'action' ,orderable: false}
-      ],
-      processing: true,
-      serverSide: true,
+  // jQuery(document).ready(function(){
+  //   jQuery('#users-table').DataTable({
+  //     ajax: {
+  //       url: 'ajax.php?user=<?php echo $_GET['user']?>',
+  //       type: 'POST'
+  //     },
+  //     columns: [
+  //         { data: 'serial' },
+  //         { data: 'name' },
+  //         { data: 'email' },
+  //         { data: 'action' ,orderable: false}
+  //     ],
+  //     processing: true,
+  //     serverSide: true,
       
-    });
-  })
+  //   });
+  // })
 
   jQuery('#student-registration').on('submit', function() {
     console.log();
