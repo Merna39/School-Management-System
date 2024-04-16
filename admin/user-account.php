@@ -403,7 +403,7 @@ i.fas.fa-circle-notch.fa-spin {
 
       jQuery.ajax({
         type: "post",
-        url: "http://localhost:8080/School-Management-System/actions/student-registration.php",
+        url: "http://localhost/School-Management-System/actions/student-registration.php",
         data: formdata,
         // dataType: 'json',
         beforeSend: function() {
@@ -412,7 +412,7 @@ i.fas.fa-circle-notch.fa-spin {
         success: function(response) {
           console.log(response);
           if (response.success == true) {
-            location.href = 'http://localhost:8080/School-Management-System/admin/user-account.php?user=student&action=fee-payment&std_id=' + response.std_id + '&payment_method=' + response.payment_method;
+            location.href = 'http://localhost/School-Management-System/admin/user-account.php?user=student&action=fee-payment&std_id=' + response.std_id + '&payment_method=' + response.payment_method;
           }
         },
         complete: function() {

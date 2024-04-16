@@ -2,7 +2,7 @@
 
 <?php 
 include('../admin/includes/config.php');
-header('Access-Control-Allow-Origin: *');
+// header('Access-Control-Allow-Origin: *');
 if(isset($_POST['type']) && $_POST['type'] == 'student' && isset($_POST['email']) && !empty($_POST['email']))
 {
     $name = isset($_POST['name'])?$_POST['name']:'';
@@ -39,7 +39,7 @@ if(isset($_POST['type']) && $_POST['type'] == 'student' && isset($_POST['email']
     $type = isset($_POST['type'])?$_POST['type']:'';
     $date_add = date('Y-m-d');
 
-    $payment_method = isset($_POST['payment_method'])?$_POST['payment_method']:'';
+    // $payment_method = isset($_POST['payment_method'])?$_POST['payment_method']:'';
 
     $check_query = mysqli_query($db_conn, "SELECT * FROM accounts WHERE email = '$email'");
     if(mysqli_num_rows($check_query) > 0)
@@ -59,82 +59,84 @@ if(isset($_POST['type']) && $_POST['type'] == 'student' && isset($_POST['email']
     $usermeta = array(
         'dob' => $dob,
         'mobile' => $mobile,
-        'payment_method' => $payment_method,
-        'class' => $class,
-        'address' => $address,
-        'country' => $country,
-        'state' => $state,
-        'zip' => $zip,
-        'father_name' => $father_name,
-        'father_mobile' => $father_mobile,
-        'mother_name' => $mother_name,
-        'mother_mobile' => $mother_mobile,
-        'parents_address' => $parents_address,
-        'parents_country' => $parents_country,
-        'parents_state' => $parents_state,
-        'parents_zip' => $parents_zip,
-        'school_name' => $school_name,
-        'previous_class' => $previous_class,
-        'status' => $status,
-        'total_marks' => $total_marks,
-        'obtain_mark' => $obtain_mark,
-        'previous_percentage' => $previous_percentage,
-        'section' => $section,
-        'subject_streem' => $subject_streem,
-        'doa' => $doa,
+        // 'payment_method' => $payment_method,
+        // 'class' => $class,
+        // 'address' => $address,
+        // 'country' => $country,
+        // 'state' => $state,
+        // 'zip' => $zip,
+        // 'father_name' => $father_name,
+        // 'father_mobile' => $father_mobile,
+        // 'mother_name' => $mother_name,
+        // 'mother_mobile' => $mother_mobile,
+        // 'parents_address' => $parents_address,
+        // 'parents_country' => $parents_country,
+        // 'parents_state' => $parents_state,
+        // 'parents_zip' => $parents_zip,
+        // 'school_name' => $school_name,
+        // 'previous_class' => $previous_class,
+        // 'status' => $status,
+        // 'total_marks' => $total_marks,
+        // 'obtain_mark' => $obtain_mark,
+        // 'previous_percentage' => $previous_percentage,
+        // 'section' => $section,
+        // 'subject_streem' => $subject_streem,
+        // 'doa' => $doa,
     );
 
     foreach ($usermeta as $key => $value) {
-        mysqli_query($db_conn, "INSERT INTO usermeta (`user_id`,`meta_key`,`meta_value`) VALUES ('$user_id','$key','$value')") or die(mysqli_error($db_conn));
+        mysqli_query($db_conn, "INSERT INTO usermeta (`user_id`,`meta_key`,`meta_value`)
+         VALUES ('$user_id','$key','$value')") 
+         or die(mysqli_error($db_conn));
     }
 
-    $months = array('january', 'fabruary', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december');
+    // $months = array('january', 'fabruary', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december');
 
-    $att_data = [];
-    for ($i=1; $i <= 31; $i++) { 
-        $att_data[$i] = [
-            'signin_at' => '',
-            'signout_at' => '',
-            'date' => $i
-        ];
-    }
-    // $att_data = serialize($att_data);
-    // foreach ($months as $key => $value) {
-    //     mysqli_query($db_conn, "INSERT INTO `attendance` (`attendance_month`,`attendance_value`,`std_id`) VALUES ('$value','$att_data','$user_id')") or die(mysqli_error($db_conn));
+    // $att_data = [];
+    // for ($i=1; $i <= 31; $i++) { 
+    //     $att_data[$i] = [
+    //         'signin_at' => '',
+    //         'signout_at' => '',
+    //         'date' => $i
+    //     ];
+    // }
+    // // $att_data = serialize($att_data);
+    // // foreach ($months as $key => $value) {
+    // //     mysqli_query($db_conn, "INSERT INTO `attendance` (`attendance_month`,`attendance_value`,`std_id`) VALUES ('$value','$att_data','$user_id')") or die(mysqli_error($db_conn));
+    // // }
+
+
+    // // Parent registration
+    // $check_query = mysqli_query($db_conn, "SELECT * FROM accounts WHERE email = '$father_mobile'");
+    // if(mysqli_num_rows($check_query) > 0)
+    // {
+    //     $parent = mysqli_fetch_object(mysqli_query($db_conn,"SELECT * FROM `accounts` as a JOIN `usermeta` as m ON a.id = m.user_id WHERE a.type = 'parent' AND a.email = '$father_mobile' AND m.meta_key = 'children';"));
+    //     // $error = 'Email already exists';
+    //     // echo 'Email already exists';die;
+    //     $children = unserialize($parent->meta_value);
+    //     $children[] = $user_id;
+    //     $children = serialize($children);
+    //     $query = mysqli_query($db_conn, "UPDATE `usermeta` SET `meta_value` = '$children' WHERE meta_key = 'children' ")or die(mysqli_error($db_conn));;
+    // }
+    // else
+    // {    
+    //     $md_password = md5($father_mobile);
+    //     $query = mysqli_query($db_conn, "INSERT INTO accounts (`name`,`email`,`password`,`type`) VALUES ('$father_name','$father_mobile','$md_password','parent')") or die(mysqli_error($db_conn));
+    //     if($query)
+    //     {
+    //         $parent_id = mysqli_insert_id($db_conn);
+    //     }
+    //     $chld = [$user_id];
+    //     $chld = serialize($chld);
+    //     mysqli_query($db_conn, "INSERT INTO usermeta (`user_id`,`meta_key`,`meta_value`) VALUES ('$parent_id','children','$chld')") or die(mysqli_error($db_conn));
     // }
 
-
-    // Parent registration
-    $check_query = mysqli_query($db_conn, "SELECT * FROM accounts WHERE email = '$father_mobile'");
-    if(mysqli_num_rows($check_query) > 0)
-    {
-        $parent = mysqli_fetch_object(mysqli_query($db_conn,"SELECT * FROM `accounts` as a JOIN `usermeta` as m ON a.id = m.user_id WHERE a.type = 'parent' AND a.email = '$father_mobile' AND m.meta_key = 'children';"));
-        // $error = 'Email already exists';
-        // echo 'Email already exists';die;
-        $children = unserialize($parent->meta_value);
-        $children[] = $user_id;
-        $children = serialize($children);
-        $query = mysqli_query($db_conn, "UPDATE `usermeta` SET `meta_value` = '$children' WHERE meta_key = 'children' ")or die(mysqli_error($db_conn));;
-    }
-    else
-    {    
-        $md_password = md5($father_mobile);
-        $query = mysqli_query($db_conn, "INSERT INTO accounts (`name`,`email`,`password`,`type`) VALUES ('$father_name','$father_mobile','$md_password','parent')") or die(mysqli_error($db_conn));
-        if($query)
-        {
-            $parent_id = mysqli_insert_id($db_conn);
-        }
-        $chld = [$user_id];
-        $chld = serialize($chld);
-        mysqli_query($db_conn, "INSERT INTO usermeta (`user_id`,`meta_key`,`meta_value`) VALUES ('$parent_id','children','$chld')") or die(mysqli_error($db_conn));
-    }
-
-    $response = array(
-        'success' => TRUE,
-        'payment_method' => $payment_method,
-        'std_id' => $user_id
-    );
-    echo json_encode($response);die;
+    // $response = array(
+    //     'success' => TRUE,
+    //     'payment_method' => $payment_method,
+    //     'std_id' => $user_id
+    // );
+    echo json_encode($password);die;
 }
 
 ?>
