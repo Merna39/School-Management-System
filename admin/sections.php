@@ -59,16 +59,13 @@
                     <tbody>
                       <?php
                       $count = 1;
-                      $args = array(
-                        'type' => 'section',
-                        'status' => 'publish',
-                      );
-                      $sections = get_posts($args);
-                      foreach($sections as $section) {?>
+                      
+                      $section_query = mysqli_query($db_conn, 'SELECT * FROM sections');
+                      while ($section = mysqli_fetch_object($section_query)) { ?>
                       <tr>
                         <td><?=$count++?></td>
                         <td><?=$section->title?></td>
-                        <td></td>
+                        <!-- <td></td> -->
                       </tr>
 
                       <?php } ?>

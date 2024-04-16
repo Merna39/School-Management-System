@@ -167,8 +167,8 @@ if (isset($_POST['submit'])) {
               <tbody>
                 <?php
                 $count = 1;
-                $curse_query = mysqli_query($db_conn, 'SELECT * FROM courses');
-                while ($course = mysqli_fetch_object($curse_query)) { ?>
+                $course_query = mysqli_query($db_conn, 'SELECT * FROM courses');
+                while ($course = mysqli_fetch_object($course_query)) { ?>
                   <tr>
                     <td><?= $count++ ?></td>
                     <td><img src="./dist/uploads/<?= $course->image ?>" height="100" alt="<?= $course->name ?>" class="border"></td>
