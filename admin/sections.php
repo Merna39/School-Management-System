@@ -65,7 +65,8 @@
                       <tr>
                         <td><?=$count++?></td>
                         <td><?=$section->title?></td>
-                        <td></td>
+                        <td><a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
+                                      ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-fw"></i>Delete</a></td>
                       </tr>
 
                       <?php } ?>

@@ -249,13 +249,38 @@
                   <p>Periods</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="http://localhost/School-Management-System/admin/timetable.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Time Table</p>
-                </a>
-              </li>
             </ul>
+            
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+              Time Table
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="http://localhost/School-Management-System/admin/table-Level-1.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> Level-1</p>
+                </a>
+                </li>
+                <li class="nav-item">
+              <a href="http://localhost/School-Management-System/admin/table-Level-2.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> Level-2</p>
+                </a>
+                </li>
+                <li class="nav-item">
+              <a href="http://localhost/School-Management-System/admin/table-Level-3.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> Level-3</p>
+                </a>
+                </li>
+                
+            </ul>
+              </li>
           </li>
 
           <!-- Examination -->

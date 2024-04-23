@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
     mysqli_query($db_conn, "INSERT INTO metadata (`item_id`,`meta_key`,`meta_value`) VALUES ('$item_id','$key','$value')");
   }
 
-  header('Location: timetable.php');
+  header('Location: Table-Leve-1.php');
 } ?>
 
 <?php include('header.php') ?>
