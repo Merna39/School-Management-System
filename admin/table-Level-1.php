@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Manage Time Table
+        <h1 class="m-0 text-dark">Time Table Of Level 1
           <a href="?action=add" class="btn btn-primary btn-sm">Add New</a>
         </h1>
       </div><!-- /.col -->
@@ -145,7 +145,7 @@ if (isset($_POST['submit'])) {
                   <option value="">-Select Day-</option>
 
                   <?php
-                  $days = ['saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday'];
+                  $days = ['saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday','Friday'];
                   foreach ($days as $key => $day) { ?>
                     <option value="<?php echo $day ?>"><?php echo ucwords($day) ?></option>
                   <?php } ?>
@@ -231,6 +231,7 @@ if (isset($_POST['submit'])) {
               <th>Tuesday</th>
               <th>Wednesday</th>
               <th>Thursday</th>
+              <th>Friday</th>
             
 
           </tr>
@@ -250,7 +251,7 @@ if (isset($_POST['submit'])) {
             <tr>
               <td><?php echo date('h:i A', strtotime($from)) ?> - <?php echo date('h:i A', strtotime($to)) ?></td>
               <?php
-              $days = ['saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday'];
+              $days = ['saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday','Friday'];
               foreach ($days as  $day) {
 
                 $query =  mysqli_query($db_conn, "SELECT * FROM posts AS p 
