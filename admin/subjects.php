@@ -1,4 +1,4 @@
-<?php include('../admin/includes/config.php') ?>
+<?php include ('../admin/includes/config.php') ?>
 <?php
    
 
@@ -7,7 +7,7 @@
     $title = $_POST['title'];
     // $type = $_POST['type'];
 
-    mysqli_query($db_conn, "INSERT INTO posts (title) VALUE ('$title')") or die('DB error');
+    mysqli_query($db_conn, "INSERT INTO classes (title) VALUE ('$title')") or die('DB error');
   }
   
   
@@ -72,7 +72,7 @@
                                       'type' => 'class',
                                       'status' => 'publish',
                                     );
-                                    $classes = get_posts($args); 
+                                    $classes = get_the_classes(); 
                                     foreach ($classes as $key => $class) { ?>
                                     <option value="<?php echo $class->id ?>"><?php echo $class->title ?></option>
                                     <?php } ?>

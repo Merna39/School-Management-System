@@ -20,6 +20,35 @@ function get_the_classes()
 }
 
 
+function get_the_sections()
+{
+    global $db_conn;
+    $output = array();
+    $query = mysqli_query($db_conn, 'SELECT DISTINCT section FROM classes');
+
+    while ($row = mysqli_fetch_object($query)) {
+        $output[] = $row->section;
+    }
+
+    return $output;
+}
+
+
+function get_sections_by_class($class_id)
+{
+    global $db_conn;
+    $output = array();
+    $query = mysqli_query($db_conn, "SELECT DISTINCT section FROM classes WHERE class_id = '$class_id'");
+
+    while ($row = mysqli_fetch_object($query)) {
+        $output[] = $row->section;
+    }
+
+    return $output;
+}
+
+
+
 function get_post(array $args = [])
 {
     global $db_conn;
