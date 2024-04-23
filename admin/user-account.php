@@ -6,7 +6,8 @@ if (isset($_POST['submit'])) {
   $email    = $_POST['email'];
   $password = md5(1234567890);
   $type     = $_POST['type'];
- /*
+  $level     = $_POST['level'];
+  /*
   $id     = $_POST['id'];
   $user_id     = $_POST['user_id'];
   $meta_key     = $_POST['meta_key'];
@@ -17,8 +18,8 @@ if (isset($_POST['submit'])) {
   if (mysqli_num_rows($check_query) > 0) {
     $error = 'Email already exists';
   } else {
-    mysqli_query($db_conn, "INSERT INTO accounts (`name`,`email`,`password`,`type`) VALUES ('$name','$email','$password','$type')") or die(mysqli_error($db_conn));
-  /*  mysqli_query($db_conn, "INSERT INTO usermeta (`id`,`user_id`,`meta_key`,`value_key`) VALUES ('$id','$user_id','$meta_key','$value_key')") or die(mysqli_error($db_conn)); */
+    mysqli_query($db_conn, "INSERT INTO accounts (`name`,`email`,`password`,`type`,`level`) VALUES ('$name','$email','$password','$type','$level')") or die(mysqli_error($db_conn));
+    /*  mysqli_query($db_conn, "INSERT INTO usermeta (`id`,`user_id`,`meta_key`,`value_key`) VALUES ('$id','$user_id','$meta_key','$value_key')") or die(mysqli_error($db_conn)); */
     $_SESSION['success_msg'] = 'User has been succefuly registered';
     header('location: user-account.php?user=' . $type);
     exit;
@@ -84,12 +85,12 @@ i.fas.fa-circle-notch.fa-spin {
 <section class="content">
   <div class="container-fluid">
 
-    
+
     <?php if (isset($_GET['action'])) { ?>
       <div class="card">
         <div class="card-body" id="form-container">
-        <?php if(isset($_GET['action']) && $_GET['action']) { ?>
-          <form action="" id="student-registration" method="post">
+          <?php if (isset($_GET['action']) && $_GET['action']) { ?>
+            <form action="" id="student-registration" method="post">
               <fieldset class="border border-secondary p-3 form-group">
                 <legend class="d-inline w-auto h6">Student Information</legend>
                 <div class="row">
@@ -105,6 +106,18 @@ i.fas.fa-circle-notch.fa-spin {
                       <input type="date" required class="form-control" placeholder="DOB" name="dob">
                     </div>
                   </div>
+
+                  <div class="col-lg-4">
+                    <div class="form-group">
+                      <label for="">Level</label>
+                      <input type="number" min="1" max="3" step="1" required class="form-control" placeholder="Level" name="level">
+                        <!-- <option value="">-Select Level-</option>
+                        <option value="12">Level 1</option>
+                        <option value="13">Level 1</option>
+                        <option value="17">Level 2</option> -->
+                    </div>
+                  </div>
+
                   <div class="col-lg-4">
                     <div class="form-group">
                       <label for="">Mobile</label>
@@ -262,12 +275,12 @@ i.fas.fa-circle-notch.fa-spin {
                         $classes = get_posts($args);
                         foreach ($classes as $class) {
                           echo '<option value="' . $class->id . '">' . $class->title . '</option>';
-                         }?>
+                        } ?>
 
                       </select>
                     </div>
                   </div>
-                  
+
                   <div class="col-lg">
                     <div class="form-group" id="section-container">
                       <label for="section">Select Section</label>
@@ -276,7 +289,7 @@ i.fas.fa-circle-notch.fa-spin {
                       </select>
                     </div>
                   </div>
-                  
+
                   <div class="col-lg">
                     <div class="form-group">
                       <label for="">Subject Streem</label>
@@ -321,54 +334,55 @@ i.fas.fa-circle-notch.fa-spin {
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
           <?php } ?>
-          
+
         </div>
       </div>
-     
+
     <?php  } else { ?>
       <!-- Info boxes -->
       <div class="card">
         <div class="card-header py-2">
-            <h3 class="card-title">
-              <?php echo ucfirst($_REQUEST['user']) ?>s
-            </h3>
-            <div class="card-tools">
-              <a href="?user=<?php echo $_REQUEST['user'] ?>&action=add-new" class="btn btn-primary btn-xs"><i class="fa fa-plus mr-2"></i>Add New</a>
-            </div>
+          <h3 class="card-title">
+            <?php echo ucfirst($_REQUEST['user']) ?>s
+          </h3>
+          <div class="card-tools">
+            <a href="?user=<?php echo $_REQUEST['user'] ?>&action=add-new" class="btn btn-primary btn-xs"><i class="fa fa-plus mr-2"></i>Add New</a>
           </div>
+        </div>
         <div class="card-body">
-        <div class="table-responsive bg-white">
-          <table class="table table-bordered border-info  table-striped table-hover">
-            <thead>
-              <tr>
-                <th>S.No.</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              
-              $count =1; 
-              $user_query = 'SELECT * FROM accounts WHERE type = "'.$_REQUEST['user'].'"';
-              $user_result = mysqli_query($db_conn , $user_query);
-              while ($users = mysqli_fetch_object($user_result)) 
-              {  
+          <div class="table-responsive bg-white">
+            <table class="table table-bordered border-info  table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>S.No.</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Level</th>
+                  <th>Action</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+
+                $count = 1;
+                $user_query = 'SELECT * FROM accounts WHERE type = "' . $_REQUEST['user'] . '"';
+                $user_result = mysqli_query($db_conn, $user_query);
+                while ($users = mysqli_fetch_object($user_result)) {
 
                 ?>
-              <tr>
-                <td><?=$count++?></td>
-                <td><?=$users->name?></td>
-                <td><?=$users->email?></td> 
-            
-                <td></td>
-              </tr>
-              <?php } ?>
-            </tbody>
-          </table>
-          
-        </div>
+                  <tr>
+                    <td><?= $count++ ?></td>
+                    <td><?= $users->name ?></td>
+                    <td><?= $users->email ?></td>
+                    <td><?= $users->level ?></td>
+                    <td></td>
+                  </tr>
+                <?php } ?>
+              </tbody>
+            </table>
+
+          </div>
         </div>
       </div>
       <!-- /.row -->
@@ -381,7 +395,7 @@ i.fas.fa-circle-notch.fa-spin {
   // jQuery(document).ready(function(){
   //   jQuery('#users-table').DataTable({
   //     ajax: {
-  //       url: 'ajax.php?user=<?php echo $_GET['user']?>',
+  //       url: 'ajax.php?user=<?php echo $_GET['user'] ?>',
   //       type: 'POST'
   //     },
   //     columns: [
@@ -392,7 +406,7 @@ i.fas.fa-circle-notch.fa-spin {
   //     ],
   //     processing: true,
   //     serverSide: true,
-      
+
   //   });
   // })
 
@@ -422,6 +436,5 @@ i.fas.fa-circle-notch.fa-spin {
     }
     return false;
   });
-  
 </script>
 <?php include('footer.php') ?>
