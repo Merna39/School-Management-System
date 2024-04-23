@@ -59,9 +59,55 @@ if (isset($_POST['submit'])) {
 <!-- Main content -->
 <section class="content">
   <div class="container-fluid">
+  <form action="" method="get">
+        <?php
+        $class_id = isset($_GET['class']) ? $_GET['class'] : 43;
+        $section_id = isset($_GET['section']) ? $_GET['section'] : 3;
+        ?>
+        <div class="row">
+          <div class="col-auto">
+            <div class="form-group">
+              <select name="class" id="class" class="form-control">
+                <option value="">Select Class</option>
+                <?php
+                $args = array(
+                  'type' => 'class',
+                  'status' => 'publish',
+                );
+                $classes = get_posts($args);
+                foreach ($classes as $class) {
+                  $selected = ($class_id ==  $class->id) ? 'selected' : '';
+                  echo '<option value="' . $class->id . '" ' . $selected . '>' . $class->title . '</option>';
+                } ?>
+              </select>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="form-group" id="section-container">
+              <select name="section" id="section" class="form-control">
+                <option value="">Select Section</option>
+                <?php
+                $args = array(
+                  'type' => 'section',
+                  'status' => 'publish',
+                );
+                $sections = get_posts($args);
+                foreach ($sections as $section) {
+                  $selected = ($section_id ==  $section->id) ? 'selected' : '';
+                  echo '<option value="' . $section->id . '" ' . $selected . '>' . $section->title . '</option>';
+                } ?>
+              </select>
+            </div>
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-primary">Apply</button>
+          </div>
+        </div>
+
+      </form>
     <div class="card">
       <div class="card-body">
-        <table class="table table-bordered">
+      <table class="table table-bordered border-info  table-striped table-hover">
           <thead>
             <tr>
               <th>Timing</th>

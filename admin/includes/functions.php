@@ -20,6 +20,8 @@ function get_the_classes()
 }
 
 
+
+
 function get_the_sections()
 {
     global $db_conn;
