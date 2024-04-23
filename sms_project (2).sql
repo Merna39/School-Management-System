@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2024 at 04:36 PM
+-- Generation Time: Apr 23, 2024 at 09:39 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -69,7 +69,8 @@ INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`) VALU
 (55, 'student', 'student.13@example.com', '7d89f0e36783f169e2de744b03612d4d', 'student 13', 3),
 (56, 'student', 'student.14@example.com', 'f6860f36e4d4cfb807e79c4184871af1', 'student 14', 2),
 (57, 'student', 'student.15@example.com', '0365d092668f56c82a0ebeb3f73686ea', 'student 15', 1),
-(58, 'student', 'student.16@example.com', '4aaf7bc01953490fe910ebf6a42ed6f0', 'student 16', 0);
+(58, 'student', 'student.16@example.com', '4aaf7bc01953490fe910ebf6a42ed6f0', 'student 16', 0),
+(59, 'student', 'student.17@example.com', 'c7e9f724f188992091945b45ea6e5581', 'student 17', 0);
 
 -- --------------------------------------------------------
 
@@ -152,15 +153,15 @@ INSERT INTO `metadata` (`id`, `item_id`, `meta_key`, `meta_value`) VALUES
 (7, 0, 'from', '08:30'),
 (8, 0, 'to', '09:15'),
 (11, 10, 'from', '09:15'),
-(12, 10, 'to', '10:35'),
+(12, 10, 'to', '10:00'),
 (13, 5, 'from', '07:00'),
 (14, 5, 'to', '07:45'),
 (15, 6, 'from', '07:45'),
 (16, 6, 'to', '08:30'),
 (17, 8, 'from', '08:30'),
 (18, 8, 'to', '09:15'),
-(19, 11, 'from', '10:35'),
-(20, 11, 'to', '11:20'),
+(19, 11, 'from', '10:00'),
+(20, 11, 'to', '10:30'),
 (21, 18, 'class_id', '1'),
 (22, 18, 'section_id', '4'),
 (23, 18, 'teacher_id', '2'),
@@ -194,12 +195,10 @@ INSERT INTO `metadata` (`id`, `item_id`, `meta_key`, `meta_value`) VALUES
 (51, 31, 'period_id', '10'),
 (52, 31, 'day_name', 'sunday'),
 (53, 31, 'subject_id', '18'),
-(54, 32, 'class_id', '1'),
-(55, 32, 'section_id', '4'),
-(56, 32, 'teacher_id', '7'),
-(57, 32, 'period_id', '11'),
-(58, 32, 'day_name', 'saturday'),
-(59, 32, 'subject_id', '22');
+(60, 33, 'from', '10:30'),
+(61, 33, 'to', '11:15'),
+(62, 34, 'from', '11:15'),
+(63, 34, 'to', '12:00');
 
 -- --------------------------------------------------------
 
@@ -239,7 +238,6 @@ INSERT INTO `posts` (`id`, `author`, `title`, `description`, `type`, `publish_da
 (14, 1, '', '', 'timetable', '2024-04-08 10:53:42', '2024-04-08 10:53:42', 'publish', 0),
 (15, 1, '', '', 'timetable', '2024-04-08 23:38:04', '2024-04-09 11:38:04', 'publish', 0),
 (16, 1, '', '', 'timetable', '2024-04-08 23:51:07', '2024-04-09 11:51:07', 'publish', 0),
-(17, 1, 'Sciences', '', 'subject', '2024-04-08 10:42:56', '2024-04-08 10:42:56', 'publish', 0),
 (18, 1, 'Computer', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:32:38', 'publish', 0),
 (19, 1, 'History', '', 'subject', '2024-04-08 10:42:56', '2024-04-08 10:42:56', 'publish', 0),
 (20, 1, 'Geography', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:32:46', 'publish', 0),
@@ -254,7 +252,10 @@ INSERT INTO `posts` (`id`, `author`, `title`, `description`, `type`, `publish_da
 (29, 1, 'Section C', 'description', 'section', '2024-04-16 21:22:06', '2024-04-16 21:22:06', 'publish', 0),
 (30, 1, 'Class-3', 'description', 'class', '2024-04-16 21:25:25', '2024-04-16 21:25:25', 'publish', 0),
 (31, 1, '', '', 'timetable', '2024-04-17 10:44:54', '2024-04-16 22:44:54', 'publish', 0),
-(32, 1, '', '', 'timetable', '2024-04-17 10:45:31', '2024-04-16 22:45:31', 'publish', 0);
+(32, 1, '', '', 'timetable', '2024-04-17 10:45:31', '2024-04-16 22:45:31', 'publish', 0),
+(33, 1, 'Sixth Period', '', 'period', '2024-04-23 06:57:49', '2024-04-23 18:57:49', 'publish', 0),
+(34, 1, 'Seventh Period', '', 'period', '2024-04-23 06:58:43', '2024-04-23 18:58:43', 'publish', 0),
+(35, 1, 'Arabic', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:33:17', 'publish', 0);
 
 -- --------------------------------------------------------
 
@@ -276,7 +277,8 @@ INSERT INTO `sections` (`id`, `title`) VALUES
 (2, 'section B'),
 (3, 'section C'),
 (42, 'Section D'),
-(43, 'Section E');
+(43, 'Section E'),
+(44, 'Section F');
 
 -- --------------------------------------------------------
 
@@ -311,7 +313,11 @@ INSERT INTO `usermeta` (`id`, `user_id`, `meta_key`, `meta_value`) VALUES
 (64, 58, 'dob', '2003-06-05'),
 (65, 58, 'mobile', ''),
 (66, 58, 'payment_method', 'online'),
-(67, 58, 'class', '');
+(67, 58, 'class', ''),
+(68, 59, 'dob', '2006-03-25'),
+(69, 59, 'mobile', ''),
+(70, 59, 'payment_method', 'online'),
+(71, 59, 'class', '');
 
 --
 -- Indexes for dumped tables
@@ -367,7 +373,7 @@ ALTER TABLE `usermeta`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `classes`
@@ -385,25 +391,25 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `metadata`
 --
 ALTER TABLE `metadata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `usermeta`
 --
 ALTER TABLE `usermeta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
