@@ -1,4 +1,5 @@
 <?php include('includes/config.php') ?>
+
 <?php
 $error = '';
 if (isset($_POST['submit'])) {
@@ -14,7 +15,7 @@ if (isset($_POST['submit'])) {
   $value_key     = $_POST['value_key'];
 */
 
-  $check_query = mysqli_query($db_conn, "SELECT * FROM accounts WHERE email = '$email'");
+  $check_query = mysqli_query($db_conn, "SELECT * FROM accounts  WHERE email = '$email'");
   if (mysqli_num_rows($check_query) > 0) {
     $error = 'Email already exists';
   } else {
@@ -111,10 +112,7 @@ i.fas.fa-circle-notch.fa-spin {
                     <div class="form-group">
                       <label for="">Level</label>
                       <input type="number" min="1" max="3" step="1" required class="form-control" placeholder="Level" name="level">
-                        <!-- <option value="">-Select Level-</option>
-                        <option value="12">Level 1</option>
-                        <option value="13">Level 1</option>
-                        <option value="17">Level 2</option> -->
+                      
                     </div>
                   </div>
 
@@ -263,20 +261,18 @@ i.fas.fa-circle-notch.fa-spin {
                   <div class="col-lg">
                     <div class="form-group">
                       <label for="">Class</label>
-                      <!-- <input type="text" class="form-control" placeholder="Class" name="class"> -->
-
-                      <select name="class" id="class" class="form-control">
+                  
+                      <select require name="class_id" id="class_id" class="form-control">
                         <option value="">Select Class</option>
                         <?php
-                        $args = array(
-                          'type' => 'class',
-                          'status' => 'publish',
-                        );
-                        $classes = get_posts($args);
-                        foreach ($classes as $class) {
-                          echo '<option value="' . $class->id . '">' . $class->title . '</option>';
-                        } ?>
-
+                  $args = array(
+                    'type' => 'class',
+                    'status' => 'publish',
+                  );
+                  $classes = get_posts($args);
+                  foreach ($classes as $key => $class) { ?>
+                    <option value="<?php echo $class->id ?>"><?php echo $class->title ?></option>
+                  <?php } ?>
                       </select>
                     </div>
                   </div>
@@ -286,6 +282,15 @@ i.fas.fa-circle-notch.fa-spin {
                       <label for="section">Select Section</label>
                       <select require name="section" id="section" class="form-control">
                         <option value="">-Select Section-</option>
+                        <?php
+                    $args = array(
+                      'type' => 'section',
+                      'status' => 'publish',
+                    );
+                    $classes = get_the_sections();
+                    foreach ($sections as $key => $section) { ?>
+                      <option value="<?php echo $section->name ?>"><?php echo $section->title ?></option>
+                    <?php } ?>
                       </select>
                     </div>
                   </div>
@@ -366,7 +371,7 @@ i.fas.fa-circle-notch.fa-spin {
                 <?php
 
                 $count = 1;
-                $user_query = 'SELECT * FROM accounts WHERE type = "' . $_REQUEST['user'] . '"';
+                $user_query = 'SELECT * FROM accounts  WHERE type = "' . $_REQUEST['user'] . '" ';
                 $user_result = mysqli_query($db_conn, $user_query);
                 while ($users = mysqli_fetch_object($user_result)) {
 

@@ -1,5 +1,6 @@
 <?php include('./includes/config.php') ?>
 
+
 <?php
 if (isset($_POST['submit'])) {
   $class_id = isset($_POST['class_id']) ? isset($_POST['class_id']) : '';
@@ -87,11 +88,15 @@ if (isset($_POST['submit'])) {
                   <select required name="section_id" id="section_id" class="form-control">
                     <option value="">-Select Section-</option>
                     <?php
-                    // Assuming you have a function get_the_sections() that fetches the sections from your database
-                    $sections = get_the_sections();
+                    $args = array(
+                      'type' => 'section',
+                      'status' => 'publish',
+                    );
+                    $classes = get_the_sections();
                     foreach ($sections as $key => $section) { ?>
-                      <option value="<?php echo $section->id ?>"><?php echo $section->title ?></option>
+                      <option value="<?php echo $section->name ?>"><?php echo $section->title ?></option>
                     <?php } ?>
+
                   </select>
                 </div>
               </div>

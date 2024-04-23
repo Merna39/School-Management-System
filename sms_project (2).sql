@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2024 at 09:53 AM
+-- Generation Time: Apr 23, 2024 at 04:36 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,33 +42,34 @@ CREATE TABLE `accounts` (
 
 INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`) VALUES
 (1, 'teacher', 'teacher.1@example.com', 'asdfasdfasdf', 'Teacher1', 3),
-(2, 'teacher', 'teacher.2@example.com', 'zxcvzxcvzxcv', 'Teacher2', 5),
+(2, 'teacher', 'teacher.2@example.com', 'zxcvzxcvzxcv', 'Teacher2', 2),
 (3, 'student', 'student.1@example.com', '25f9e794323b453885f5181f1b624d0b', 'Student1', 2),
 (4, 'student', 'student.2@example.com', 'test', 'Student2', 3),
 (5, 'student', 'mohamed@stud.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'mohamed', 1),
 (6, 'student', 'ali@stud.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'ali ', 2),
 (7, 'teacher', 'teacher.3@tech.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'Teacher3 ', 1),
 (9, 'student', 'student.5@example.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'student', 2),
-(13, 'student', 'asdf@asdf.asdf', '3ab8e8739c50726bceeb9a382e7e1959', 'Test user', 0),
-(14, 'student', 'modifiercrazy@gmail.com', 'c1368ca1ed59971a44f6dec37b6ecd8e', 'Test user 2', 0),
-(15, 'student', 'modifiercrazy-1@gmail.com', 'c1368ca1ed59971a44f6dec37b6ecd8e', 'Test user 2', 0),
-(18, 'student', 'test@test.test', 'c3a1e14cfd1ff4cec66d163ff7a350fe', 'test 3', 0),
-(32, 'student', 'mm@mm.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'madonnaa', 0),
-(33, 'student', 't@t.t', 'e807f1fcf82d132f9bb018ca6738a19f', 'test user3 ', 0),
-(34, 'parent', 'parent@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'parentt', 0),
-(35, 'student', 'student.10@example.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'student 10', 0),
-(43, 'student', 'student.11@example.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'student11', 0),
-(44, 'teacher', 'teacher.4@example.com', 'asdfasdfasdf', 'Teacher4', 1),
-(45, 'teacher', 'teacher.5@example.com', 'zxcvzxcvzxcv', 'Teacher5', 2),
-(46, 'teacher', 'teacher.6@example.com', 'asdfasdfasdf', 'Teacher6', 5),
+(13, 'student', 'asdf@asdf.asdf', '3ab8e8739c50726bceeb9a382e7e1959', 'Test user', 1),
+(14, 'student', 'modifiercrazy@gmail.com', 'c1368ca1ed59971a44f6dec37b6ecd8e', 'Test user 2', 3),
+(15, 'student', 'modifiercrazy-1@gmail.com', 'c1368ca1ed59971a44f6dec37b6ecd8e', 'Test user 2', 2),
+(18, 'student', 'test@test.test', 'c3a1e14cfd1ff4cec66d163ff7a350fe', 'test 3', 1),
+(32, 'student', 'mm@mm.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'madonnaa', 3),
+(33, 'student', 't@t.t', 'e807f1fcf82d132f9bb018ca6738a19f', 'test user3 ', 2),
+(34, 'parent', 'parent@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'parentt', 1),
+(35, 'student', 'student.10@example.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'student 10', 3),
+(43, 'student', 'student.11@example.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'student11', 1),
+(44, 'teacher', 'teacher.4@example.com', 'asdfasdfasdf', 'Teacher4', 2),
+(45, 'teacher', 'teacher.5@example.com', 'zxcvzxcvzxcv', 'Teacher5', 3),
+(46, 'teacher', 'teacher.6@example.com', 'asdfasdfasdf', 'Teacher6', 1),
 (47, 'teacher', 'teacher.7@example.com', 'zxcvzxcvzxcv', 'Teacher7', 2),
 (48, 'teacher', 'teacher.8@example.com', 'asdfasdfasdf', 'Teacher8', 3),
-(49, 'teacher', 'teacher.9@example.com', 'zxcvzxcvzxcv', 'Teacher9', 4),
+(49, 'teacher', 'teacher.9@example.com', 'zxcvzxcvzxcv', 'Teacher9', 2),
 (50, 'teacher', 'teacher.10@example.com', 'zxcvzxcvzxcv', 'Teacher10', 2),
-(54, 'student', 'student.12@example.com', '68fdf102297da1530d4cbbcd13cbb958', 'student 12', 0),
-(55, 'student', 'student.13@example.com', '7d89f0e36783f169e2de744b03612d4d', 'student 13', 0),
-(56, 'student', 'student.14@example.com', 'f6860f36e4d4cfb807e79c4184871af1', 'student 14', 0),
-(57, 'student', 'student.15@example.com', '0365d092668f56c82a0ebeb3f73686ea', 'student 15', 0);
+(54, 'student', 'student.12@example.com', '68fdf102297da1530d4cbbcd13cbb958', 'student 12', 1),
+(55, 'student', 'student.13@example.com', '7d89f0e36783f169e2de744b03612d4d', 'student 13', 3),
+(56, 'student', 'student.14@example.com', 'f6860f36e4d4cfb807e79c4184871af1', 'student 14', 2),
+(57, 'student', 'student.15@example.com', '0365d092668f56c82a0ebeb3f73686ea', 'student 15', 1),
+(58, 'student', 'student.16@example.com', '4aaf7bc01953490fe910ebf6a42ed6f0', 'student 16', 0);
 
 -- --------------------------------------------------------
 
@@ -306,7 +307,11 @@ INSERT INTO `usermeta` (`id`, `user_id`, `meta_key`, `meta_value`) VALUES
 (60, 57, 'dob', '2003-08-25'),
 (61, 57, 'mobile', ''),
 (62, 57, 'payment_method', 'online'),
-(63, 57, 'class', '');
+(63, 57, 'class', ''),
+(64, 58, 'dob', '2003-06-05'),
+(65, 58, 'mobile', ''),
+(66, 58, 'payment_method', 'online'),
+(67, 58, 'class', '');
 
 --
 -- Indexes for dumped tables
@@ -362,7 +367,7 @@ ALTER TABLE `usermeta`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `classes`
@@ -398,7 +403,7 @@ ALTER TABLE `sections`
 -- AUTO_INCREMENT for table `usermeta`
 --
 ALTER TABLE `usermeta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
