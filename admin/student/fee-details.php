@@ -3,6 +3,9 @@
 <?php include('sidebar.php') ?>
 
 
+
+
+
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -25,7 +28,7 @@
     <div class="container-fluid">
 
         <?php 
-            $std_id = isset($_GET['std_id']) ? $_GET['std_id'] : '';
+            // $std_id = isset($_GET['std_id']) ? $_GET['std_id'] : '';
             $usermeta = get_user_metadata($std_id);
         ?>
             <div class="card">
@@ -56,7 +59,7 @@
                             <?php
 
                            
-                            $months = array('january', 'fabruary', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december');
+                            $months = array('January', 'Fabruary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
                             foreach ($months as $key => $value) {
                                 $highlight = '';
 
@@ -79,7 +82,7 @@
                                      
                                       <a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
                                       ?>" class="btn btn-sm btn-primary"><i class="fa fa-eye fa-fw"></i> View</a>
-                                      <a href="#" data-toggle="modal" data-month="<?php echo $value ?>" data-target=#paynow-popup class="btn btn-sm btn-warning"><i class="fa fa-money-check-alt fa-fw"></i> pay Now</a>
+                                      <a href="#" data-toggle="modal" data-month="<?php echo $value ?>" data-target=#paynow-popup class="btn btn-sm btn-warning paynow-btn"><i class="fa fa-money-check-alt fa-fw"></i> pay Now</a>
                                        
                                        <a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
                                       ?>" class="btn btn-sm btn-dark"><i class="fa fa-envelope fa-fw"></i>Send message</a>
@@ -107,6 +110,7 @@ $SALT ="T4meBzglbm";
 $PAYU_BASE_URL ="https://secure.payu.in";
 
 $action='';
+$action = $PAYU_BASE_URL .'/_payment';
 $txnid=substr(hash('sha256',mt_rand().microtime()),0,20);
 $hash='';
 
@@ -138,7 +142,7 @@ foreach($hashVarSeq as $hash_var){
 $hash_string .= $SALT;
 
 $hash = strtolower(hash('sha512',$hash_string));
-$action = $PAYU_BASE_URL .'/_payment';
+
 ?>
 
  <!-- Modal -->
@@ -185,7 +189,7 @@ $action = $PAYU_BASE_URL .'/_payment';
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="">Months</label>
-                                    <input type="text" name="month" readonly class="form-control" id="month" value="<?php echo $student->name ?>">
+                                    <input type="text" name="month" readonly class="form-control" id="month" value="">
                                 </div>
                             </div>
                             <div class="col-lg-6">

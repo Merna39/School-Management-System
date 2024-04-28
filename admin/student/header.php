@@ -1,5 +1,8 @@
 
-
+<?php
+$std_id = 67;
+$student = get_user_data($std_id);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

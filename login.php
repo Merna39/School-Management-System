@@ -67,7 +67,7 @@
           $user_type = $user->type;
           $_SESSION['user_type'] = $user_type;
           $_SESSION['user_id'] = $user->id;
-          // $_SESSION['user_id'] = $user->id;
+        
           header('Location: ./admin/'.$user_type.'/dashboard.php');
           exit();
 

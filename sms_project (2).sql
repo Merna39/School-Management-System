@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2024 at 09:39 PM
+-- Generation Time: Apr 28, 2024 at 04:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,21 +43,8 @@ CREATE TABLE `accounts` (
 INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`) VALUES
 (1, 'teacher', 'teacher.1@example.com', 'asdfasdfasdf', 'Teacher1', 3),
 (2, 'teacher', 'teacher.2@example.com', 'zxcvzxcvzxcv', 'Teacher2', 2),
-(3, 'student', 'student.1@example.com', '25f9e794323b453885f5181f1b624d0b', 'Student1', 2),
-(4, 'student', 'student.2@example.com', 'test', 'Student2', 3),
-(5, 'student', 'mohamed@stud.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'mohamed', 1),
-(6, 'student', 'ali@stud.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'ali ', 2),
 (7, 'teacher', 'teacher.3@tech.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'Teacher3 ', 1),
-(9, 'student', 'student.5@example.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'student', 2),
-(13, 'student', 'asdf@asdf.asdf', '3ab8e8739c50726bceeb9a382e7e1959', 'Test user', 1),
-(14, 'student', 'modifiercrazy@gmail.com', 'c1368ca1ed59971a44f6dec37b6ecd8e', 'Test user 2', 3),
-(15, 'student', 'modifiercrazy-1@gmail.com', 'c1368ca1ed59971a44f6dec37b6ecd8e', 'Test user 2', 2),
-(18, 'student', 'test@test.test', 'c3a1e14cfd1ff4cec66d163ff7a350fe', 'test 3', 1),
-(32, 'student', 'mm@mm.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'madonnaa', 3),
-(33, 'student', 't@t.t', 'e807f1fcf82d132f9bb018ca6738a19f', 'test user3 ', 2),
 (34, 'parent', 'parent@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'parentt', 1),
-(35, 'student', 'student.10@example.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'student 10', 3),
-(43, 'student', 'student.11@example.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'student11', 1),
 (44, 'teacher', 'teacher.4@example.com', 'asdfasdfasdf', 'Teacher4', 2),
 (45, 'teacher', 'teacher.5@example.com', 'zxcvzxcvzxcv', 'Teacher5', 3),
 (46, 'teacher', 'teacher.6@example.com', 'asdfasdfasdf', 'Teacher6', 1),
@@ -65,12 +52,8 @@ INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`) VALU
 (48, 'teacher', 'teacher.8@example.com', 'asdfasdfasdf', 'Teacher8', 3),
 (49, 'teacher', 'teacher.9@example.com', 'zxcvzxcvzxcv', 'Teacher9', 2),
 (50, 'teacher', 'teacher.10@example.com', 'zxcvzxcvzxcv', 'Teacher10', 2),
-(54, 'student', 'student.12@example.com', '68fdf102297da1530d4cbbcd13cbb958', 'student 12', 1),
-(55, 'student', 'student.13@example.com', '7d89f0e36783f169e2de744b03612d4d', 'student 13', 3),
-(56, 'student', 'student.14@example.com', 'f6860f36e4d4cfb807e79c4184871af1', 'student 14', 2),
-(57, 'student', 'student.15@example.com', '0365d092668f56c82a0ebeb3f73686ea', 'student 15', 1),
-(58, 'student', 'student.16@example.com', '4aaf7bc01953490fe910ebf6a42ed6f0', 'student 16', 0),
-(59, 'student', 'student.17@example.com', 'c7e9f724f188992091945b45ea6e5581', 'student 17', 0);
+(60, 'teacher', 'teacher.11@example.com', 'zxcvzxcvzxcv', 'Teacher11', 3),
+(67, 'student', 'student.1@example.com', '25f9e794323b453885f5181f1b624d0b', 'student 1', 0);
 
 -- --------------------------------------------------------
 
@@ -90,11 +73,8 @@ CREATE TABLE `classes` (
 --
 
 INSERT INTO `classes` (`id`, `title`, `section`, `added_date`) VALUES
-(1, 'Class-1', '1', '2024-03-31'),
-(5, 'Class-2', '1,2,3', '2024-03-31'),
-(6, 'Class-3', '1,2,3', '2024-03-31'),
-(14, 'Class-4', '2,3', '2024-04-17'),
-(15, 'Class-5', '2,3,42', '2024-04-17');
+(0, 'Class-1', 'section A ', '2024-03-31'),
+(2, 'Class-2', 'section A , section B', '2024-03-31');
 
 -- --------------------------------------------------------
 
@@ -198,7 +178,32 @@ INSERT INTO `metadata` (`id`, `item_id`, `meta_key`, `meta_value`) VALUES
 (60, 33, 'from', '10:30'),
 (61, 33, 'to', '11:15'),
 (62, 34, 'from', '11:15'),
-(63, 34, 'to', '12:00');
+(63, 34, 'to', '12:00'),
+(64, 37, 'class_id', '1'),
+(65, 37, 'section_id', '1'),
+(66, 37, 'teacher_id', '44'),
+(67, 37, 'period_id', '6'),
+(68, 37, 'day_name', 'tuesday'),
+(69, 37, 'subject_id', '22'),
+(70, 38, 'class_id', '1'),
+(71, 38, 'section_id', '3'),
+(72, 38, 'teacher_id', '44'),
+(73, 38, 'period_id', '8'),
+(74, 38, 'day_name', 'monday'),
+(75, 38, 'subject_id', '22'),
+(78, 1, 'section', '3'),
+(79, 30, 'section', '29'),
+(80, 36, 'section', '3'),
+(81, 36, 'section', '4'),
+(82, 42, 'section', '3'),
+(83, 42, 'section', '4'),
+(84, 42, 'section', '29'),
+(85, 101, 'class_id', '2'),
+(86, 101, 'section_id', '3'),
+(87, 101, 'teacher_id', '44'),
+(88, 101, 'period_id', '5'),
+(89, 101, 'day_name', 'sunday'),
+(90, 101, 'subject_id', '22');
 
 -- --------------------------------------------------------
 
@@ -223,7 +228,7 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `author`, `title`, `description`, `type`, `publish_date`, `modified_date`, `status`, `parent`) VALUES
-(1, 1, 'Class-1', 'Class-1 Description', 'class', '2024-04-07 14:50:10', '2024-04-07 14:50:31', 'publish', 0),
+(1, 1, 'Class-1', 'Class-1 Description', 'class', '2024-04-07 14:50:10', '2024-04-28 10:52:40', 'publish', 0),
 (2, 1, 'Class-2', 'Class-2 Description', 'Class', '2024-04-07 14:51:40', '2024-04-07 14:51:40', 'publish', 0),
 (3, 1, 'Section A', 'Section A Description', 'Section ', '2024-04-07 14:57:30', '2024-04-07 16:10:20', 'publish', 0),
 (4, 1, 'Section B', 'Section A Description', 'Section ', '2024-04-07 14:57:30', '2024-04-07 16:10:25', 'publish', 0),
@@ -247,15 +252,16 @@ INSERT INTO `posts` (`id`, `author`, `title`, `description`, `type`, `publish_da
 (24, 1, 'Psychology', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:33:10', 'publish', 0),
 (25, 1, 'Biology', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:33:17', 'publish', 0),
 (26, 1, 'Geology', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:33:17', 'publish', 0),
-(27, 1, '', '', '', '2024-04-16 20:55:18', '2024-04-16 20:55:18', '', 0),
-(28, 1, '', '', '', '2024-04-16 20:56:02', '2024-04-16 20:56:02', '', 0),
 (29, 1, 'Section C', 'description', 'section', '2024-04-16 21:22:06', '2024-04-16 21:22:06', 'publish', 0),
 (30, 1, 'Class-3', 'description', 'class', '2024-04-16 21:25:25', '2024-04-16 21:25:25', 'publish', 0),
 (31, 1, '', '', 'timetable', '2024-04-17 10:44:54', '2024-04-16 22:44:54', 'publish', 0),
 (32, 1, '', '', 'timetable', '2024-04-17 10:45:31', '2024-04-16 22:45:31', 'publish', 0),
 (33, 1, 'Sixth Period', '', 'period', '2024-04-23 06:57:49', '2024-04-23 18:57:49', 'publish', 0),
 (34, 1, 'Seventh Period', '', 'period', '2024-04-23 06:58:43', '2024-04-23 18:58:43', 'publish', 0),
-(35, 1, 'Arabic', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:33:17', 'publish', 0);
+(35, 1, 'Arabic', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:33:17', 'publish', 0),
+(36, 1, 'Class-4', 'Class-4 Description', 'class', '2024-04-07 14:50:10', '2024-04-07 14:50:31', 'publish', 0),
+(38, 1, 'timetable', 'description', 'timetable', '2024-04-23 22:38:44', '2024-04-23 22:38:44', 'publish', 0),
+(101, 1, 'timetable', 'description', 'timetable', '2024-04-28 11:11:29', '2024-04-28 11:11:29', 'publish', 0);
 
 -- --------------------------------------------------------
 
@@ -273,12 +279,10 @@ CREATE TABLE `sections` (
 --
 
 INSERT INTO `sections` (`id`, `title`) VALUES
-(1, 'section A'),
-(2, 'section B'),
-(3, 'section C'),
-(42, 'Section D'),
-(43, 'Section E'),
-(44, 'Section F');
+(1, 'Section A'),
+(2, 'Section B'),
+(3, 'Section C'),
+(4, 'Section D');
 
 -- --------------------------------------------------------
 
@@ -298,26 +302,15 @@ CREATE TABLE `usermeta` (
 --
 
 INSERT INTO `usermeta` (`id`, `user_id`, `meta_key`, `meta_value`) VALUES
-(52, 54, 'dob', '2003-02-02'),
-(53, 54, 'mobile', ''),
-(54, 55, 'dob', '2004-02-03'),
-(55, 55, 'mobile', ''),
-(56, 56, 'dob', '2004-06-05'),
-(57, 56, 'mobile', ''),
-(58, 56, 'payment_method', 'online'),
-(59, 56, 'class', ''),
-(60, 57, 'dob', '2003-08-25'),
-(61, 57, 'mobile', ''),
-(62, 57, 'payment_method', 'online'),
-(63, 57, 'class', ''),
-(64, 58, 'dob', '2003-06-05'),
-(65, 58, 'mobile', ''),
-(66, 58, 'payment_method', 'online'),
-(67, 58, 'class', ''),
-(68, 59, 'dob', '2006-03-25'),
-(69, 59, 'mobile', ''),
-(70, 59, 'payment_method', 'online'),
-(71, 59, 'class', '');
+(93, 67, 'dob', '2006-02-09'),
+(94, 67, 'mobile', '0125466525'),
+(95, 67, 'payment_method', 'online'),
+(96, 67, 'address', '6 Mohamed Al Rawi Street , Giza '),
+(97, 67, 'country', 'Egypt '),
+(98, 67, 'state', 'Giza'),
+(99, 67, 'zip', '02'),
+(114, 67, 'class', '1'),
+(115, 67, 'section', '3');
 
 --
 -- Indexes for dumped tables
@@ -373,13 +366,13 @@ ALTER TABLE `usermeta`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `classes`
 --
 ALTER TABLE `classes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `courses`
@@ -391,25 +384,25 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `metadata`
 --
 ALTER TABLE `metadata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `usermeta`
 --
 ALTER TABLE `usermeta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
