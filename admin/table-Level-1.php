@@ -41,6 +41,7 @@ if (isset($_POST['submit'])) {
 <!-- Content Header (Page header) -->
 <div class="content-header">
   <div class="container-fluid">
+
     <div class="row mb-2">
       <div class="col-sm-6">
         <h1 class="m-0 text-dark">Time Table Of Level 1
@@ -90,16 +91,8 @@ if (isset($_POST['submit'])) {
                   <label for="section_id">Select Section</label>
                   <select require name="section_id" id="section_id" class="form-control">
                     <option value="">-Select Section-</option>
-                    <?php
-                    $args = array(
-                      'type' => 'section',
-                      'status' => 'publish',
-                    );
-                    $sections = get_posts($args);
-                    foreach ($sections as $key => $section) { ?>
-                      <option value="<?php echo $section->id ?>"><?php echo $section->title ?></option>
-                    <?php } ?>
-                    
+                  
+
                   </select>
                 </div>
               </div>
@@ -147,7 +140,7 @@ if (isset($_POST['submit'])) {
                     <option value="">-Select Day-</option>
 
                     <?php
-                    $days = [ 'saturday', 'sunday','monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+                    $days = ['saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
                     foreach ($days as $key => $day) { ?>
                       <option value="<?php echo $day ?>"><?php echo ucwords($day) ?></option>
                     <?php } ?>
@@ -334,7 +327,7 @@ if (isset($_POST['submit'])) {
 
     jQuery('#class_id').change(function() {
       jQuery.ajax({
-        url: 'fetch_sections.php',
+        url:'ajax.php',
         type: 'POST',
         data: {
           'class_id': jQuery(this).val()

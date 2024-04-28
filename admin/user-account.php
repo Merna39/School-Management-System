@@ -104,7 +104,7 @@ i.fas.fa-circle-notch.fa-spin {
                   <div class="col-lg-4">
                     <div class="form-group">
                       <label for="">DOB</label>
-                      <input type="date" required class="form-control" placeholder="DOB" name="dob">
+                      <input type="date"  required class="form-control" placeholder="DOB" name="dob">
                     </div>
                   </div>
 
@@ -260,10 +260,13 @@ i.fas.fa-circle-notch.fa-spin {
                 <div class="row">
                   <div class="col-lg">
                     <div class="form-group">
-                      <label for="">Class</label>
+                      <label for="class">Class</label>
                   
-                      <select require name="class_id" id="class_id" class="form-control">
+                      <select require name="class" id="class" class="form-control">
                         <option value="">Select Class</option>
+                        <!-- <option value="1"> Class-1</option>
+                        <option value="2"> Class-2</option> -->
+
                         <?php
                   $args = array(
                     'type' => 'class',
@@ -282,25 +285,17 @@ i.fas.fa-circle-notch.fa-spin {
                       <label for="section">Select Section</label>
                       <select require name="section" id="section" class="form-control">
                         <option value="">-Select Section-</option>
-                        <?php
-                    $args = array(
-                      'type' => 'section',
-                      'status' => 'publish',
-                    );
-                    $classes = get_the_sections();
-                    foreach ($sections as $key => $section) { ?>
-                      <option value="<?php echo $section->name ?>"><?php echo $section->title ?></option>
-                    <?php } ?>
+                      
                       </select>
                     </div>
                   </div>
 
-                  <div class="col-lg">
+                  <!-- <div class="col-lg">
                     <div class="form-group">
                       <label for="">Subject Streem</label>
                       <input type="text" class="form-control" placeholder="Subject Streem" name="subject_streem">
                     </div>
-                  </div>
+                  </div> -->
                   <div class="col-lg">
                     <div class="form-group">
                       <label for="">Date of Admission</label>
@@ -441,6 +436,31 @@ i.fas.fa-circle-notch.fa-spin {
       });
     }
     return false;
+  });
+</script>
+
+<script>
+  jQuery(document).ready(function() {
+
+    jQuery('#class').change(function() {
+      jQuery.ajax({
+        url:'ajax.php',
+        type: 'POST',
+        data: {
+          'class_id': jQuery(this).val()
+        },
+        dataType: 'json',
+        success: function(response) {
+          if (response.count > 0) {
+            jQuery('#section-container').show();
+          } else {
+            jQuery('#section-container').hide();
+          }
+          jQuery('#section').html(response.options);
+        }
+      });
+    });
+
   });
 </script>
 <?php include('footer.php') ?>

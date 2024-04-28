@@ -113,7 +113,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a href="../logout.php" class="nav-link" title="Logout">
+        <a href="../../logout.php" class="nav-link" title="Logout">
         Logout <i class="fa fa-sign-out-alt"></i>
         </a>
       </li>

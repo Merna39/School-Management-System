@@ -8,7 +8,7 @@
   {
     $title = $_POST['title'];
 
-    mysqli_query($db_conn, "INSERT INTO sections (title) VALUE ('$title')") or die('asfdasf');
+    $query = mysqli_query($db_conn, "INSERT INTO `posts`(`author`, `title`, `description`, `type`, `status`,`parent`) VALUES ('1','$title','description','section','publish',0)") or die('DB error');
   }
 
 ?>
@@ -47,7 +47,7 @@
               </div>
               <div class="card-body">
                 <div class="table-responsive bg-white">
-                <table class="table table-bordered border-info  table-striped table-hover">
+                  <table class="table table-bordered">
                     <thead>
                       <tr>
                         <th>S.No.</th>
@@ -59,14 +59,16 @@
                     <tbody>
                       <?php
                       $count = 1;
-                      
-                      $section_query = mysqli_query($db_conn, 'SELECT * FROM sections');
-                      while ($section = mysqli_fetch_object($section_query)) { ?>
+                      $args = array(
+                        'type' => 'section',
+                        'status' => 'publish',
+                      );
+                      $sections = get_posts($args);
+                      foreach($sections as $section) {?>
                       <tr>
                         <td><?=$count++?></td>
                         <td><?=$section->title?></td>
-                        <td><a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
-                                      ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-fw"></i>Delete</a></td>
+                        <td></td>
                       </tr>
 
                       <?php } ?>

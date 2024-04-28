@@ -49,7 +49,7 @@ if(isset($_POST['type']) && $_POST['type'] == 'student' && isset($_POST['email']
     }
     else
     {    
-        $query = mysqli_query($db_conn, "INSERT INTO accounts (`name`,`email`,`password`,`type`) VALUES ('$name','$email','$md_password','$type')") or die(mysqli_error($db_conn));
+        $query = mysqli_query($db_conn, "INSERT INTO accounts (`name`,`email`,`password`,`type`,`level`) VALUES ('$name','$email','$md_password','$type','$level')") or die(mysqli_error($db_conn));
         if($query)
         {
             $user_id = mysqli_insert_id($db_conn);
@@ -60,11 +60,10 @@ if(isset($_POST['type']) && $_POST['type'] == 'student' && isset($_POST['email']
         'dob' => $dob,
         'mobile' => $mobile,
         'payment_method' => $payment_method,
-        'class' => $class,
-        // 'address' => $address,
-        // 'country' => $country,
-        // 'state' => $state,
-        // 'zip' => $zip,
+        'address' => $address,
+        'country' => $country,
+        'state' => $state,
+        'zip' => $zip,
         // 'father_name' => $father_name,
         // 'father_mobile' => $father_mobile,
         // 'mother_name' => $mother_name,
@@ -79,7 +78,8 @@ if(isset($_POST['type']) && $_POST['type'] == 'student' && isset($_POST['email']
         // 'total_marks' => $total_marks,
         // 'obtain_mark' => $obtain_mark,
         // 'previous_percentage' => $previous_percentage,
-        // 'section' => $section,
+        'class' => $class,
+        'section' => $section,
         // 'subject_streem' => $subject_streem,
         // 'doa' => $doa,
     );
