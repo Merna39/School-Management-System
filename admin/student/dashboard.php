@@ -83,6 +83,54 @@
           <!-- /.col -->
         </div>
         <!-- /.row -->
+
+        <hr>
+
+        <?php
+        
+        if(isset($_POST['sign-in'])){
+          date_default_timezone_set('Asia/Kolkata');
+           $att_data = [];
+
+           for ($i=1; $i <= 31; $i++) { 
+             $att_data[$i] = [
+               'signin_at' => (date('d') == $i)? time() :'',
+               'signout_at' => (date('d') == $i)? time() :'',
+               'date' => $i
+             ];
+           }
+
+           //echo '<pre>';
+           //print_r(serialize($att_data));
+           //echo '</pre>';
+           $att_data = serialize($att_data);
+           $current_month = strtolower(date('F'));
+           $sql = "UPDATE `attendance` SET `attendance_value` = '$att_data' WHERE `attendance_month` = '$current_month' AND std_id = $std_id";
+           print_r($sql);
+           mysqli_query($db_conn,$sql) or die('DB error');;
+          }
+          ?>
+
+        <div class="row ">
+        <div class="col-lg-3">
+        <div class="card">
+        <div class="card-header">
+          sign in info 
+       </div>
+       <div class="card-body">
+        <form action="" method="post">
+          <button name="sign-in" class="btn btn-primary">Sign In</button>
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+
+
+
+
+
+
       </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->
