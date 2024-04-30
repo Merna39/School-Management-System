@@ -100,13 +100,10 @@
              ];
            }
 
-           //echo '<pre>';
-           //print_r(serialize($att_data));
-           //echo '</pre>';
            $att_data = serialize($att_data);
            $current_month = strtolower(date('F'));
            $sql = "UPDATE `attendance` SET `attendance_value` = '$att_data' WHERE `attendance_month` = '$current_month' AND std_id = $std_id";
-           print_r($sql);
+          
            mysqli_query($db_conn,$sql) or die('DB error');;
           }
           ?>
