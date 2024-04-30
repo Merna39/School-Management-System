@@ -2,6 +2,8 @@
 <?php
 $std_id = 67;
 $student = get_user_data($std_id);
+$stdmeta = get_user_metadata($std_id);
+?>
 ?>
 <!DOCTYPE html>
 <html lang="en">
