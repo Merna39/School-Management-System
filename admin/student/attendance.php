@@ -64,13 +64,14 @@
 
                         $row = mysqli_fetch_object($query);
 
-                        echo '<pre>';
-                        print_r($row);
-                        echo '</pre>';
+                      //  echo '<pre>';
+                      //  print_r($row);
+                      //  echo '</pre>';
 
 
                         foreach (unserialize($row->attendance_value) as $date => $value) { ?>
                             <tr>
+                                <td><?php echo $date; ?></td>
                                 <td><?php echo $date; ?></td>
                                 <td><?php echo ($value['signin_at']) ? 'Present' : 'Absent'; ?></td>
                                 <td><?php echo ($value['signin_at']) ? date('d-m-yyy h:i:s', $value['signin_at']) : ''; ?></td>
