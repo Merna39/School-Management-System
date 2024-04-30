@@ -277,7 +277,8 @@
                 Fee Details
                 <i class="fas fa-angle-left right"></i>
               </p>
-            </a>    
+            </a>   
+             
             <ul class="nav nav-treeview">
               <li class="nav-item">
               <a href="http://localhost/School-Management-System/admin/student/fee-details.php" class="nav-link">
