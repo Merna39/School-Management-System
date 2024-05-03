@@ -50,28 +50,32 @@ function get_sections_by_class($class_id)
 }
 
 
-
 function get_post(array $args = [])
 {
     global $db_conn;
-    if(!empty($args))
+    if (!empty($args))
     {
-        $condition = "WHERE 0 ";
-        foreach($args as $k => $v)
+        $conditions = [];
+        foreach ($args as $k => $v)
         {
-            $v = (string)$v;
-            $condition_ar[] = "$k = '$v'";
+            $conditions[] = "$k = ?";
         }
-        if ($condition_ar > 0) {
-            $condition = "WHERE " . implode(" AND ", $condition_ar);
-        }
-    };
+        $condition = implode(" AND ", $conditions);
 
-    
-    $sql = "SELECT * FROM posts $condition";
-    $query = mysqli_query($db_conn,$sql);
-    return mysqli_fetch_object($query);
+        $stmt = $db_conn->prepare("SELECT * FROM posts WHERE $condition");
+        if ($stmt)
+        {
+            $types = str_repeat("s", count($args)); 
+            $stmt->bind_param($types, ...array_values($args));
+            $stmt->execute(); 
+            $result = $stmt->get_result();
+            return $result->fetch_object();
+        }
+    }
+    return null;
 }
+
+
 
 function get_posts(array $args = [],string $type = 'object')
 {

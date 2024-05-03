@@ -52,7 +52,8 @@
           while ($att = mysqli_fetch_object($query)) { 
             
            // $class_id = get_metadata($att->id, 'class')[0]->meta_value;
-            $class = get_post(['id' => $class]);
+            $class_id = get_metadata($att->item_id, 'class')[0]->meta_value;
+            $class = get_post(['id' => $class_id]);
             $subject_id = get_metadata($att->item_id, 'subject')[0]->meta_value;
 
             $subject = get_post(['id' => $subject_id]);
