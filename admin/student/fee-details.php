@@ -97,6 +97,7 @@ if(!empty($_POST)){
         <?php 
             // $std_id = isset($_GET['std_id']) ? $_GET['std_id'] : '';
             $usermeta = get_user_metadata($std_id);
+            $class = get_post(['id' => $usermeta['class']]);
         ?>
             <div class="card">
                 <div class="card-header">
@@ -104,7 +105,7 @@ if(!empty($_POST)){
                 </div>
                 <div class="card-body">
                     <strong>Name: </strong> <?php echo get_users(array('id' => $std_id))[0]->name ?> <br>
-                    <strong>Class: </strong> <?php echo $usermeta['class'] ?>
+                    <strong>Class: </strong> <?php echo $class->title ?>
 
                 </div>
             </div>

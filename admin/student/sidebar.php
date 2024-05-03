@@ -298,7 +298,15 @@
               </p>
             </a>   
            
-     
+        
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+              <a href="http://localhost/School-Management-System/admin/student/study-materials.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> Study Materials</p>
+                </a>
+              </li>
+          <!-- Event -->
           <!-- Event -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
