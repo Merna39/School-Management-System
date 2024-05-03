@@ -10,6 +10,7 @@ if (!$db_conn) {
 // if (!isset($_SESSION['login'])) {
 //   session_start();
 // }
+date_default_timezone_set('Asia/Kolkata');
 include('functions.php');
 
 ?>

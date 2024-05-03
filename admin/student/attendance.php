@@ -46,7 +46,7 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <td>S.no</td>
+                             
                             <td>Date</td>
                             <td>Status</td>
                             <td>Singin Time</td>
@@ -63,11 +63,6 @@
                         $query = mysqli_query($db_conn, $sql);
 
                         $row = mysqli_fetch_object($query);
-
-                      //  echo '<pre>';
-                      //  print_r($row);
-                      //  echo '</pre>';
-
 
                         foreach (unserialize($row->attendance_value) as $date => $value) { ?>
                             <tr>
