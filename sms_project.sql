@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2024 at 11:10 PM
+-- Generation Time: May 03, 2024 at 08:09 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,7 +41,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`) VALUES
-(1, 'teacher', 'teacher.1@example.com', 'asdfasdfasdf', 'Teacher1', 3),
+(1, 'teacher', 'teacher.1@example.com', '25f9e794323b453885f5181f1b624d0b', 'Teacher1', 3),
 (2, 'teacher', 'teacher.2@example.com', 'zxcvzxcvzxcv', 'Teacher2', 2),
 (7, 'teacher', 'teacher.3@tech.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'Teacher3 ', 1),
 (34, 'parent', 'parent@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'parentt', 1),
@@ -75,7 +75,7 @@ CREATE TABLE `attendance` (
 --
 
 INSERT INTO `attendance` (`id`, `attendance_month`, `modified_date`, `attendance_value`, `std_id`, `current_session`) VALUES
-(1, 'may', '2024-05-01 00:08:50', 'a:31:{i:1;a:3:{s:9:\"signin_at\";i:1714511330;s:10:\"signout_at\";i:1714511330;s:4:\"date\";i:1;}i:2;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:2;}i:3;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:3;}i:4;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:4;}i:5;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:5;}i:6;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:6;}i:7;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:7;}i:8;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:8;}i:9;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:9;}i:10;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:10;}i:11;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:11;}i:12;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:12;}i:13;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:13;}i:14;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:14;}i:15;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:15;}i:16;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:16;}i:17;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:17;}i:18;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:18;}i:19;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:19;}i:20;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:20;}i:21;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:21;}i:22;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:22;}i:23;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:23;}i:24;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:24;}i:25;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:25;}i:26;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:26;}i:27;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:27;}i:28;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:28;}i:29;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:29;}i:30;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:30;}i:31;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:31;}}', 67, '2024-04-30 20:12:09');
+(1, 'may', '2024-05-03 03:27:51', 'a:32:{i:1;a:3:{s:9:\"signin_at\";i:1714511330;s:10:\"signout_at\";i:1714511330;s:4:\"date\";i:1;}i:2;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:2;}i:3;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:3;}i:4;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:4;}i:5;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:5;}i:6;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:6;}i:7;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:7;}i:8;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:8;}i:9;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:9;}i:10;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:10;}i:11;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:11;}i:12;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:12;}i:13;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:13;}i:14;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:14;}i:15;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:15;}i:16;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:16;}i:17;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:17;}i:18;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:18;}i:19;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:19;}i:20;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:20;}i:21;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:21;}i:22;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:22;}i:23;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:23;}i:24;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:24;}i:25;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:25;}i:26;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:26;}i:27;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:27;}i:28;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:28;}i:29;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:29;}i:30;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:30;}i:31;a:3:{s:9:\"signin_at\";s:0:\"\";s:10:\"signout_at\";s:0:\"\";s:4:\"date\";i:31;}s:2:\"03\";a:3:{s:9:\"signin_at\";i:1714696071;s:10:\"signout_at\";s:0:\"\";s:4:\"date\";s:2:\"03\";}}', 67, '2024-04-30 20:12:09');
 
 -- --------------------------------------------------------
 
@@ -225,7 +225,16 @@ INSERT INTO `metadata` (`id`, `item_id`, `meta_key`, `meta_value`) VALUES
 (87, 101, 'teacher_id', '44'),
 (88, 101, 'period_id', '5'),
 (89, 101, 'day_name', 'sunday'),
-(90, 101, 'subject_id', '22');
+(90, 101, 'subject_id', '22'),
+(91, 102, 'class', '1'),
+(92, 102, 'subject', '12'),
+(93, 102, 'file_attachment', 'login.php'),
+(94, 103, 'class', '1'),
+(95, 103, 'subject', '12'),
+(96, 103, 'file_attachment', 'logout.php'),
+(97, 104, 'class', '2'),
+(98, 104, 'subject', '13'),
+(99, 104, 'file_attachment', 'footer.php');
 
 -- --------------------------------------------------------
 
@@ -283,7 +292,10 @@ INSERT INTO `posts` (`id`, `author`, `title`, `description`, `type`, `publish_da
 (35, 1, 'Arabic', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:33:17', 'publish', 0),
 (36, 1, 'Class-4', 'Class-4 Description', 'class', '2024-04-07 14:50:10', '2024-04-07 14:50:31', 'publish', 0),
 (38, 1, 'timetable', 'description', 'timetable', '2024-04-23 22:38:44', '2024-04-23 22:38:44', 'publish', 0),
-(101, 1, 'timetable', 'description', 'timetable', '2024-04-28 11:11:29', '2024-04-28 11:11:29', 'publish', 0);
+(101, 1, 'timetable', 'description', 'timetable', '2024-04-28 11:11:29', '2024-04-28 11:11:29', 'publish', 0),
+(102, 1, 'PDF for algebra', 'PDF for algebra', 'study-material', '2024-05-02 23:50:57', '2024-05-02 23:50:57', 'publish', 0),
+(103, 1, 'PDF for algebra', 'PDF for algebra', 'study-material', '2024-05-02 23:53:44', '2024-05-02 23:53:44', 'publish', 0),
+(104, 1, 'PDF for english', 'PDF for english', 'study-material', '2024-05-03 00:04:47', '2024-05-03 00:04:47', 'publish', 0);
 
 -- --------------------------------------------------------
 
@@ -418,13 +430,13 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `metadata`
 --
 ALTER TABLE `metadata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT for table `sections`
