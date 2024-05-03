@@ -262,20 +262,18 @@ i.fas.fa-circle-notch.fa-spin {
                     <div class="form-group">
                       <label for="class">Class</label>
                   
-                      <select require name="class" id="class" class="form-control">
+                      <select name="class" id="class" class="form-control">
                         <option value="">Select Class</option>
-                        <!-- <option value="1"> Class-1</option>
-                        <option value="2"> Class-2</option> -->
-
                         <?php
-                  $args = array(
-                    'type' => 'class',
-                    'status' => 'publish',
-                  );
-                  $classes = get_posts($args);
-                  foreach ($classes as $key => $class) { ?>
-                    <option value="<?php echo $class->id ?>"><?php echo $class->title ?></option>
-                  <?php } ?>
+                        $args = array(
+                          'type' => 'class',
+                          'status' => 'publish',
+                        );
+                        $classes = get_posts($args);
+                        foreach ($classes as $class) {
+                          echo '<option value="' . $class->id . '">' . $class->title . '</option>';
+                        } ?>
+
                       </select>
                     </div>
                   </div>

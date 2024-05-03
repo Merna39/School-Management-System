@@ -64,24 +64,24 @@ if(isset($_POST['type']) && $_POST['type'] == 'student' && isset($_POST['email']
         'country' => $country,
         'state' => $state,
         'zip' => $zip,
-        // 'father_name' => $father_name,
-        // 'father_mobile' => $father_mobile,
-        // 'mother_name' => $mother_name,
-        // 'mother_mobile' => $mother_mobile,
-        // 'parents_address' => $parents_address,
-        // 'parents_country' => $parents_country,
-        // 'parents_state' => $parents_state,
-        // 'parents_zip' => $parents_zip,
-        // 'school_name' => $school_name,
-        // 'previous_class' => $previous_class,
-        // 'status' => $status,
-        // 'total_marks' => $total_marks,
-        // 'obtain_mark' => $obtain_mark,
-        // 'previous_percentage' => $previous_percentage,
+         'father_name' => $father_name,
+         'father_mobile' => $father_mobile,
+        'mother_name' => $mother_name,
+         'mother_mobile' => $mother_mobile,
+         'parents_address' => $parents_address,
+         'parents_country' => $parents_country,
+        'parents_state' => $parents_state,
+        'parents_zip' => $parents_zip,
+        'school_name' => $school_name,
+         'previous_class' => $previous_class,
+         'status' => $status,
+         'total_marks' => $total_marks,
+         'obtain_mark' => $obtain_mark,
+        'previous_percentage' => $previous_percentage,
         'class' => $class,
         'section' => $section,
-        // 'subject_streem' => $subject_streem,
-        // 'doa' => $doa,
+         'subject_streem' => $subject_streem,
+         'doa' => $doa,
     );
 
     foreach ($usermeta as $key => $value) {
@@ -130,6 +130,21 @@ if(isset($_POST['type']) && $_POST['type'] == 'student' && isset($_POST['email']
     //     $chld = serialize($chld);
     //     mysqli_query($db_conn, "INSERT INTO usermeta (`user_id`,`meta_key`,`meta_value`) VALUES ('$parent_id','children','$chld')") or die(mysqli_error($db_conn));
     // }
+
+    $months = array('january', 'fabruary', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december');
+    $att_data = [];
+    for ($i=1; $i <= 31; $i++) { 
+        $att_data[$i] = [
+            'signin_at' => '',
+            'signout_at' => '',
+            'date' => $i
+        ];
+    }
+    $att_data = serialize($att_data);
+    foreach ($months as $key => $value) {
+        mysqli_query($db_conn, "INSERT INTO `attendance` (`attendance_month`,`attendance_value`,`std_id`) VALUES ('$value','$att_data','$user_id')") or die(mysqli_error($db_conn));
+    }
+
 
     $response = array(
         'success' => TRUE,
