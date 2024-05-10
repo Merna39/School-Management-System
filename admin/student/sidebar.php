@@ -206,7 +206,7 @@
               </li>
             </ul>
           </li>
-
+          
           <!-- Examination -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -254,14 +254,23 @@
               </p>
             </a>       
             <ul class="nav nav-treeview">  
-            <li class="nav-item">
+              <li class="nav-item">
                 <a href="http://localhost/School-Management-System/admin/student/attendance.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                 <p>Attendance</p>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Attendance</p>
                 </a>
               </li>
             </ul>        
           </li>  
+          <li class="nav-item has-treeview" id="communications-menu">
+          <a href="http://localhost:8080/School-Management-System/admin/student_chat.php" class="nav-link">
+            <i class="nav-icon far fa-comments"></i>
+            <p>
+              Communications
+              <span id="message-count-badge" class="badge badge-danger right">0</span>
+            </p>
+          </a>
+        </li>
     <!-- Fees -->
     <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -350,6 +359,36 @@
     </div>
     <!-- /.sidebar -->
   </aside>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  // Function to update message count badge and dropdown menu
+  function updateNotificationAndDropdown(newMessageCount) {
+    // Update badge count
+    $('#message-count-badge').text(newMessageCount);
+
+    // Show/hide badge based on count
+    if (newMessageCount > 0) {
+      $('#message-count-badge').show();
+    } else {
+      $('#message-count-badge').hide();
+    }
+  }
+
+  // Function to periodically check for new messages (simulated)
+  function checkForNewMessages() {
+    setInterval(function() {
+      // Simulate new messages count (replace with actual logic)
+      var newMessageCount = Math.floor(Math.random() * 5); // Random number for demonstration
+      updateNotificationAndDropdown(newMessageCount); // Update UI based on new messages
+    }, 5000); // Check every 5 seconds (adjust as needed)
+  }
+
+  // Initial load of messages and setup for checking new messages
+  $(document).ready(function() {
+    checkForNewMessages(); // Start checking for new messages
+  });
+</script>
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
