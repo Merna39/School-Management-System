@@ -290,7 +290,7 @@
 
             <!-- Study Materials -->
            <li class="nav-item has-treeview">
-           <a href="http://localhost/School-Management-System/admin/teacher/fee-details.php" class="nav-link">
+           <a href="http://localhost/School-Management-System/admin/teacher/study-materials.php" class="nav-link">
            <i class="nav-icon fas fa-book-open"></i>
               <p>
               Study Materials
