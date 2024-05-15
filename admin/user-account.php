@@ -27,6 +27,19 @@ if (isset($_POST['submit'])) {
   }
 }
 
+if (isset($_GET['std_id'])){
+  $id = $_GET['id'];
+  $sql = "DELETE FROM `accounts` WHERE id = $id";        
+
+  if($db_conn->query($sql) === TRUE){
+    echo "rkkfk";
+  }
+  // mysqli_query($db_conn, "DELETE FROM `accounts` WHERE `id` = '$id'");
+  
+  // $_SESSION['success_msg'] = 'User has been succefuly registered';
+  //   header('location: user-account.php?user=' . $type);
+}
+
 ?>
 
 
@@ -50,6 +63,12 @@ i.fas.fa-circle-notch.fa-spin {
     transform-origin: center;
 } */
 </style>
+
+<!-- <script>
+  function @tDel(v) {
+    $(v).parent().parent().delete();
+  }
+</script> -->
 <!-- Content Header (Page header) -->
 <div class="content-header">
   <div class="container-fluid">
@@ -360,7 +379,7 @@ i.fas.fa-circle-notch.fa-spin {
 
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="tody">
                 <?php
 
                 $count = 1;
@@ -369,13 +388,14 @@ i.fas.fa-circle-notch.fa-spin {
                 while ($users = mysqli_fetch_object($user_result)) {
 
                 ?>
-                  <tr>
+                  <tr id="trow">
                     <td><?= $count++ ?></td>
                     <td><?= $users->name ?></td>
                     <td><?= $users->email ?></td>
                     <td><?= $users->level ?></td>
                     <td><a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
-                                      ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-fw"></i>Delete</a></td>
+                                      ?>" class="btn btn-sm btn-danger delete-record" id="delete"><i class="fa fa-trash fa-fw" ></i>Delete</a></td>
+                                 
                   </tr>
                 <?php } ?>
               </tbody>
