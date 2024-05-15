@@ -162,6 +162,7 @@ if (isset($_POST['submit'])) {
                   <th>Category</th>
                   <th>Duration</th>
                   <th>Date</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -176,6 +177,8 @@ if (isset($_POST['submit'])) {
                     <td><?= $course->category ?></td>
                     <td><?= $course->duration ?></td>
                     <td><?= $course->date ?></td>
+                    <td><a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
+                                      ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-fw"></i>Delete</a></td>
                   </tr>
                 <?php } ?>
               </tbody>
