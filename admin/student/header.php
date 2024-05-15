@@ -1,8 +1,10 @@
 
 <?php
-$std_id = 67;
-$student = get_user_data($std_id);
-$stdmeta = get_user_metadata($std_id);
+
+$std_id =67;
+//$std_id = $_SESSION['user_id'];
+ $student = get_user_data($std_id);
+ $stdmeta = get_user_metadata($std_id);
 ?>
 ?>
 <!DOCTYPE html>

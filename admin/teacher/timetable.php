@@ -78,7 +78,7 @@
                           <?php
                           $teacher_id = get_metadata($timetabl->item_id ,'teacher_id',)[0]
                           ->meta_value;
-                          echo get_user_data($teacher_id)[0]->name; 
+                          echo get_user_data($teacher_id)->name; 
                           ?> 
 
                           <br>

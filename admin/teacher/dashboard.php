@@ -88,85 +88,80 @@
 
         <?php
             
-             $current_month = strtolower(date('F'));
-             $current_year = date('Y');
-             $current_date = date('d');
-             $sql = "SELECT * FROM `attendance` WHERE `attendance_month` = '$current_month' AND year(current_session) = $current_year AND std_id = $std_id";
-
-             $query = mysqli_query($db_conn, $sql);
-
-             $row = mysqli_fetch_object($query);
-             $attendance = unserialize($row->attendance_value);
-             //echo '<pre>';
+            
+            $current_month = strtolower(date('F'));
+            $current_year = date('Y');
+            $current_date = date('d');
+            $sql = "SELECT * FROM `attendance_tch` WHERE `attendance_month` = '$current_month' AND year(current_session) = $current_year AND tch_id = $tch_id";
+  
+            $query = mysqli_query($db_conn, $sql);
+  
+            $row = mysqli_fetch_object($query);
+            $attendance = unserialize($row->attendance_value) ;
+            // echo '<pre>';
             // print_r($attendance);
-             //echo '</pre>';
-        if(isset($_POST['sign-in'])){
-      
-          // $att_data = [];
-
-           //for ($i=1; $i <= 31; $i++) { 
-            // $att_data[$i] = [
-             //  'signin_at' => (date('d') == $i)? time() :'',
-              // 'signout_at' => (date('d') == $i)? time() :'',
-               //'date' => $i
-            // ];
-         //  }
-           $attendance[$current_date] = [
-             'signin_at' =>  time(),
-             'signout_at' => '',
-             'date' => $current_date
-           ];
-           $att_data = serialize( $attendance);
-           $current_month = strtolower(date('F'));
-           $sql = "UPDATE `attendance` SET `attendance_value` = '$att_data' WHERE `attendance_month` = '$current_month' AND std_id = $std_id";
-          
-           mysqli_query($db_conn,$sql) or die('DB error');;
+            // echo '</pre>';
+          if(isset($_POST['sign-in'])){
+            // $att_data = [];
+  
+            // for ($i=1; $i <= 31; $i++) { 
+            //   $att_data[$i] = [
+            //     'signin_at' => (date('d') == $i)? time() :'',
+            //     'signout_at' => (date('d') == $i)? time() :'',
+            //     'date' => $i
+            //   ];
+            // }
+  
+            $attendance[$current_date] = [
+                'signin_at' => time(),
+                'signout_at' => '',
+                'date' => $current_date
+            ];
+  
+            $att_data = serialize($attendance);
+            $current_month = strtolower(date('F'));
+            $sql = "UPDATE `attendance_tch` SET `attendance_value` = '$att_data' WHERE `attendance_month` = '$current_month' AND tch_id = $tch_id";
+  
+            mysqli_query($db_conn,$sql) or die('DB error');;
           }
-                // echo '</pre>';
-        if(isset($_POST['sign-out'])){
-      
-           $attendance[$current_date] = [
-             'signin_at' => $attendance[$current_date]['signin_at'],
-             'signout_at' => time(),
-             'date' => $current_date
-           ];
-           $att_data = serialize( $attendance);
-           $current_month = strtolower(date('F'));
-           $sql = "UPDATE `attendance` SET `attendance_value` = '$att_data' WHERE `attendance_month` = '$current_month' AND std_id = $std_id";
-          
-           mysqli_query($db_conn,$sql) or die('DB error');;
+          if(isset($_POST['sign-out'])){
+            $attendance[$current_date] = [
+                'signin_at' => $attendance[$current_date]['signin_at'],
+                'signout_at' => time(),
+                'date' => $current_date
+            ];
+  
+            $att_data = serialize($attendance);
+            $current_month = strtolower(date('F'));
+            $sql = "UPDATE `attendance_tch` SET `attendance_value` = '$att_data' WHERE `attendance_month` = '$current_month' AND tch_id = $tch_id";
+  
+            mysqli_query($db_conn,$sql) or die('DB error');;
           }
           ?>
-
-        <div class="row ">
-        <div class="col-lg-3">
-        <div class="card">
-        <div class="card-header">
-          sign in info 
-       </div>
-       <div class="card-body">
-        <form action="" method="post">
-          <?php
-          if(empty($attendance[$current_date]['signin_at'] || $attendance[$current_date]['signout_at']))
-          {
-            echo ' <button name="sign-in" class="btn btn-primary">Sign In</button>';
-          }
-          else{
-           echo' <button name="sign-in" class="btn btn-primary">Sign In</button>';
-          }
-         ?>
-        </form>
-        </div>
-        </div>
-        </div>
-        </div>
-
-
-
-
-
-
-      </div><!--/. container-fluid -->
-    </section>
-    <!-- /.content -->
-<?php include('./footer.php') ?>
+          <div class="row">
+            <div class="col-lg-3">
+            <div class="card">
+            <div class="card-header">
+              Sign in Info
+            </div>
+            <div class="card-body">
+              <form action="" method="post">
+                <?php
+  
+                if(empty($attendance[$current_date]['signin_at']) || $attendance[$current_date]['signout_at'])
+                {
+                  echo '<button name="sign-in" class="btn btn-primary">Sign in</button>';
+                }
+                else{
+                  echo '<button name="sign-out" class="btn btn-primary">Sign Out</button>';
+                }
+                ?>
+              </form>
+            </div>
+          </div>
+            </div>
+          </div>
+        </div><!--/. container-fluid -->
+      </section>
+      <!-- /.content -->
+  <?php include('footer.php') ?>
