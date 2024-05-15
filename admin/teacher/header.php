@@ -1,6 +1,7 @@
 
 <?php
 $tch_id = 1;
+//$tch_id = $_SESSION['tch_id'];
 $teacher = get_user_data($tch_id);
 $tchmeta = get_user_metadata($tch_id);
 ?>

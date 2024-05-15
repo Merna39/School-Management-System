@@ -296,6 +296,7 @@
                 <p> Study Materials</p>
               </a>
             </li>
+          </ul>
             <!-- Event -->
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">

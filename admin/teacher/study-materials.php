@@ -124,7 +124,7 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div class="form-group">
                         <label for="name">Description</label>
-                        <textarea name="description" id="description" cols="30" rows="10" class="form-control">Description</textarea>
+                        <textarea name="description" id="description" cols="20" rows="7" class="form-control">Description</textarea>
                     </div>
             <div class="form-group">
                         <label for="name">Select Class</label>
@@ -154,7 +154,7 @@ if (isset($_POST['submit'])) {
             <div class="form-group">
                         <input type="file" name="attachment" id="attachment" required>
                     </div>
-                    <button name="submit" class="btn btn-success">
+                    <button name="submit" class="btn btn-primary">
                         Submit
                     </button>
           </form>
