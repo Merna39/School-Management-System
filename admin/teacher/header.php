@@ -1,8 +1,8 @@
 
 <?php
-$std_id = 67;
-$student = get_user_data($std_id);
-$stdmeta = get_user_metadata($std_id);
+$tch_id = 1;
+$teacher = get_user_data($tch_id);
+$tchmeta = get_user_metadata($tch_id);
 ?>
 ?>
 <!DOCTYPE html>

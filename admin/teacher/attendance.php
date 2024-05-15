@@ -7,12 +7,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Manage Student Attendance</h1>
+                <h1 class="m-0 text-dark">Manage Teacher Attendance</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Student</a></li>
-                    <li class="breadcrumb-item active">Student Attendance</li>
+                    <li class="breadcrumb-item"><a href="#">Teacher</a></li>
+                    <li class="breadcrumb-item active">Teacher Attendance</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -25,17 +25,17 @@
     <div class="container-fluid">
 
         <?php
-        // $std_id = isset($_GET['std_id']) ? $_GET['std_id'] : '';
-        $usermeta = get_user_metadata($std_id);
-        $class = get_post(['id' => $usermeta['class']]);
+        
+        $usermeta = get_user_metadata($tch_id);
+        // $class = get_post(['id' => $usermeta['class']]);
         ?>
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Student Detail</h3>
+                <h3 class="card-title">Teacher Detail</h3>
             </div>
             <div class="card-body">
-                <strong>Name: </strong> <?php echo get_users(array('id' => $std_id))[0]->name ?> <br>
-                <strong>Class: </strong> <?php echo $class->title ?>
+                <strong>Name: </strong> <?php echo get_users(array('id' => $tch_id))[0]->name ?> <br>
+                <!-- <strong>Class: </strong> <?php echo $class->title ?> -->
 
             </div>
         </div>
@@ -58,7 +58,7 @@
 
                         <?php
 
-                        $sql = "SELECT * FROM attendance_std WHERE attendance_month = date('F') AND year(current_session) = date('Y');";
+                        $sql = "SELECT * FROM attendance_tch WHERE attendance_month = date('F') AND year(current_session) = date('Y');";
 
 
                         $query = mysqli_query($db_conn, $sql);

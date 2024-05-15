@@ -224,12 +224,12 @@
                 </a>
               </li>
               
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="http://localhost/School-Management-System/admin/lessons.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lessons</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
           
