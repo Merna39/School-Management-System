@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Prepare and execute the SQL query using prepared statement
-    $query = "INSERT INTO messages (incoming_msg, outcoming_msg, msg) VALUES (?, ?, ?)";
+    $query = "INSERT INTO messages (incoming_msg, outcoming_msg, msg, timestamp) VALUES (?, ?, ?, NOW())";
     $stmt = mysqli_prepare($db_conn, $query);
 
     if (!$stmt) {

@@ -16,7 +16,8 @@ if ($result) {
         $messages[] = [
             'msg' => $row['msg'],
             'incoming_msg' => $row['incoming_msg'],
-            'outcoming_msg' => $row['outcoming_msg']
+            'outcoming_msg' => $row['outcoming_msg'],
+            'timestamp' => $row['timestamp']
         ];
     }
 }

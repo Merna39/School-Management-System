@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2024 at 09:51 PM
+-- Generation Time: Jun 05, 2024 at 12:18 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -55,7 +55,9 @@ INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`, `rol
 (50, 'teacher', 'teacher.10@example.com', 'zxcvzxcvzxcv', 'Teacher10', 2, 'teacher'),
 (60, 'teacher', 'teacher.11@example.com', 'zxcvzxcvzxcv', 'Teacher11', 3, 'teacher'),
 (67, 'student', 'student.1@example.com', '25f9e794323b453885f5181f1b624d0b', 'student 1', 1, 'student'),
-(68, 'student', 'faridamohmed@gmail.com', '25f9e794323b453885f5181f1b624d0b', 'farida mohamed', 2, 'student');
+(68, 'student', 'faridamohmed@gmail.com', '25f9e794323b453885f5181f1b624d0b', 'farida mohamed', 2, 'student'),
+(69, 'student', 'amrahmed@stud.com', 'amr123456', 'Amr Ahmed', 1, 'student'),
+(70, 'student', 'ahmedmohamed@stud.com', 'mohamed123', 'Ahmed Mohamed', 3, 'student');
 
 -- --------------------------------------------------------
 
@@ -163,17 +165,17 @@ CREATE TABLE `messages` (
   `msg_id` int(11) NOT NULL,
   `incoming_msg` varchar(255) DEFAULT NULL,
   `outcoming_msg` varchar(255) DEFAULT NULL,
-  `msg` varchar(255) DEFAULT NULL
+  `msg` varchar(255) DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `messages`
 --
 
-INSERT INTO `messages` (`msg_id`, `incoming_msg`, `outcoming_msg`, `msg`) VALUES
-(1, 'teacher', 'student', 'student hello'),
-(2, 'student', 'teacher', 'teacher'),
-(3, 'teacher', 'student', 'hi');
+INSERT INTO `messages` (`msg_id`, `incoming_msg`, `outcoming_msg`, `msg`, `timestamp`) VALUES
+(4, 'teacher', 'student', 'test', '2024-06-04 21:23:25'),
+(5, 'student', 'teacher', 'hi techer', '2024-06-04 21:24:43');
 
 -- --------------------------------------------------------
 
@@ -810,7 +812,7 @@ ALTER TABLE `usermeta`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT for table `attendance_std`
@@ -840,7 +842,7 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `metadata`

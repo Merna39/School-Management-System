@@ -1,5 +1,33 @@
 <?php include('header.php') ?>
 <?php include('sidebar.php') ?>
+<?php
+
+$conn = mysqli_connect('localhost', 'root', '', 'sms_project');
+
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Queries to get the real numbers
+$totalStudentsQuery = "SELECT COUNT(*) as total_students FROM accounts WHERE role='student'";
+$totalTeachersQuery = "SELECT COUNT(*) as total_teachers FROM accounts WHERE role='teacher'";
+$totalCoursesQuery = "SELECT COUNT(*) as total_courses FROM courses";
+// $newInquiriesQuery = "SELECT COUNT(*) as new_inquiries FROM inquiries"; // Assuming you have an inquiries table
+
+$totalStudentsResult = $conn->query($totalStudentsQuery);
+$totalTeachersResult = $conn->query($totalTeachersQuery);
+$totalCoursesResult = $conn->query($totalCoursesQuery);
+// $newInquiriesResult = $conn->query($newInquiriesQuery);
+
+$totalStudents = $totalStudentsResult->fetch_assoc()['total_students'];
+$totalTeachers = $totalTeachersResult->fetch_assoc()['total_teachers'];
+$totalCourses = $totalCoursesResult->fetch_assoc()['total_courses'];
+// $newInquiries = $newInquiriesResult->fetch_assoc()['new_inquiries'];
+
+$conn->close();
+?>
     <!-- Content Header (Page header) -->
     <div class="content-header ">
       <div class="container-fluid">
@@ -22,14 +50,14 @@
       <div class="container-fluid">
         <!-- Info boxes -->
         <div class="row">
-          <div class="col-12 col-sm-6 col-md-3">
+          <div class="col-12 col-sm-6 col-md-4">
             <div class="info-box">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-graduation-cap"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Total Students</span>
                 <span class="info-box-number">
-                  2000
+                  <?php echo $totalStudents; ?>
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -37,13 +65,13 @@
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-3">
+          <div class="col-12 col-sm-6 col-md-4">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Total Teachers</span>
-                <span class="info-box-number">50</span>
+                <span class="info-box-number"><?php echo $totalTeachers; ?></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -54,31 +82,31 @@
           <!-- fix for small devices only -->
           <div class="clearfix hidden-md-up"></div>
 
-          <div class="col-12 col-sm-6 col-md-3">
+          <div class="col-12 col-sm-6 col-md-4">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-book-open"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Total Courses</span>
-                <span class="info-box-number">100</span>
+                <span class="info-box-number"><?php echo $totalCourses; ?></span>
               </div>
               <!-- /.info-box-content -->
             </div>
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-3">
+          <!-- <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-question"></i></span>
 
-              <div class="info-box-content">
+               <div class="info-box-content">
                 <span class="info-box-text">New Inquiries</span>
-                <span class="info-box-number">10</span>
-              </div>
+                <span class="info-box-number"><//?php echo $newInquiries; ?></span>
+              </div> -->
               <!-- /.info-box-content -->
-            </div>
+            <!-- </div> -->
             <!-- /.info-box -->
-          </div>
+          <!-- </div>  -->
           <!-- /.col -->
         </div>
         <!-- /.row -->

@@ -27,12 +27,12 @@
             border-radius: 10px;
             margin-bottom: 10px;
             display: flex;
-            align-items: center;
             flex-direction: column;
         }
 
         .message.outgoing {
-            background-color: #4CAF50;
+            background-color: #2196F3;
+            /* Green */
             color: white;
             align-items: flex-end;
             text-align: right;
@@ -40,6 +40,7 @@
 
         .message.incoming {
             background-color: #F1F1F1;
+            /* Light Grey */
             color: black;
             align-items: flex-start;
             text-align: left;
@@ -50,12 +51,19 @@
             font-weight: bold;
             text-transform: uppercase;
             color: #FF5722;
+            /* Deep Orange */
             margin-bottom: 5px;
         }
 
         .message .msg-content {
             max-width: 80%;
             word-wrap: break-word;
+        }
+
+        .message .timestamp {
+            font-size: 0.8em;
+            color: #6c757d;
+            margin-top: 5px;
         }
 
         #messages-container {
@@ -124,13 +132,14 @@
                     var messagesContainer = $('#messages-container');
                     messagesContainer.empty();
                     messages.forEach(function(message) {
-                        var messageClass = (message.outcoming_msg === 'student') ? 'outgoing' : 'incoming';
+                        var messageClass = message.outcoming_msg === 'student' ? 'outgoing' : 'incoming';
                         var senderInfo = '<div class="sender-info">' + (message.outcoming_msg === 'student' ? 'You' : 'Teacher') + '</div>';
+                        var timestamp = '<div class="timestamp">' + new Date(message.timestamp).toLocaleString() + '</div>';
 
                         var messageHtml = '<div class="message ' + messageClass + '">';
                         messageHtml += senderInfo;
                         messageHtml += '<div class="msg-content">' + message.msg + '</div>';
-
+                        messageHtml += timestamp;
                         messageHtml += '</div>';
                         messagesContainer.append(messageHtml);
                     });
