@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2024 at 12:18 AM
+-- Generation Time: Jun 08, 2024 at 08:18 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,7 +45,6 @@ INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`, `rol
 (1, 'teacher', 'teacher.1@example.com', '25f9e794323b453885f5181f1b624d0b', 'Teacher1', 3, 'teacher'),
 (2, 'teacher', 'teacher.2@example.com', '25f9e794323b453885f5181f1b624d0b', 'Teacher2', 2, 'teacher'),
 (7, 'teacher', 'teacher.3@tech.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'Teacher3 ', 1, 'teacher'),
-(34, 'parent', 'parent@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'parentt', 1, 'student'),
 (44, 'teacher', 'teacher.4@example.com', 'asdfasdfasdf', 'Teacher4', 2, 'teacher'),
 (45, 'teacher', 'teacher.5@example.com', 'zxcvzxcvzxcv', 'Teacher5', 3, 'teacher'),
 (46, 'teacher', 'teacher.6@example.com', 'asdfasdfasdf', 'Teacher6', 1, 'teacher'),
@@ -57,7 +56,9 @@ INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`, `rol
 (67, 'student', 'student.1@example.com', '25f9e794323b453885f5181f1b624d0b', 'student 1', 1, 'student'),
 (68, 'student', 'faridamohmed@gmail.com', '25f9e794323b453885f5181f1b624d0b', 'farida mohamed', 2, 'student'),
 (69, 'student', 'amrahmed@stud.com', 'amr123456', 'Amr Ahmed', 1, 'student'),
-(70, 'student', 'ahmedmohamed@stud.com', 'mohamed123', 'Ahmed Mohamed', 3, 'student');
+(70, 'student', 'ahmedmohamed@stud.com', 'mohamed123', 'Ahmed Mohamed', 3, 'student'),
+(84, 'student', 'Ayaahmed@example.com', '660fd8d5bcbfa37c40f5b2b892636fca', 'Aya Ahmed', 2, 'student'),
+(85, 'student', 'Mariememad@example.com', '4f7a0009b455fb1289657352debb2473', 'Mariem Emad', 0, 'student');
 
 -- --------------------------------------------------------
 
@@ -79,7 +80,7 @@ CREATE TABLE `attendance_std` (
 --
 
 INSERT INTO `attendance_std` (`id`, `attendance_month`, `modified_date`, `attendance_value`, `std_id`, `current_session`) VALUES
-(2, 'may', '2024-05-15 22:37:47', 'a:1:{i:16;a:3:{s:9:\"signin_at\";i:1715801850;s:10:\"signout_at\";i:1715801867;s:4:\"date\";s:2:\"16\";}}', 67, '2024-05-15 19:37:04');
+(3, 'june', '2024-06-08 20:27:02', 'a:1:{s:2:\"08\";a:3:{s:9:\"signin_at\";i:1717866019;s:10:\"signout_at\";i:1717867622;s:4:\"date\";s:2:\"08\";}}', 67, '2024-06-08 13:59:04');
 
 -- --------------------------------------------------------
 
@@ -101,7 +102,7 @@ CREATE TABLE `attendance_tch` (
 --
 
 INSERT INTO `attendance_tch` (`id`, `attendance_month`, `modified_date`, `attendance_value`, `tch_id`, `current_session`) VALUES
-(1, 'may', '2024-05-15 22:48:51', 'a:1:{i:16;a:3:{s:9:\"signin_at\";i:1715802480;s:10:\"signout_at\";i:1715802531;s:4:\"date\";s:2:\"16\";}}', 1, '2024-05-15 19:43:49');
+(2, 'june', '2024-06-08 16:54:24', 'a:1:{s:2:\"08\";a:3:{s:9:\"signin_at\";i:1717854858;s:10:\"signout_at\";i:1717854864;s:4:\"date\";s:2:\"08\";}}', 1, '2024-06-08 13:37:49');
 
 -- --------------------------------------------------------
 
@@ -175,7 +176,9 @@ CREATE TABLE `messages` (
 
 INSERT INTO `messages` (`msg_id`, `incoming_msg`, `outcoming_msg`, `msg`, `timestamp`) VALUES
 (4, 'teacher', 'student', 'test', '2024-06-04 21:23:25'),
-(5, 'student', 'teacher', 'hi techer', '2024-06-04 21:24:43');
+(5, 'student', 'teacher', 'hi techer', '2024-06-04 21:24:43'),
+(6, 'student', 'teacher', 'hi', '2024-06-08 13:07:12'),
+(7, 'teacher', 'student', 'test', '2024-06-08 13:07:48');
 
 -- --------------------------------------------------------
 
@@ -738,7 +741,57 @@ INSERT INTO `usermeta` (`id`, `user_id`, `meta_key`, `meta_value`) VALUES
 (464, 81, 'class', ''),
 (465, 81, 'section', ''),
 (466, 81, 'subject_streem', ''),
-(467, 81, 'doa', '');
+(467, 81, 'doa', ''),
+(468, 84, 'dob', '2003-02-03'),
+(469, 84, 'mobile', '01255654236'),
+(470, 84, 'payment_method', 'offline'),
+(471, 84, 'address', ''),
+(472, 84, 'country', 'Egypt '),
+(473, 84, 'state', 'Giza'),
+(474, 84, 'zip', '02'),
+(475, 84, 'father_name', ''),
+(476, 84, 'father_mobile', ''),
+(477, 84, 'mother_name', ''),
+(478, 84, 'mother_mobile', ''),
+(479, 84, 'parents_address', ''),
+(480, 84, 'parents_country', ''),
+(481, 84, 'parents_state', ''),
+(482, 84, 'parents_zip', ''),
+(483, 84, 'school_name', ''),
+(484, 84, 'previous_class', ''),
+(485, 84, 'status', ''),
+(486, 84, 'total_marks', ''),
+(487, 84, 'obtain_mark', ''),
+(488, 84, 'previous_percentage', ''),
+(489, 84, 'class', '2'),
+(490, 84, 'section', '3'),
+(491, 84, 'subject_streem', ''),
+(492, 84, 'doa', '2024-06-08'),
+(493, 85, 'dob', '2004-02-01'),
+(494, 85, 'mobile', '01553956506'),
+(495, 85, 'payment_method', 'offline'),
+(496, 85, 'address', ''),
+(497, 85, 'country', ''),
+(498, 85, 'state', ''),
+(499, 85, 'zip', ''),
+(500, 85, 'father_name', ''),
+(501, 85, 'father_mobile', ''),
+(502, 85, 'mother_name', ''),
+(503, 85, 'mother_mobile', ''),
+(504, 85, 'parents_address', ''),
+(505, 85, 'parents_country', ''),
+(506, 85, 'parents_state', ''),
+(507, 85, 'parents_zip', ''),
+(508, 85, 'school_name', ''),
+(509, 85, 'previous_class', ''),
+(510, 85, 'status', ''),
+(511, 85, 'total_marks', ''),
+(512, 85, 'obtain_mark', ''),
+(513, 85, 'previous_percentage', ''),
+(514, 85, 'class', ''),
+(515, 85, 'section', ''),
+(516, 85, 'subject_streem', ''),
+(517, 85, 'doa', '');
 
 --
 -- Indexes for dumped tables
@@ -812,19 +865,19 @@ ALTER TABLE `usermeta`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `attendance_std`
 --
 ALTER TABLE `attendance_std`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `attendance_tch`
 --
 ALTER TABLE `attendance_tch`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `classes`
@@ -842,7 +895,7 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `metadata`
@@ -866,7 +919,7 @@ ALTER TABLE `sections`
 -- AUTO_INCREMENT for table `usermeta`
 --
 ALTER TABLE `usermeta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=468;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=518;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
