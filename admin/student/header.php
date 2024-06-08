@@ -13,6 +13,8 @@ $std_id =67;
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Student | Dashboard </title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
   <!-- test -->
 <!-- lsas -->
   <!-- Google Font: Source Sans Pro -->

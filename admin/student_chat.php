@@ -31,15 +31,15 @@
         }
 
         .message.outgoing {
-            background-color: #2196F3;
+            background-color: #E6E6FA;
             /* Green */
-            color: white;
+            color:black ;
             align-items: flex-end;
             text-align: right;
         }
 
         .message.incoming {
-            background-color: #F1F1F1;
+            background-color: #F8F9FA;
             /* Light Grey */
             color: black;
             align-items: flex-start;
@@ -50,7 +50,7 @@
             font-size: 0.9em;
             font-weight: bold;
             text-transform: uppercase;
-            color: #FF5722;
+            color: #6495ED;
             /* Deep Orange */
             margin-bottom: 5px;
         }

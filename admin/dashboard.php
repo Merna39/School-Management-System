@@ -30,7 +30,7 @@ $conn->close();
 ?>
     <!-- Content Header (Page header) -->
     <div class="content-header ">
-      <div class="container-fluid">
+      <div  class="container-fluid"">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Dashboard</h1>
@@ -47,7 +47,7 @@ $conn->close();
     <!-- /.content-header -->
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
+      <div class="container-fluid ">
         <!-- Info boxes -->
         <div class="row">
           <div class="col-12 col-sm-6 col-md-4">
@@ -110,7 +110,55 @@ $conn->close();
           <!-- /.col -->
         </div>
         <!-- /.row -->
+        <hr>
+
+        <div class="calendar">
+        <div class="calendar-header">
+          <span class="month-picker" id="month-picker"> May </span>
+          <div class="year-picker" id="year-picker">
+            <span class="year-change" id="pre-year">
+              <pre><</pre>
+            </span>
+            <span id="year">2020 </span>
+            <span class="year-change" id="next-year">
+              <pre>></pre>
+            </span>
+          </div>
+        </div>
+ 
+        <div class="calendar-body">
+          <div class="calendar-week-days">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+          </div>
+          <div class="calendar-days">
+          </div>
+        </div>
+        <div class="calendar-footer">
+        </div>
+        <div class="date-time-formate">
+          <div class="day-text-formate">TODAY</div>
+          <div class="date-time-value">
+            <div class="time-formate">02:51:20</div>
+            <div class="date-formate">23 - july - 2022</div>
+          </div>
+        </div>
+        <div class="month-list"></div>
+      </div>
+      
+      
       </div><!--/. container-fluid -->
+
+      
+      
     </section>
+
+    
+    
     <!-- /.content -->
 <?php include('footer.php') ?>

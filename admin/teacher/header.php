@@ -12,6 +12,8 @@ $tchmeta = get_user_metadata($tch_id);
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Teacher | Dashboard </title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
   <!-- test -->
 <!-- lsas -->
   <!-- Google Font: Source Sans Pro -->

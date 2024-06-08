@@ -28,12 +28,13 @@
             margin-bottom: 10px;
             display: flex;
             flex-direction: column;
+          
         }
 
         .message.outgoing {
-            background-color: #2196F3;
+            background-color: #E6E6FA;
             /* Blue */
-            color: white;
+            color: #000;
             align-items: flex-end;
             text-align: right;
         }
@@ -50,7 +51,7 @@
             font-size: 0.9em;
             font-weight: bold;
             text-transform: uppercase;
-            color: #FF9800;
+            color: #6495ED;
             /* Amber */
             margin-bottom: 5px;
         }

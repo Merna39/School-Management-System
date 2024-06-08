@@ -365,7 +365,7 @@
             </ul>
           </li>
           <!-- Study Materials -->
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-paste"></i>
               <p>
@@ -381,7 +381,7 @@
                 </a>
               </li>
             </ul>           
-          </li>
+          </li> -->
 
           <!-- Event -->
           <li class="nav-item has-treeview">
@@ -408,7 +408,7 @@
             </ul>        
           </li>
           <!-- Communication -->
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
@@ -424,10 +424,10 @@
                 </a>
               </li>
             </ul>          
-          </li>
+          </li> -->
 
           <!-- Acadmy Settings -->
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
@@ -443,7 +443,7 @@
                 </a>
               </li>
             </ul>          
-          </li>
+          </li> -->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

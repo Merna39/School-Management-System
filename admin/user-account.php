@@ -231,7 +231,7 @@ i.fas.fa-circle-notch.fa-spin {
                 </div>
               </fieldset>
 
-              <fieldset class="border border-secondary p-3 form-group">
+              <!-- <fieldset class="border border-secondary p-3 form-group">
                 <legend class="d-inline w-auto h6">Last Qualification</legend>
                 <div class="row">
 
@@ -272,7 +272,7 @@ i.fas.fa-circle-notch.fa-spin {
                     </div>
                   </div>
                 </div>
-              </fieldset>
+              </fieldset> -->
 
               <fieldset class="border border-secondary p-3 form-group">
                 <legend class="d-inline w-auto h6">Admission Details</legend>
