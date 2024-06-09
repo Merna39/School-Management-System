@@ -172,12 +172,12 @@
                   <p>Students</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="http://localhost/School-Management-System/admin/user-account.php?user=parent" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Parents</p>
                 </a>
-              </li>
+              </li> -->
               <!-- <li class="nav-item">
                 <a href="http://localhost/School-Management-System/admin/user-account.php?user=librarian" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
