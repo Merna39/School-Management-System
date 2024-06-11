@@ -276,6 +276,10 @@
     background: #edeefe;
 
   }
+  .btn-rounded {
+    --mdb-btn-border-radius: 10rem;
+    border-radius: var(--mdb-btn-border-radius);
+  }
       </style>
 
 <div class="col-lg-4">
@@ -308,10 +312,10 @@
   
                 if(empty($attendance[$current_date]['signin_at']) || $attendance[$current_date]['signout_at'])
                 {
-                  echo '<button name="sign-in" class="btn bg-info ">Sign in</button>';
+                  echo '<button name="sign-in" class="btn btn-info btn-rounded ">Sign in</button>';
                 }
                 else{
-                  echo '<button name="sign-out" class="btn btn-primary">Sign Out</button>';
+                  echo '<button name="sign-out" class="btn btn-danger btn-rounded">Sign Out</button>';
                 }
                 ?>
               </form>

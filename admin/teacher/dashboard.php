@@ -139,8 +139,8 @@
           }
           ?>
             <div class="row">
-          
-          <div class="col-lg-5">
+            <div class="col-lg-5 col-sm-6 col-md-4">
+          <!-- <div class="col-lg-5"> -->
           <div class="calendar">
         <div class="calendar-header">
           <span class="month-picker" id="month-picker"> May </span>
@@ -275,8 +275,12 @@
     background: #edeefe;
 
   }
+  .btn-rounded {
+    --mdb-btn-border-radius: 10rem;
+    border-radius: var(--mdb-btn-border-radius);
+  }
       </style>
-
+<!-- <div class="col-lg-4 col-sm-6 col-md-6"> -->
 <div class="col-lg-4">
       <div class="todo-app">
         <h2> To_Do List <img src="../../images/icon.png"> </h2>
@@ -307,10 +311,10 @@
   
                 if(empty($attendance[$current_date]['signin_at']) || $attendance[$current_date]['signout_at'])
                 {
-                  echo '<button name="sign-in" class="btn bg-info ">Sign in</button>';
+                  echo '<button name="sign-in" class="btn btn-info btn-rounded ">Sign in</button>';
                 }
                 else{
-                  echo '<button name="sign-out" class="btn btn-primary">Sign Out</button>';
+                  echo '<button name="sign-out" class="btn btn-danger btn-rounded">Sign Out</button>';
                 }
                 ?>
               </form>
