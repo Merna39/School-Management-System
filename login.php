@@ -28,7 +28,10 @@ if (isset($_POST['login'])) {
   $getemail = mysqli_real_escape_string($db_conn, $_POST['email']);
   $getpassword = mysqli_real_escape_string($db_conn, $_POST['password']);
 
-  // Hash the password to match with DB
+  if ($getemail == $admin_email && $getpassword == $admin_password) {
+    header('Location: ./admin/dashboard.php');
+  } 
+
   $getpassword_md5 = $getpassword;
 
   $query = mysqli_query($db_conn, "SELECT * FROM `accounts` WHERE `email` = '$getemail' AND `password` = '$getpassword_md5'");
@@ -39,7 +42,7 @@ if (isset($_POST['login'])) {
       $_SESSION['user_type'] = $user->role;
       $_SESSION['user_id'] = $user->id;
 
-      if ($user->role == 'student') {
+    if ($user->role == 'student') {
           header('Location: ./admin/student/dashboard.php');
       } elseif ($user->role == 'teacher') {
           header('Location: ./admin/teacher/dashboard.php');
