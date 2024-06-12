@@ -1,10 +1,9 @@
-
 <?php
-$tch_id = 1;
-//$tch_id = $_SESSION['tch_id'];
+session_start();
+
+$tch_id = $_SESSION['user_id'];
 $teacher = get_user_data($tch_id);
 $tchmeta = get_user_metadata($tch_id);
-?>
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,10 +24,8 @@ $tchmeta = get_user_metadata($tch_id);
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
 
-
   <!-- jQuery -->
   <script src="../plugins/jquery/jquery.min.js"></script>
-
 </head>
 <body class="hold-transition light-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
