@@ -32,7 +32,7 @@ if (isset($_POST['login'])) {
     header('Location: ./admin/dashboard.php');
   } 
 
-  $getpassword_md5 = $getpassword;
+  $getpassword_md5 = md5($getpassword);
 
   $query = mysqli_query($db_conn, "SELECT * FROM `accounts` WHERE `email` = '$getemail' AND `password` = '$getpassword_md5'");
   if (mysqli_num_rows($query) > 0) {
