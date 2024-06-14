@@ -1,5 +1,5 @@
 <?php
- session_start();
+//  session_start();
 $site_url= 'http://localhost/School-Management-System/';
 
 ?>

@@ -1,6 +1,23 @@
 <?php include('../includes/config.php') ?>
 <?php include('header.php') ?>
 <?php include('sidebar.php') ?>
+<?php
+// Write the SQL query to fetch the student's name
+$sql = "SELECT name FROM accounts WHERE id = '$tch_id'";
+
+// Execute the query
+$result = mysqli_query($db_conn, $sql);
+
+// Check if the query was successful
+if ($result) {
+    // Fetch the name from the result
+    $teacher = mysqli_fetch_assoc($result);
+    $teacher_name = $teacher['name']; // Store the student's name
+} else {
+    // Handle the case where the query failed
+    echo "Error: " . mysqli_error($db_conn);
+}
+?>
     <!-- Content Header (Page header) -->
     <div class="content-header ">
       <div class="container-fluid">
@@ -21,6 +38,13 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+      
+        <!-- Welcome Message -->
+        <div class="row mb-2">
+          <div class="col-sm-12">
+            <h2>Welcome, <?php echo $teacher_name; ?>!</h2>
+          </div>
+        </div>
         <!-- Info boxes -->
         <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
