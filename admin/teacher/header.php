@@ -5,7 +5,7 @@ $tch_id = 1;
 $teacher = get_user_data($tch_id);
 $tchmeta = get_user_metadata($tch_id);
 ?>
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

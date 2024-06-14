@@ -95,7 +95,7 @@ if(!empty($_POST)){
     <div class="container-fluid">
 
         <?php 
-            // $std_id = isset($_GET['std_id']) ? $_GET['std_id'] : '';
+            //$std_id = isset($_GET['std_id']) ? $_GET['std_id'] : '';
             $usermeta = get_user_metadata($std_id);
             $class = get_post(['id' => $usermeta['class']]);
         ?>

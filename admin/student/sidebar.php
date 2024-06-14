@@ -142,7 +142,7 @@
               <li class="nav-item">
                 <a href="http://localhost/School-Management-System/admin/student/subjects.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Subects</p>
+                  <p>Subjects</p>
                 </a>
               </li>
               
@@ -261,12 +261,12 @@
                   <p>Tuition Fee</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="<?=$site_url?>student/examination-fee.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Examination Fee</p>
                 </a>
-              </li>
+              </li> -->
             </ul>        
           </li>  
 

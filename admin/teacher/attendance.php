@@ -44,7 +44,7 @@
                 <h3 class="card-title">Attendance</h3>
             </div>
             <div class="card-body">
-                <table class="table table-bordered">
+                <table class="table table-bordered border-info  table-striped table-hover">
                     <thead>
                         <tr>
                              

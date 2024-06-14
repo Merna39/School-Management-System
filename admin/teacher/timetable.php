@@ -27,7 +27,7 @@
 
     <div class="card">
       <div class="card-body">
-        <table class="table table-bordered">
+        <table class="table table-bordered border-info  table-striped table-hover">
           <thead>
             <tr>
               <th>Timing</th>

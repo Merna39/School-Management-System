@@ -25,7 +25,7 @@
       <div class="container-fluid">
        
                 <div class="table-responsive  bg-white ">
-                  <table class="table table-bordered">
+                  <table class="table table-bordered border-info  table-striped table-hover">
                     <thead>
                       <tr>
                         <th>S.No.</th>
