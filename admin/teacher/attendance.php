@@ -58,7 +58,7 @@
 
                         <?php
 
-                        $sql = "SELECT * FROM attendance_tch WHERE attendance_month = date('F') AND year(current_session) = date('Y');";
+                        $sql = "SELECT * FROM attendance_tch WHERE attendance_month = date('F') AND tch_id = $tch_id AND year(current_session) = date('Y');";
 
 
                         $query = mysqli_query($db_conn, $sql);

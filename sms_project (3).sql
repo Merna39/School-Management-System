@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2024 at 08:18 PM
+-- Generation Time: Jun 14, 2024 at 12:09 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -54,11 +54,11 @@ INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`, `rol
 (50, 'teacher', 'teacher.10@example.com', 'zxcvzxcvzxcv', 'Teacher10', 2, 'teacher'),
 (60, 'teacher', 'teacher.11@example.com', 'zxcvzxcvzxcv', 'Teacher11', 3, 'teacher'),
 (67, 'student', 'student.1@example.com', '25f9e794323b453885f5181f1b624d0b', 'student 1', 1, 'student'),
-(68, 'student', 'faridamohmed@gmail.com', '25f9e794323b453885f5181f1b624d0b', 'farida mohamed', 2, 'student'),
-(69, 'student', 'amrahmed@stud.com', 'amr123456', 'Amr Ahmed', 1, 'student'),
-(70, 'student', 'ahmedmohamed@stud.com', 'mohamed123', 'Ahmed Mohamed', 3, 'student'),
+(68, 'student', 'faridamohmed@gmail.com', '25f9e794323b453885f5181f1b624d0b', 'Farida Mohamed', 2, 'student'),
+(69, 'student', 'amrahmed@stud.com', '781e5e245d69b566979b86e28d23f2c7', 'Amr Ahmed', 1, 'student'),
+(70, 'student', 'ahmedmohamed@stud.com', '781e5e245d69b566979b86e28d23f2c7', 'Ahmed Mohamed', 3, 'student'),
 (84, 'student', 'Ayaahmed@example.com', '660fd8d5bcbfa37c40f5b2b892636fca', 'Aya Ahmed', 2, 'student'),
-(85, 'student', 'Mariememad@example.com', '4f7a0009b455fb1289657352debb2473', 'Mariem Emad', 0, 'student');
+(85, 'student', 'Mariememad@example.com', '4f7a0009b455fb1289657352debb2473', 'Mariem Emad', 3, 'student');
 
 -- --------------------------------------------------------
 
@@ -80,7 +80,12 @@ CREATE TABLE `attendance_std` (
 --
 
 INSERT INTO `attendance_std` (`id`, `attendance_month`, `modified_date`, `attendance_value`, `std_id`, `current_session`) VALUES
-(3, 'june', '2024-06-08 20:27:02', 'a:1:{s:2:\"08\";a:3:{s:9:\"signin_at\";i:1717866019;s:10:\"signout_at\";i:1717867622;s:4:\"date\";s:2:\"08\";}}', 67, '2024-06-08 13:59:04');
+(3, 'june', '2024-06-14 12:32:45', 'a:4:{s:2:\"08\";a:3:{s:9:\"signin_at\";i:1717866019;s:10:\"signout_at\";i:1717867622;s:4:\"date\";s:2:\"08\";}s:2:\"09\";a:3:{s:9:\"signin_at\";i:1717932750;s:10:\"signout_at\";i:1717932758;s:4:\"date\";s:2:\"09\";}i:11;a:3:{s:9:\"signin_at\";i:1718113945;s:10:\"signout_at\";i:1718116534;s:4:\"date\";s:2:\"11\";}i:14;a:3:{s:9:\"signin_at\";i:1718357562;s:10:\"signout_at\";i:1718357565;s:4:\"date\";s:2:\"14\";}}', 67, '2024-06-08 13:59:04'),
+(4, 'june', '2024-06-14 12:29:39', 'a:1:{i:14;a:3:{s:9:\"signin_at\";i:1718357376;s:10:\"signout_at\";i:1718357379;s:4:\"date\";s:2:\"14\";}}', 68, '2024-06-08 13:59:04'),
+(5, 'june', '2024-06-14 12:29:39', '', 70, '2024-06-08 13:59:04'),
+(6, 'june', '2024-06-14 12:32:45', '', 84, '2024-06-08 13:59:04'),
+(7, 'june', '2024-06-14 12:48:33', 'a:1:{i:14;a:3:{s:9:\"signin_at\";i:1718358511;s:10:\"signout_at\";i:1718358513;s:4:\"date\";s:2:\"14\";}}', 69, '2024-06-08 13:59:04'),
+(8, 'june', '2024-06-14 12:32:45', '', 85, '2024-06-08 13:59:04');
 
 -- --------------------------------------------------------
 
@@ -102,7 +107,15 @@ CREATE TABLE `attendance_tch` (
 --
 
 INSERT INTO `attendance_tch` (`id`, `attendance_month`, `modified_date`, `attendance_value`, `tch_id`, `current_session`) VALUES
-(2, 'june', '2024-06-08 16:54:24', 'a:1:{s:2:\"08\";a:3:{s:9:\"signin_at\";i:1717854858;s:10:\"signout_at\";i:1717854864;s:4:\"date\";s:2:\"08\";}}', 1, '2024-06-08 13:37:49');
+(2, 'june', '2024-06-11 16:51:45', 'a:2:{s:2:\"08\";a:3:{s:9:\"signin_at\";i:1717854858;s:10:\"signout_at\";i:1717854864;s:4:\"date\";s:2:\"08\";}i:11;a:3:{s:9:\"signin_at\";i:1718113855;s:10:\"signout_at\";i:1718113905;s:4:\"date\";s:2:\"11\";}}', 1, '2024-06-08 13:37:49'),
+(3, 'june', '2024-06-14 13:08:34', 'a:1:{i:14;a:3:{s:9:\"signin_at\";i:1718359709;s:10:\"signout_at\";i:1718359714;s:4:\"date\";s:2:\"14\";}}', 2, '2024-06-08 13:37:49'),
+(4, 'june', '2024-06-14 13:04:54', '', 7, '2024-06-14 10:04:54'),
+(5, 'june', '2024-06-14 13:04:54', '', 44, '2024-06-14 10:04:54'),
+(6, 'june', '2024-06-14 13:04:54', '', 46, '2024-06-14 10:04:54'),
+(7, 'june', '2024-06-14 13:04:54', '', 47, '2024-06-14 10:04:54'),
+(8, 'june', '2024-06-14 13:04:54', '', 48, '2024-06-14 10:04:54'),
+(9, 'june', '2024-06-14 13:04:54', 'june', 50, '2024-06-14 10:04:54'),
+(10, 'june', '2024-06-14 13:04:54', '', 60, '2024-06-14 10:04:54');
 
 -- --------------------------------------------------------
 
@@ -791,7 +804,8 @@ INSERT INTO `usermeta` (`id`, `user_id`, `meta_key`, `meta_value`) VALUES
 (514, 85, 'class', ''),
 (515, 85, 'section', ''),
 (516, 85, 'subject_streem', ''),
-(517, 85, 'doa', '');
+(517, 85, 'doa', ''),
+(518, 69, 'class', '2');
 
 --
 -- Indexes for dumped tables
@@ -871,13 +885,13 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT for table `attendance_std`
 --
 ALTER TABLE `attendance_std`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `attendance_tch`
 --
 ALTER TABLE `attendance_tch`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `classes`
@@ -919,7 +933,7 @@ ALTER TABLE `sections`
 -- AUTO_INCREMENT for table `usermeta`
 --
 ALTER TABLE `usermeta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=518;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=519;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
