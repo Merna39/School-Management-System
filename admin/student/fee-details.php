@@ -2,103 +2,190 @@
 <?php include('header.php') ?>
 <?php include('sidebar.php') ?>
 
+
 <?php
-$MERCHANT_KEY="awUp7zBb";
-$SALT="T4meBzglbm";
-$PAYU_BASE_URL="https://test.payu.in";
-$action= '';
-$posted= array();
-if(!empty($_POST)){
+$success_msg =  false;
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : "";
+if (isset($_POST['form_submitted'])) {
 
-    foreach ($_POST as $key => $value) {
-        $posted[$key] = $value;
+    $status = isset($_POST["status"]) ? $_POST["status"] : 'success';
+    $firstname = isset($_POST["firstname"]) ? $_POST["firstname"] : '';
+    $amount = isset($_POST["amount"]) ? $_POST["amount"] : '';
+    $email = isset($_POST["email"]) ? $_POST["email"] : '';
+    $month = isset($_POST["month"]) ? $_POST["month"] : '';
+
+
+
+    $title = $month . ' - Fee';
+
+    $query = mysqli_query($db_conn, "INSERT INTO `posts` (`title`, `type`,`description`, `status`, `author`,`parent`) VALUES ('$title', 'payment','','$status', $user_id,0)");
+
+    if ($query) {
+        $item_id = mysqli_insert_id($db_conn);
     }
+
+    $payment_data = array(
+        'amount' => $amount,
+        'status' => $status,
+        'student_id' => $user_id,
+        'month' => $month
+    );
+
+    foreach ($payment_data as $key => $value) {
+        mysqli_query($db_conn, "INSERT INTO `metadata` (`item_id`, `meta_key`, `meta_value`) VALUES ('$item_id', '$key', '$value')");
+    }
+
+    $success_msg = true;
 }
- $formError = 0;
-  if(empty($posted['$txnid'])) {
-    $txnid = substr(hash('sha256',mt_rand() . microtime()), 0, 20);
-  } else{
-    $txnid= $posted['txnid'];
 
-  }
- $hash = '';
- $hashSequence = "key|txnid|amount|productinfo|firstname|email|udf1|udf2|udf4|udf5|udf6|udf7|udf8|udf9|udf10";
- if(empty($posted['hash']) && sizeof($posted) > 0){
- 
-    if( empty($posted['key'])
-  || empty($posted['txnid'])
-  || empty($posted['amount'])
-  || empty($posted['firstname'])
-  || empty($posted['email'])  
-  || empty($posted['phone'])  
-  || empty($posted['productinfo'])
-  || empty($posted['surl'])  
-  || empty($posted['furl'])  
-  || empty($posted['service_provider'])
-  ){
-    $formError = 1;
-
-  } else{
-    $hashVarSeq = explode('|',$hashSequence);
-      $hash_string = '';
-      foreach($hashVarSeq as $hash_var){
-        $hash_string .=isset($posted[$hash_var]) ? $posted[$hash_var] : '';
-        $hash_string .= '|';
+if (isset( $_GET['action'] ) && $_GET['action'] == 'view-invoice') { ?>
 
 
-      }
-      $hash_string .=$SALT;
-      $hash = strtolower(hash('sha512',$hash_string));
-      $action = $PAYU_BASE_URL . '/_payment';
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="invoice-title">
+                            <h4 class="float-end font-size-15">Invoice #DS0204 <span class="badge bg-success font-size-12 ms-2">Paid</span></h4>
+                            <div class="mb-4">
+                                <h2 class="mb-1 text-muted">Techno Study</h2>
+                            </div>
+                            <div class="text-muted">
+                                <p class="mb-1">Vishwsh khand, Gomtinagar, Lucknow, UP 231216, India</p>
+                                <p class="mb-1"><i class="uil uil-envelope-alt me-1"></i>modifiercrazy@gmail.com</p>
+                                <p><i class="uil uil-phone me-1"></i> 012-345-6789</p>
+                            </div>
+                        </div>
 
-  }
+                        <hr class="my-4">
 
- } elseif(!empty($posted['hash'])){
-  $hash = $posted['hash'];
-  $action = $PAYU_BASE_URL . '/_payment';
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="text-muted">
+                                    <h5 class="font-size-16 mb-3">Billed To:</h5>
+                                    <h5 class="font-size-15 mb-2">Preston Miller</h5>
+                                    <p class="mb-1">4068 Post Avenue Newfolden, MN 56738</p>
+                                    <p class="mb-1">PrestonMiller@armyspy.com</p>
+                                    <p>001-234-5678</p>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                            <div class="col-sm-6">
+                                <div class="text-muted text-sm-end">
+                                    <div>
+                                        <h5 class="font-size-15 mb-1">Invoice No:</h5>
+                                        <p>#DZ0112</p>
+                                    </div>
+                                    <div class="mt-4">
+                                        <h5 class="font-size-15 mb-1">Invoice Date:</h5>
+                                        <p>12 Oct, 2020</p>
+                                    </div>
+                                    <div class="mt-4">
+                                        <h5 class="font-size-15 mb-1">Order No:</h5>
+                                        <p>#1123456</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
 
- }
- ?>
- 
-<html>
-  <head>
-  <script>
-    var hash = '<?php echo $hash ?>';
-    function submitPayuForm() {
-      if(hash == '') {
-        return;
-      }
-       var PayuForm = document.forms.payuForm;
-       payuForm.submit();
-    }
-</script>
+                        <div class="py-2">
+                            <h5 class="font-size-15">Order Summary</h5>
 
-<!-- Content Header (Page header) -->
-<div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Manage Student Fee Details</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                    <li class="breadcrumb-item active">Student Fee Details</li>
-                </ol>
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-</div>
-<!-- /.content-header -->
-<!-- Main content -->
-<section class="content">
-    <div class="container-fluid">
+                            <div class="table-responsive">
+                                <table class="table align-middle table-nowrap table-centered mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 70px;">No.</th>
+                                            <th>Fees</th>
+                                            <th class="text-end" style="width: 120px;">Price</th>
+                                        </tr>
+                                    </thead><!-- end thead -->
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">01</th>
+                                            <td>
+                                                <div>
+                                                    <h5 class="text-truncate font-size-14 mb-1">Tuition Fee</h5>
+                                                    <!-- <p class="text-muted mb-0">Watch, Black</p> -->
+                                                </div>
+                                            </td>
+                                            <td class="text-end">Rs. 500.00</td>
+                                        </tr>
+                                        <!-- end tr -->
+                                        <tr>
+                                            <th scope="row" colspan="2" class="text-end">Sub Total</th>
+                                            <td class="text-end">Rs. 500.00</td>
+                                        </tr>
+                                        
+                                        <!-- end tr -->
+                                        <tr>
+                                            <th scope="row" colspan="2" class="border-0 text-end">Total</th>
+                                            <td class="border-0 text-end">
+                                                <h4 class="m-0 fw-semibold">Rs. 500.00</h4>
+                                            </td>
+                                        </tr>
+                                        <!-- end tr -->
+                                    </tbody><!-- end tbody -->
+                                </table><!-- end table -->
+                            </div><!-- end table responsive -->
+                            <div class="d-print-none mt-4">
+                                <div class="float-end">
+                                    <a href="javascript:window.print()" class="btn btn-success me-1"><i class="fa fa-print"></i></a>
+                                    <a href="#" class="btn btn-primary w-md">Send</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end col -->
+        </div>
+    </div>
+<?php
 
-        <?php 
-            //$std_id = isset($_GET['std_id']) ? $_GET['std_id'] : '';
+
+} else {
+
+?>
+
+
+
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Manage Student Fee Details</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                        <li class="breadcrumb-item active">Student Fee Details</li>
+                    </ol>
+                </div><!-- /.col -->
+
+
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+
+            <?php if ($success_msg) { ?>
+                <div class="alert alert-success" role="alert">
+                    Payment has been completed, Thank You!
+                </div>
+            <?php } ?>
+
+            <?php
             $usermeta = get_user_metadata($std_id);
+
             $class = get_post(['id' => $usermeta['class']]);
-        ?>
+            ?>
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Student Detail</h3>
@@ -120,20 +207,33 @@ if(!empty($_POST)){
                                 <th>S.No</th>
                                 <th>Month</th>
                                 <th>Fee Status</th>
+
+                                
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
 
-                           
-                            $months = array('January', 'Fabruary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+                            $sql = "SELECT m.meta_value as `month` FROM `posts` as p JOIN `metadata` as m ON p.id = m.item_id WHERE p.type = 'payment' AND p.author = $user_id AND m.meta_key = 'month' AND year(p.publish_date) = 2023";
+
+                            $query = mysqli_query($db_conn, $sql);
+                            $paid_fees = [];
+                            while ($row = mysqli_fetch_object($query)) {
+
+                                $paid_fees[] = strtolower($row->month);
+                            }
+                            //  echo '<pre>';
+
+                            //                    print_r($paid_fees);
+                            //                    echo '</pre>'; 
+                            $months = array('january', 'fabruary', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december');
                             foreach ($months as $key => $value) {
                                 $highlight = '';
 
-                             
-                                if (date('f')==ucwords($value)) {
-                                 
+                                $paid = false;
+                                if (in_array($value, $paid_fees)) {
+                                    $paid = true;
                                     $highlight = 'class="bg-success"';
                                 }
                                 //   if(date('F') == ucwords($value))
@@ -144,21 +244,21 @@ if(!empty($_POST)){
                                 <tr>
                                     <td><?php echo ++$key ?></td>
                                     <td><?php echo ucwords($value) ?></td>
-                                    <td >
+                                    <td <?php echo $highlight ?>>
+                                        <?php
+
+                                        echo ($paid) ? "Paid" : "Pending";
+
+                                        ?>
                                     </td>
                                     <td>
-                                     
-                                      <a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
-                                      ?>" class="btn btn-sm btn-primary"><i class="fa fa-eye fa-fw"></i> View</a>
-                                      <a href="#" data-toggle="modal" data-month="<?php echo $value ?>" data-target=#paynow-popup class="btn btn-sm btn-warning paynow-btn"><i class="fa fa-money-check-alt fa-fw"></i> pay Now</a>
-                                       
-                                       <a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
-                                      ?>" class="btn btn-sm btn-dark"><i class="fa fa-envelope fa-fw"></i>Send message</a>
+                                        <?php if ($paid) { ?>
+                                            <a href="?action=view-invoice&month=<?php echo $value ?>&std_id=<?php echo $std_id ?>" class="btn btn-sm btn-primary"><i class="fa fa-eye fa-fw"></i> View</a>
+                                        <?php } else { ?>
+                                            <a href="#" data-toggle="modal" data-month="<?php echo ucwords($value) ?>" data-target="#paynow-popup" class="btn btn-sm btn-warning paynow-btn"><i class="fa fa-money-check-alt fa-fw"></i> Pay Now</a>
+                                        <?php } ?>
 
-                                      <a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
-                                      ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-fw"></i>Delete</a>
 
-                                     
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -166,55 +266,13 @@ if(!empty($_POST)){
                     </table>
                 </div>
             </div>
+        </div><!--/. container-fluid -->
+    </section>
+    <!-- /.content -->
 
-       
-    </div><!--/. container-fluid -->
-</section>
-<!-- /.content -->
 
-<?php
-$MERCHANT_KEY = "awUp7zBb";
-$SALT ="T4meBzglbm";
-$PAYU_BASE_URL ="https://secure.payu.in";
-
-$action='';
-$action = $PAYU_BASE_URL .'/_payment';
-$txnid=substr(hash('sha256',mt_rand().microtime()),0,20);
-$hash='';
-
-$posted=array();
-if(!empty($_POST)){
-
-foreach($_POST as $key=>$value){
-    $posted[$key]=$value;
-}
-}
-
-$formError =0;
-
-if(empty($posted['txnid'])){
-    $txnid=substr(hash('sha256',mt_rand().microtime()),0,20);
-}else{
-    $txnid=$posted['txnid'];
-}
-$hash ='';
-
-$hashSequence = "key|txnid|amount|productinfo|firstname|email";
-$hashVarSeq =explode('|',$hashSequence);
-$hash_string ='';
-foreach($hashVarSeq as $hash_var){
-    $hash_string .=isset($posted[$hash_var])?$posted[$hash_var]:'';
-    $hash_string .='|';
-}
-
-$hash_string .= $SALT;
-
-$hash = strtolower(hash('sha512',$hash_string));
-
-?>
-
- <!-- Modal -->
- <div class="modal fade" id="paynow-popup" tabindex="-1" role="dialog" aria-labelledby="paynow-popupLabel" aria-hidden="true">
+    <!-- Modal -->
+    <div class="modal fade" id="paynow-popup" tabindex="-1" role="dialog" aria-labelledby="paynow-popupLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -225,16 +283,7 @@ $hash = strtolower(hash('sha512',$hash_string));
                 </div>
                 <div class="modal-body">
                     <form action="" method="post">
-                        <input type="hidden" name="key" value="<?php echo $MERCHANT_KEY ?>" />
-                        <input type="hidden" name="hash" value="<?php echo $hash ?>" />
-                        <input type="hidden" name="txnid" value="<?php echo $txnid ?>" />
                         <input type="hidden" name="amount" readonly="readonly" value="500" />
-                        <input type="hidden" name="surl" value="localhost//School-Management-System/actions/success.php" size="64" />
-                        <input type="hidden" name="furl" value="localhost//School-Management-System/actions/failure.php" size="64" />
-                        <input type="hidden" name="service-provider" value="Payu_pisa" size="64" />
-                        <input type="hidden" name="productinfo" value="fee payment" />
-
-
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
@@ -256,8 +305,8 @@ $hash = strtolower(hash('sha512',$hash_string));
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="">payment Months</label>
-                                    <input type="text" name="month" readonly class="form-control" id="month" value="">
+                                    <label for="">Months</label>
+                                    <input type="text" name="month" readonly class="form-control" id="month" value="<?php echo $student->name ?>">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -277,14 +326,15 @@ $hash = strtolower(hash('sha512',$hash_string));
         </div>
     </div>
 
+
     <script>
         jQuery(document).on('click', '.paynow-btn', function() {
             var month = jQuery(this).data('month');
 
-            jQuery('#month').val(month);
-
-        });
-        jQuery(document).ready(function(){submitPayuForm()})
+            jQuery('#month').val(month)
+        })
     </script>
 
-<?php include('footer.php') ?>
+<?php
+}
+include('footer.php') ?>
