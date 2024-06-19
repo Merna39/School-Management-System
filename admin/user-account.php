@@ -20,25 +20,31 @@ if (isset($_POST['submit'])) {
     $error = 'Email already exists';
   } else {
     mysqli_query($db_conn, "INSERT INTO accounts (`name`,`email`,`password`,`type`,`level`) VALUES ('$name','$email','$password','$type','$level')") or die(mysqli_error($db_conn));
-    /*  mysqli_query($db_conn, "INSERT INTO usermeta (`id`,`user_id`,`meta_key`,`value_key`) VALUES ('$id','$user_id','$meta_key','$value_key')") or die(mysqli_error($db_conn)); */
+
     $_SESSION['success_msg'] = 'User has been succefuly registered';
-    header('location: user-account.php?user=' . $type);
+    header('location: user-account.php?user=student');
     exit;
   }
 }
 
-if (isset($_GET['std_id'])){
+
+
+if(isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id'])) {
   $id = $_GET['id'];
   $sql = "DELETE FROM `accounts` WHERE id = $id";        
 
   if($db_conn->query($sql) === TRUE){
-    echo "rkkfk";
+    // بعد حذف السجل، يتم إعادة توجيه المستخدم
+    header('location: user-account.php?user=student');
+    exit;
   }
-  // mysqli_query($db_conn, "DELETE FROM `accounts` WHERE `id` = '$id'");
+  mysqli_query($db_conn, "DELETE FROM `accounts` WHERE `id` = '$id'");
   
-  // $_SESSION['success_msg'] = 'User has been succefuly registered';
-  //   header('location: user-account.php?user=' . $type);
+ $_SESSION['success_msg'] = 'User has been successfully deleted';
+ header('location: user-account.php?user=student');
 }
+
+
 
 ?>
 
@@ -231,48 +237,7 @@ i.fas.fa-circle-notch.fa-spin {
                 </div>
               </fieldset>
 
-              <!-- <fieldset class="border border-secondary p-3 form-group">
-                <legend class="d-inline w-auto h6">Last Qualification</legend>
-                <div class="row">
-
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                      <label for="">School Name</label>
-                      <input type="text" class="form-control" placeholder="School Name" name="school_name">
-                    </div>
-                  </div>
-                  <div class="col-lg">
-                    <div class="form-group">
-                      <label for="">Class</label>
-                      <input type="text" class="form-control" placeholder="Class" name="previous_class">
-                    </div>
-                  </div>
-                  <div class="col-lg">
-                    <div class="form-group">
-                      <label for="">Status</label>
-                      <input type="text" class="form-control" placeholder="Status" name="status">
-                    </div>
-                  </div>
-                  <div class="col-lg">
-                    <div class="form-group">
-                      <label for="">Total Marks</label>
-                      <input type="text" class="form-control" placeholder="Total Marks" name="total_marks">
-                    </div>
-                  </div>
-                  <div class="col-lg">
-                    <div class="form-group">
-                      <label for="">Obtain Marks</label>
-                      <input type="text" class="form-control" placeholder="Obtain Marks" name="obtain_mark">
-                    </div>
-                  </div>
-                  <div class="col-lg">
-                    <div class="form-group">
-                      <label for="">Percentage</label>
-                      <input type="text" class="form-control" placeholder="Percentage" name="previous_percentage">
-                    </div>
-                  </div>
-                </div>
-              </fieldset> -->
+      
 
               <fieldset class="border border-secondary p-3 form-group">
                 <legend class="d-inline w-auto h6">Admission Details</legend>
@@ -307,12 +272,7 @@ i.fas.fa-circle-notch.fa-spin {
                     </div>
                   </div>
 
-                  <!-- <div class="col-lg">
-                    <div class="form-group">
-                      <label for="">Subject Streem</label>
-                      <input type="text" class="form-control" placeholder="Subject Streem" name="subject_streem">
-                    </div>
-                  </div> -->
+                
                   <div class="col-lg">
                     <div class="form-group">
                       <label for="">Date of Admission</label>
@@ -327,7 +287,7 @@ i.fas.fa-circle-notch.fa-spin {
                 <label for="offline-payment"><input type="radio" name="payment_method" value="offline" id="offline-payment"> Offline Payment</label>
               </div>
               <input type="hidden" name="type" value="<?php echo $_REQUEST['user'] ?>">
-              <button type="submit" name="submit" class="btn btn-primary"><span id="loader" style='display:none'><i class="fas fa-circle-notch fa-spin"></i></span> Register</button>
+              <button type="submit" name="submit" class="btn btn-primary"></span> Register</button>
             </form>
           <?php } elseif ($_GET['action'] == 'fee-payment') { ?>
             <form action="" id="registration-fee" method="post">
@@ -394,10 +354,11 @@ i.fas.fa-circle-notch.fa-spin {
                     <td><?= $users->email ?></td>
                     <td><?= $users->level ?></td>
                     <td>
-                      <a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
-                         ?>" class="btn btn-sm btn-danger delete-record" id="delete"><i class="fa fa-trash fa-fw" ></i>Delete</a>
-                      <a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
-                                      ?>" class="btn btn-sm btn-primary edit-record" id="edit"><i class="fas fa-pen"></i></i>  Edit </a>
+                    
+                    <a href="user-account.php?user=student&action=delete&id=<?php echo $users->id; ?>" onclick="return confirm('Are you sure you want to delete this user?');" class="btn btn-sm btn-danger delete-record"><i class="fa fa-trash fa-fw"></i>Delete</a>
+
+    <a href="?action=edit&id=<?php echo $users->id; ?>" class="btn btn-sm btn-primary edit-record"><i class="fas fa-pen"></i>Edit</a>
+
                     </td>
                                  
                   </tr>
