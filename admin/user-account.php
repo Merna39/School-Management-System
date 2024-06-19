@@ -393,8 +393,12 @@ i.fas.fa-circle-notch.fa-spin {
                     <td><?= $users->name ?></td>
                     <td><?= $users->email ?></td>
                     <td><?= $users->level ?></td>
-                    <td><a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
-                                      ?>" class="btn btn-sm btn-danger delete-record" id="delete"><i class="fa fa-trash fa-fw" ></i>Delete</a></td>
+                    <td>
+                      <a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
+                         ?>" class="btn btn-sm btn-danger delete-record" id="delete"><i class="fa fa-trash fa-fw" ></i>Delete</a>
+                      <a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
+                                      ?>" class="btn btn-sm btn-primary edit-record" id="edit"><i class="fa-regular fa-user-pen"></i>Edit</a>
+                    </td>
                                  
                   </tr>
                 <?php } ?>
