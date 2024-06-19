@@ -84,7 +84,7 @@
       <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
         <i class="fas fa-3x fa-user-graduate indigo-text"></i>
       </div>
-      <h4 class="fs-2 text-body-emphasis font-weight-bolder">Supports multi-curriculum for 3-18 yearrs</h4>
+      <h4 class="fs-2 text-body-emphasis font-weight-bolder">Supports multi-curriculum for 12-18 yearrs</h4>
 
     </div>
     <div class="feature col">
@@ -144,7 +144,7 @@
       </ul>
       <div class="align-items-center media">
         <h2 class="mb-0 px-3" style="border-right: 1px solid #d0d0d0">
-          45%
+          85%
           <i class="fas fa-arrow-up fa-1x indigo-text"></i>
         </h2>
 
@@ -180,7 +180,7 @@
       </ul>
       <div class="align-items-center media">
         <h2 class="mb-0 px-3" style="border-right: 1px solid #d0d0d0">
-          85%
+          45%
           <i class="fas fa-arrow-up fa-1x indigo-text"></i>
         </h2>
 
@@ -215,7 +215,7 @@
       </ul>
       <div class="align-items-center media">
         <h2 class="mb-0 px-3" style="border-right: 1px solid #d0d0d0">
-          80%
+          40%
           <i class="fas fa-arrow-up fa-1x indigo-text"></i>
         </h2>
 

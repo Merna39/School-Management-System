@@ -38,7 +38,7 @@ if (isset($_POST['form_submitted'])) {
     $success_msg = true;
 }
 
-if (isset( $_GET['action'] ) && $_GET['action'] == 'view-invoice') { ?>
+if (isset($_GET['action']) && $_GET['action'] == 'view-invoice') { ?>
 
 
     <div class="container">
@@ -215,7 +215,7 @@ if (isset( $_GET['action'] ) && $_GET['action'] == 'view-invoice') { ?>
                         <tbody>
                             <?php
 
-                            $sql = "SELECT m.meta_value as `month` FROM `posts` as p JOIN `metadata` as m ON p.id = m.item_id WHERE p.type = 'payment' AND p.author = $user_id AND m.meta_key = 'month' AND year(p.publish_date) = 2023";
+                            $sql = "SELECT m.meta_value as `month` FROM `posts` as p JOIN `metadata` as m ON p.id = m.item_id WHERE p.type = 'payment' AND p.author = $user_id AND m.meta_key = 'month' AND year(p.publish_date) = 2024";
 
                             $query = mysqli_query($db_conn, $sql);
                             $paid_fees = [];
