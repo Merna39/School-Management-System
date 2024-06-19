@@ -64,7 +64,7 @@
                     <div class="card-body" >
                         <form action="" method="post">
                             <div class="form-group">
-                                <label for="class">Select Class</label>
+                                <!-- <label for="class">Select Class</label>
                                 <select require name="class" id="class" class="form-control">
                                     <option value="">-Select Class-</option>
                                     <?php
@@ -76,7 +76,7 @@
                                     foreach ($classes as $key => $class) { ?>
                                     <option value="<?php echo $class->id ?>"><?php echo $class->title ?></option>
                                     <?php } ?>
-                                </select>
+                                </select> -->
                             </div>
 
                             <div class="form-group" id="section-container" style="display:none">
