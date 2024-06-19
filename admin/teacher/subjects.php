@@ -114,6 +114,7 @@
                                     <th>S.No.</th>
                                     <th>Name</th>
                                     <th>Date</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -129,7 +130,14 @@
                                         <td><?=$count++?></td>
                                         <td><?=$subject->title?></td>
                                         <td><?=$subject->publish_date?></td>
+                                        <td>
+                                            <a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
+                                                 ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-fw"></i>Delete</a>
+                                            <a href="?action=pay&month=<?php echo $value ?>&std_id=<?php echo $std_id 
+                                                 ?>" class="btn btn-sm btn-primary edit-record" id="edit"><i class="fa-regular fa-user-pen"></i>Edit</a>             
+                                        </td>
                                     </tr>
+                                    
 
                                     <?php } ?>
 
