@@ -79,12 +79,12 @@
                                 </select> -->
                             </div>
 
-                            <div class="form-group" id="section-container" style="display:none">
+                            <!-- <div class="form-group" id="section-container" style="display:none">
                                 <label for="section">Select Section</label>
                                 <select require name="section" id="section" class="form-control">
                                     <option value="">-Select Section-</option>
                                 </select>
-                            </div>
+                            </div> -->
 
                             <div class="form-group">
                                 <label for="subject">Subject Name</label>
