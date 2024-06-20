@@ -56,7 +56,7 @@
         </a>
         
         <div class="dropdown-divider"></div>
-        <a href="http://localhost/School-Management-System/admin/teacher_chat.php"  class="dropdown-item dropdown-footer">See All Messages</a>
+        <a href="http://localhost/School-Management-System/admin/chat.php"  class="dropdown-item dropdown-footer">See All Messages</a>
       </div>
     </li>
     <!-- Notifications Dropdown Menu -->
@@ -269,7 +269,7 @@
 
           <!-- Communications -->
         <li class="nav-item has-treeview" id="communications-menu">
-          <a href="http://localhost/School-Management-System/admin/teacher_chat.php" class="nav-link">
+          <a href="http://localhost/School-Management-System/admin/chat.php" class="nav-link">
             <i class="nav-icon far fa-comments"></i>
             <p>
               Communications

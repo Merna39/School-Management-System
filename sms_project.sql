@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2024 at 12:09 PM
+-- Generation Time: Jun 20, 2024 at 03:32 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -177,8 +177,7 @@ INSERT INTO `courses` (`id`, `name`, `category`, `duration`, `date`, `image`) VA
 
 CREATE TABLE `messages` (
   `msg_id` int(11) NOT NULL,
-  `incoming_msg` varchar(255) DEFAULT NULL,
-  `outcoming_msg` varchar(255) DEFAULT NULL,
+  `outcoming_msg` int(11) DEFAULT NULL,
   `msg` varchar(255) DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -187,11 +186,8 @@ CREATE TABLE `messages` (
 -- Dumping data for table `messages`
 --
 
-INSERT INTO `messages` (`msg_id`, `incoming_msg`, `outcoming_msg`, `msg`, `timestamp`) VALUES
-(4, 'teacher', 'student', 'test', '2024-06-04 21:23:25'),
-(5, 'student', 'teacher', 'hi techer', '2024-06-04 21:24:43'),
-(6, 'student', 'teacher', 'hi', '2024-06-08 13:07:12'),
-(7, 'teacher', 'student', 'test', '2024-06-08 13:07:48');
+INSERT INTO `messages` (`msg_id`, `outcoming_msg`, `msg`, `timestamp`) VALUES
+(5, 68, 'it now work correctly', '2024-06-20 01:27:44');
 
 -- --------------------------------------------------------
 
@@ -845,7 +841,8 @@ ALTER TABLE `courses`
 -- Indexes for table `messages`
 --
 ALTER TABLE `messages`
-  ADD PRIMARY KEY (`msg_id`);
+  ADD PRIMARY KEY (`msg_id`),
+  ADD KEY `fk_outcoming_msg_accounts` (`outcoming_msg`);
 
 --
 -- Indexes for table `metadata`
@@ -909,7 +906,7 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `metadata`
@@ -934,6 +931,16 @@ ALTER TABLE `sections`
 --
 ALTER TABLE `usermeta`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=519;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `messages`
+--
+ALTER TABLE `messages`
+  ADD CONSTRAINT `fk_outcoming_msg_accounts` FOREIGN KEY (`outcoming_msg`) REFERENCES `accounts` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
