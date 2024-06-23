@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2024 at 12:08 PM
+-- Generation Time: Jun 23, 2024 at 06:27 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -46,7 +46,7 @@ INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`, `rol
 (2, 'teacher', 'ashrafgaid@teach.com', '25f9e794323b453885f5181f1b624d0b', 'Ashraf Gaid', 2, 'teacher'),
 (7, 'teacher', 'meladmoner@teach.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'Melad Moner', 1, 'teacher'),
 (44, 'teacher', 'talaatzaky@teach.com', 'asdfasdfasdf', 'Talaat Zaky', 2, 'teacher'),
-(45, 'teacher', 'youssefabdalah@.com', 'zxcvzxcvzxcv', 'Youssef Abdalah ', 3, 'teacher'),
+(45, 'teacher', 'youssefabdallah@teach.com', 'zxcvzxcvzxcv', 'Youssef Abdallah ', 3, 'teacher'),
 (46, 'teacher', 'mariamerahem@teach.com', 'asdfasdfasdf', 'Mariam Ebrahem', 1, 'teacher'),
 (47, 'teacher', 'abdalahmohamed@teach.com', 'zxcvzxcvzxcv', 'Abdalah Mohamed ', 2, 'teacher'),
 (48, 'teacher', 'markusessa@teach.com', 'asdfasdfasdf', 'Markus Essa', 3, 'teacher'),
@@ -54,11 +54,12 @@ INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`, `rol
 (50, 'teacher', 'marwaahmed@teach.com', 'zxcvzxcvzxcv', 'Marwa Ahmed', 2, 'teacher'),
 (60, 'teacher', 'khaledmohsen@teach.com', 'zxcvzxcvzxcv', 'khaled Mohsen', 3, 'teacher'),
 (67, 'student', 'aliadel@stud.com', '25f9e794323b453885f5181f1b624d0b', 'Ali Adel', 1, 'student'),
-(68, 'student', 'faridamohmed@gmail.com', '25f9e794323b453885f5181f1b624d0b', 'Farida Mohamed', 2, 'student'),
+(68, 'student', 'faridamohmed@stud.com', '25f9e794323b453885f5181f1b624d0b', 'Farida Mohamed', 2, 'student'),
 (69, 'student', 'amrahmed@stud.com', '781e5e245d69b566979b86e28d23f2c7', 'Amr Ahmed', 1, 'student'),
 (70, 'student', 'ahmedmohamed@stud.com', '781e5e245d69b566979b86e28d23f2c7', 'Ahmed Mohamed', 3, 'student'),
-(84, 'student', 'Ayaahmed@example.com', '660fd8d5bcbfa37c40f5b2b892636fca', 'Aya Ahmed', 2, 'student'),
-(85, 'student', 'Mariememad@example.com', '4f7a0009b455fb1289657352debb2473', 'Mariem Emad', 3, 'student');
+(84, 'student', 'Ayaahmed@stud.com', '660fd8d5bcbfa37c40f5b2b892636fca', 'Aya Ahmed', 2, 'student'),
+(85, 'student', 'Mariememad@stud.com', '4f7a0009b455fb1289657352debb2473', 'Mariem Emad', 3, 'student'),
+(99, 'teacher', 'adelhassan@teach.com', '234567890', 'Adel Hassan', 3, 'teacher');
 
 -- --------------------------------------------------------
 
@@ -559,7 +560,7 @@ ALTER TABLE `usermeta`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT for table `attendance_std`
