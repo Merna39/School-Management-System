@@ -78,8 +78,8 @@ if (isset($_POST['submit'])) {
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Student</a></li>
-          <li class="breadcrumb-item active">Courses</li>
+          <li class="breadcrumb-item"><a href="#">Admim</a></li>
+          <li class="breadcrumb-item active">CAdditional Courses</li>
         </ol>
       </div><!-- /.col -->
       <?php
@@ -146,7 +146,7 @@ if (isset($_POST['submit'])) {
       <!-- Info boxes -->
       <div class="card">
         <div class="card-header py-2">
-          <h3 class="card-title">Courses</h3>
+          <h3 class="card-title">Additional Courses</h3>
           <!-- <div class="card-tools">
             <a href="?action=add-new" class="btn btn-primary btn-xs"><i class="fa fa-plus mr-2"></i>Add New</a>
           </div> -->

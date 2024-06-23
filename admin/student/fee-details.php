@@ -38,111 +38,288 @@ if (isset($_POST['form_submitted'])) {
     $success_msg = true;
 }
 
+
+
+
+
+
 if (isset($_GET['action']) && $_GET['action'] == 'view-invoice') { ?>
 
+<style>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="invoice-title">
-                            <h4 class="float-end font-size-15">Invoice #DS0204 <span class="badge bg-success font-size-12 ms-2">Paid</span></h4>
-                            <div class="mb-4">
-                                <h2 class="mb-1 text-muted">Techno Study</h2>
+
+*,
+*::after,
+*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --blue-color: #0c2f54;
+    --dark-color: #535b61;
+    --white-color: #fff;
+}
+
+ul{
+    list-style-type: none;
+}
+ul li{
+    margin: 2px 0;
+}
+
+/* text colors */
+.text-dark{
+    color: var(--dark-color);
+}
+.text-blue{
+    color: var(--blue-color);
+}
+.text-end{
+    text-align: right;
+}
+.text-center{
+    text-align: center;
+}
+.text-start{
+    text-align: left;
+}
+.text-bold{
+    font-weight: 700;
+}
+/* hr line */
+.hr{
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+/* border-bottom */
+.border-bottom{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    color: var(--dark-color);
+    font-size: 14px;
+}
+.invoice-wrapper{
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.invoice{
+    max-width: 850px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: var(--white-color);
+    padding: 70px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    min-height: 920px;
+}
+.invoice-head-top-left img{
+    width: 130px;
+}
+.invoice-head-top-right h3{
+    font-weight: 500;
+    font-size: 27px;
+    color: var(--blue-color);
+}
+.invoice-head-middle, .invoice-head-bottom{
+    padding: 16px 0;
+}
+.invoice-body{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.invoice-body table{
+    border-collapse: collapse;
+    border-radius: 4px;
+    width: 100%;
+}
+.invoice-body table td, .invoice-body table th{
+    padding: 12px;
+}
+.invoice-body table tr{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.invoice-body table thead{
+    background-color: rgba(0, 0, 0, 0.02);
+}
+.invoice-body-info-item{
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+.invoice-body-info-item .info-item-td{
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.02);
+}
+.invoice-foot{
+    padding: 30px 0;
+}
+.invoice-foot p{
+    font-size: 12px;
+}
+.invoice-btns{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.invoice-btn{
+    padding: 3px 9px;
+    color: var(--dark-color);
+    font-family: inherit;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.invoice-head-top, .invoice-head-middle, .invoice-head-bottom{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 10px;
+}
+
+@media screen and (max-width: 992px){
+    .invoice{
+        padding: 40px;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .invoice-head-top, .invoice-head-middle, .invoice-head-bottom{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .invoice-head-bottom-right{
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+    .invoice *{
+        text-align: left;
+    }
+    .invoice{
+        padding: 28px;
+    }
+}
+
+.overflow-view{
+    overflow-x: scroll;
+}
+.invoice-body{
+    min-width: 600px;
+}
+
+@media print{
+    .print-area{
+        visibility: visible;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+    }
+
+    .overflow-view{
+        overflow-x: hidden;
+    }
+
+    .invoice-btns{
+        display: none;
+    }
+}
+
+</style>
+  
+<div class = "invoice-wrapper" id = "print-area">
+            <div class = "invoice">
+                <div class = "invoice-container">
+                    <div class = "invoice-head">
+                        <div class = "invoice-head-top">
+                            <div class = "invoice-head-top-left text-start">
+                           <h1><i class="fas fa-school"></i> SMS</h1>  
                             </div>
-                            <div class="text-muted">
-                                <p class="mb-1">Vishwsh khand, Gomtinagar, Lucknow, UP 231216, India</p>
-                                <p class="mb-1"><i class="uil uil-envelope-alt me-1"></i>modifiercrazy@gmail.com</p>
-                                <p><i class="uil uil-phone me-1"></i> 012-345-6789</p>
+                            <div class = "invoice-head-top-right text-end">
+                                <h3>Invoice</h3>
                             </div>
                         </div>
-
-                        <hr class="my-4">
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="text-muted">
-                                    <h5 class="font-size-16 mb-3">Billed To:</h5>
-                                    <h5 class="font-size-15 mb-2">Preston Miller</h5>
-                                    <p class="mb-1">4068 Post Avenue Newfolden, MN 56738</p>
-                                    <p class="mb-1">PrestonMiller@armyspy.com</p>
-                                    <p>001-234-5678</p>
-                                </div>
+                        <div class = "hr"></div>
+                        <div class = "invoice-head-middle">
+                            <div class = "invoice-head-middle-left text-start">
+                                <p><span class = "text-bold">Date</span>: 23/6/2024</p>
                             </div>
-                            <!-- end col -->
-                            <div class="col-sm-6">
-                                <div class="text-muted text-sm-end">
-                                    <div>
-                                        <h5 class="font-size-15 mb-1">Invoice No:</h5>
-                                        <p>#DZ0112</p>
-                                    </div>
-                                    <div class="mt-4">
-                                        <h5 class="font-size-15 mb-1">Invoice Date:</h5>
-                                        <p>12 Oct, 2020</p>
-                                    </div>
-                                    <div class="mt-4">
-                                        <h5 class="font-size-15 mb-1">Order No:</h5>
-                                        <p>#1123456</p>
-                                    </div>
-                                </div>
+                            <div class = "invoice-head-middle-right text-end">
+                                <p><spanf class = "text-bold">Invoice No:</span>16789</p>
                             </div>
-                            <!-- end col -->
                         </div>
-                        <!-- end row -->
+                        <div class = "hr"></div>
+                        <div class = "invoice-head-bottom">
+                            <div class = "invoice-head-bottom-left">
+                               
+                                <ul>
+                                <h4>   <li class = 'text-bold'>Invoiced To:</li></h4> 
+                                  <h3> <li>Ali Adel</li></h3> 
+                                  <h5> <li>aliadel@std.com</li></h5> 
+                                  
+                                </ul>
+                            </div>
+                            <div class = "invoice-head-bottom-right">
+                                <ul class = "text-end">
+                                <h4>  <li class = 'text-bold'>Pay To:</li></h4> 
+                                <h3><li>SMS</li></h3>  
+                                <h5><li>SMS@edu.eg</li></h5>    
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "overflow-view">
+                        <div class = "invoice-body">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td class = "text-bold">Service</td>
+                                        <td class = "text-bold">Description</td>
+                                        <td class = "text-bold">Amount</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>School fees</td>
+                                        <td>Monthly installment</td>
+                                        <td class = "text-end">$500.00</td>
+                                    </tr>
+                                
+                                </tbody>
+                            </table>
+                          
+                                <div class = "invoice-body-info-item border-bottom">
+                                    <div class = "info-item-td text-end text-bold">Tax:</div>
+                                    <div class = "info-item-td text-end">$1.00</div>
+                                </div>
+                                <div class = "invoice-body-info-item">
+                                    <div class = "info-item-td text-end text-bold">Total:</div>
+                                    <div class = "info-item-td text-end">$500.00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "invoice-foot text-center">
+                        <p><span class = "text-bold text-center">NOTE:&nbsp;</span>This is computer generated receipt and does not require physical signature.</p>
 
-                        <div class="py-2">
-                            <h5 class="font-size-15">Order Summary</h5>
-
-                            <div class="table-responsive">
-                                <table class="table align-middle table-nowrap table-centered mb-0">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 70px;">No.</th>
-                                            <th>Fees</th>
-                                            <th class="text-end" style="width: 120px;">Price</th>
-                                        </tr>
-                                    </thead><!-- end thead -->
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">01</th>
-                                            <td>
-                                                <div>
-                                                    <h5 class="text-truncate font-size-14 mb-1">Tuition Fee</h5>
-                                                    <!-- <p class="text-muted mb-0">Watch, Black</p> -->
-                                                </div>
-                                            </td>
-                                            <td class="text-end">Rs. 500.00</td>
-                                        </tr>
-                                        <!-- end tr -->
-                                        <tr>
-                                            <th scope="row" colspan="2" class="text-end">Sub Total</th>
-                                            <td class="text-end">Rs. 500.00</td>
-                                        </tr>
-                                        
-                                        <!-- end tr -->
-                                        <tr>
-                                            <th scope="row" colspan="2" class="border-0 text-end">Total</th>
-                                            <td class="border-0 text-end">
-                                                <h4 class="m-0 fw-semibold">Rs. 500.00</h4>
-                                            </td>
-                                        </tr>
-                                        <!-- end tr -->
-                                    </tbody><!-- end tbody -->
-                                </table><!-- end table -->
-                            </div><!-- end table responsive -->
-                            <div class="d-print-none mt-4">
+                        <div class="d-print-none mt-4">
                                 <div class="float-end">
                                     <a href="javascript:window.print()" class="btn btn-success me-1"><i class="fa fa-print"></i></a>
                                     <a href="#" class="btn btn-primary w-md">Send</a>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
-            </div><!-- end col -->
+            </div>
         </div>
-    </div>
+
+      
 <?php
 
 
@@ -192,7 +369,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'view-invoice') { ?>
                 </div>
                 <div class="card-body">
                     <strong>Name: </strong> <?php echo get_users(array('id' => $std_id))[0]->name ?> <br>
-                    <strong>Class: </strong> <?php echo $class->title ?>
+                    <strong>Class:  </strong> <?php echo $class->title ?>
 
                 </div>
             </div>
@@ -207,8 +384,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'view-invoice') { ?>
                                 <th>S.No</th>
                                 <th>Month</th>
                                 <th>Fee Status</th>
-
-                                
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -311,7 +486,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'view-invoice') { ?>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <h3><i class="fa fa-rupee-sign"></i> 500.00</h3>
+                                    <h3><i class="fas fa-dollar-sign"></i> 500.00</h3>
                                 </div>
                             </div>
                             <div class="col-lg-6">

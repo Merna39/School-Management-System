@@ -113,7 +113,8 @@ if (isset($_POST['submit'])) {
                       $class_meta = get_metadata($class->id, 'section');
                       foreach ($class_meta as $meta) {
                         $section = get_post(array('id' => $meta->meta_value));
-                        echo $section->title;
+                        echo $section->title ;
+                        echo "<br>";
                       } ?>
                     </td>
                     <td><?= $class->publish_date ?></td>
