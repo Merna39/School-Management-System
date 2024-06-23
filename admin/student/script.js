@@ -154,3 +154,6 @@ const isLeapYear = (year) => {
     todayShowTime.textContent = formateTimer;
   }, 1000);
   
+  function printInvoice(){
+    window.print();
+}
