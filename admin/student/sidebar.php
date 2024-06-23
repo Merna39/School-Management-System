@@ -125,7 +125,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chalkboard"></i>
               <p>
-                Manage Classes
+                Classes
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -160,7 +160,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chalkboard-teacher"></i>
               <p>
-                Manage Class Routines
+                 Class Routines
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -180,7 +180,7 @@
             </ul>
           </li>
           
-          <!-- Examination -->
+          <!-- Examination
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-file-alt"></i>
@@ -196,7 +196,7 @@
                   <p>Examination Form</p>
                 </a>
               </li>
-              <!-- <li class="nav-item">
+              <li class="nav-item">
                 <a href="<?=$site_url?>admin/admin-card.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Admin card</p>
@@ -207,7 +207,7 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Paper Schedule</p>
                 </a>
-              </li> -->
+              </li> 
               <li class="nav-item">
                 <a href="<?=$site_url?>admin/results.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -216,6 +216,7 @@
               </li>
             </ul>
           </li>
+          -->
 
           <!-- Attendance -->
           <li class="nav-item has-treeview">
@@ -290,8 +291,7 @@
               </li>
               </ul>        
           </li>  
-          <!-- Event -->
-          <!-- Event -->
+          <!-- Event 
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-calendar-check"></i>
@@ -301,12 +301,12 @@
               </p>
             </a>     
             <ul class="nav nav-treeview">
-              <!-- <li class="nav-item">
+               <li class="nav-item">
                 <a href="<?=$site_url?>admin/campus-functions.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Campus Functions</p>
                 </a>
-              </li> -->
+              </li> 
               <li class="nav-item">
                 <a href="<?=$site_url?>admin/webinar-seminar.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -315,6 +315,7 @@
               </li>
             </ul>        
           </li>
+          -->
           
           <!-- communications
           <li class="nav-item has-treeview">
