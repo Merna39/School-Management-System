@@ -142,7 +142,7 @@
             <li class="nav-item">
               <a href="http://localhost/School-Management-System/admin/teacher/courses.php" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Courses</p>
+                <p>Additional Courses</p>
               </a>
             </li>
             <li class="nav-item">
