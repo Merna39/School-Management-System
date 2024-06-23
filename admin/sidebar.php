@@ -214,7 +214,7 @@
               <li class="nav-item">
                 <a href="http://localhost/School-Management-System/admin/courses.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p> Additional Courses</p>
+                  <p> AdditionalCourses</p>
                 </a>
               </li>
               <li class="nav-item">
