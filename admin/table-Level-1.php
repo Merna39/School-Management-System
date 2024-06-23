@@ -1,8 +1,9 @@
 <?php include('./includes/config.php') ?>
 
+
 <?php
 if (isset($_POST['submit'])) {
-  $class_id = isset($_POST['class_id']) ? $_POST['class_id'] : '';
+  $class_id = isset($_POST['class_id']) ? isset($_POST['class_id']) : '';
   $section_id = isset($_POST['section_id']) ? $_POST['section_id'] : '';
   $teacher_id = isset($_POST['teacher_id']) ? $_POST['teacher_id'] : '';
   $period_id = isset($_POST['period_id']) ? $_POST['period_id'] : '';
@@ -12,9 +13,8 @@ if (isset($_POST['submit'])) {
   $status = 'publish';
   $author = 1;
   $type = 'timetable';
-  // $title = 
-  // $query = mysqli_query($db_conn, "INSERT INTO posts (`type`,`author`,`status`,`publish_date`) VALUES ('$type','$author','$status','$date_add')");
-  $query = mysqli_query($db_conn, "INSERT INTO `posts`(`author`, `title`, `description`, `type`, `status`,`parent`) VALUES ('1','$type','description','timetable','publish',0)") or die('DB error');
+
+  $query = mysqli_query($db_conn, "INSERT INTO Posts (`type`,`author`,`status`,`publish_date`) VALUES ('$type','$author','$status','$date_add')");
   if ($query) {
     $item_id = mysqli_insert_id($db_conn);
   }
@@ -24,16 +24,15 @@ if (isset($_POST['submit'])) {
     'teacher_id' => $teacher_id,
     'period_id' => $period_id,
     'day_name' => $day_name,
-    'subject_id' => $subject_id,
+    'subject_id' => $subject_id
   );
 
   foreach ($metadata as $key => $value) {
     mysqli_query($db_conn, "INSERT INTO metadata (`item_id`,`meta_key`,`meta_value`) VALUES ('$item_id','$key','$value')");
   }
 
-  header('Location: table-Level-1.php');
-}
-?>
+  header('Location: timetable.php');
+} ?>
 
 <?php include('header.php') ?>
 <?php include('sidebar.php') ?>
@@ -41,12 +40,10 @@ if (isset($_POST['submit'])) {
 <!-- Content Header (Page header) -->
 <div class="content-header">
   <div class="container-fluid">
-
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Time Table Of Level 1
-
-          <a href="?action=add" class="btn btn-primary btn-sm"> Add New</a>
+        <h1 class="m-0 text-dark">Time Table Of Level 3
+          <a href="?action=add" class="btn btn-primary btn-sm">Add New</a>
         </h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
@@ -62,121 +59,7 @@ if (isset($_POST['submit'])) {
 <!-- Main content -->
 <section class="content">
   <div class="container-fluid">
-
-    <?php if (isset($_GET['action']) && $_GET['action'] == 'add') { ?>
-
-      <div class="card">
-        <div class="card-body">
-          <form action="" method="post">
-            <div class="row">
-              <div class="col-lg">
-                <div class="form-group">
-                  <label for="class_id">Select Class</label>
-                  <select require name="class_id" id="class_id" class="form-control">
-                    <option value="">-Select Class-</option>
-                    <?php
-                    $args = array(
-                      'type' => 'class',
-                      'status' => 'publish',
-                    );
-                    $classes = get_posts($args);
-                    foreach ($classes as $key => $class) { ?>
-                      <option value="<?php echo $class->id ?>"><?php echo $class->title ?></option>
-                    <?php } ?>
-                  </select>
-                </div>
-              </div>
-              <div class="col-lg">
-                <div class="form-group" id="section-container">
-                  <label for="section_id">Select Section</label>
-                  <select require name="section_id" id="section_id" class="form-control">
-                    <option value="">-Select Section-</option>
-                  
-
-                  </select>
-                </div>
-              </div>
-              <div class="col-lg">
-                <div class="form-group" id="section-container">
-                  <label for="teacher_id">Select Teacher</label>
-                  <select require name="teacher_id" id="teacher_id" class="form-control">
-                    <option value="">-Select Teacher-</option>
-                    <option value="1">Teacher 1</option>
-                    <option value="2">Teacher 2</option>
-                    <option value="7">Teacher 3</option>
-                    <option value="44">Teacher 4</option>
-                    <option value="45">Teacher 5</option>
-                    <option value="46">Teacher 6</option>
-                    <option value="47">Teacher 7</option>
-                    <option value="48">Teacher 8</option>
-                    <option value="49">Teacher 9</option>
-                    <option value="50">Teacher 10</option>
-                    <option value="60">Teacher 11</option>
-                    <option value="61">Teacher 12</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-lg">
-                <div class="form-group" id="section-container">
-                  <label for="period_id">Select Period</label>
-                  <select require name="period_id" id="period_id" class="form-control">
-                    <option value="">-Select Period-</option>
-                    <?php
-                    $args = array(
-                      'type' => 'period',
-                      'status' => 'publish',
-                    );
-                    $periods = get_posts($args);
-                    foreach ($periods as $key => $period) { ?>
-                      <option value="<?php echo $period->id ?>"><?php echo $period->title ?></option>
-                    <?php } ?>
-                  </select>
-                </div>
-              </div>
-              <div class="col-lg">
-                <div class="form-group" id="section-container">
-                  <label for="day_name">Select Day</label>
-                  <select require name="day_name" id="day_name" class="form-control">
-                    <option value="">-Select Day-</option>
-
-                    <?php
-                    $days = ['saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
-                    foreach ($days as $key => $day) { ?>
-                      <option value="<?php echo $day ?>"><?php echo ucwords($day) ?></option>
-                    <?php } ?>
-                  </select>
-                </div>
-              </div>
-              <div class="col-lg">
-                <div class="form-group" id="section-container">
-                  <label for="subject_id">Select Subject</label>
-                  <select require name="subject_id" id="subject_id" class="form-control">
-                    <option value="">-Select Subject-</option>
-                    <?php
-                    $args = array(
-                      'type' => 'subject',
-                      'status' => 'publish',
-                    );
-                    $subjects = get_posts($args);
-                    foreach ($subjects as $key => $subject) { ?>
-                      <option value="<?php echo $subject->id ?>"><?php echo $subject->title ?></option>
-                    <?php } ?>
-                  </select>
-                </div>
-              </div>
-              <div class="col-lg">
-                <div class="from-group">
-                  <label for="">&nbsp;</label>
-                  <input type="submit" value="submit" name="submit" class="btn btn-primary form-control">
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    <?php } else { ?>
-
-      <form action="" method="get">
+  <form action="" method="get">
         <?php
         $class_id = isset($_GET['class']) ? $_GET['class'] : 43;
         $section_id = isset($_GET['section']) ? $_GET['section'] : 3;
@@ -222,130 +105,296 @@ if (isset($_POST['submit'])) {
         </div>
 
       </form>
+    <div class="card">
+      <div class="card-body">
+      <table class="table table-bordered border-info  table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Timing</th>
+              <th>Saturday</th>
+              <th>Sunday</th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+            </tr>
+          </thead>
+          <tbody>
 
-      <div class="card">
-        <div class="card-body">
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>Timing</th>
-                <th>Saturday</th>
-                <th>Sunday</th>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th>Friday</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              $args = array(
-                'type' => 'period',
-                'status' => 'publish',
-              );
-              $periods = get_posts($args);
-
-              foreach ($periods as $period) {
-                $from = get_metadata($period->id, 'from')[0]->meta_value;
-
-                $to = get_metadata($period->id, 'to')[0]->meta_value;
-              ?>
-                <tr>
-                  <td><?php echo date('h:i A', strtotime($from)) ?> - <?php echo date('h:i A', strtotime($to)) ?></td>
-                  <?php
-                  $days = ['saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'Friday'];
-                  foreach ($days as  $day) {
-
-                    $query =  mysqli_query($db_conn, "SELECT * FROM posts AS p 
-                  INNER JOIN metadata AS md ON(md.item_id = p.id)
-                   INNER JOIN metadata AS mp ON(mp.item_id = p.id)
-                    WHERE p.type ='timetable' AND p.status ='publish' 
-                    AND md.meta_key ='day_name' AND md.meta_value ='$day'
-                    AND mp.meta_key ='period_id' AND mp.meta_value =$period->id");
-
-
-
-                    if (mysqli_num_rows($query) > 0) {
-                      while ($timetable = mysqli_fetch_object($query)) {
-
-
-                  ?>
-                        <td>
-                          <p>
-                            <b>Teacher: </b>
-                            <?php
-                            $teacher_id = get_metadata($timetable->item_id, 'teacher_id')[0]->meta_value;
-
-                            echo get_user_data($teacher_id)->name;
-                            ?>
-
-
-                            <br>
-                            <b>Class: </b>
-                            <?php
-                            $class_id = get_metadata($timetable->item_id, 'class_id',)[0]->meta_value;
-                            echo get_post(array('id' => $class_id))->title;
-                            ?>
-                            <br>
-                            <b>Section: </b>
-                            <?php
-                            $section_id = get_metadata($timetable->item_id, 'section_id',)[0]->meta_value;
-                            echo get_post(array('id' => $section_id))->title;
-                            ?>
-                            <br>
-                            <b>Subject: </b>
-                            <?php
-                            $subject_id = get_metadata($timetable->item_id, 'subject_id',)[0]->meta_value;
-                            echo get_post(array('id' => $subject_id))->title;
-                            ?>
-                            <br>
-                          </p>
-                        </td>
-                      <?php }
-                    } else { ?>
-                      <td>
-                        Unscheduled
-                      </td>
-
-                  <?php }
-                  } ?>
-                </tr>
-              <?php } ?>
-            </tbody>
-          </table>
-        </div>
+            <tr>
+              <td>07:00 AM - 07:45 AM</td>
+              <td>
+                <p>
+                  <b>Teacher : </b> Mohamed khaled <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Mathematics <br>
+                </p>
+              </td>
+              <td>
+              <p>
+                  <b>Teacher : </b> Melad Moner <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b>English <br>
+                </p>
+              </td>
+              <td>
+              <p>
+                  <b>Teacher : </b> Youssef Abdallah  <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Arabic <br>
+                </p>
+              </td>
+              <td>
+              <p>
+                  <b>Teacher : </b> Ashraf Gaid <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> History <br>
+                </p>
+              </td>
+              <td>
+              <p>
+                  <b>Teacher : </b> Abdalah Mohamed <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Chemistry<br>
+                </p>
+              </td>
+              <td>
+              <p>
+                  <b>Teacher : </b> Talaat Zaky <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b>Physics <br>
+                </p>
+              </td>
+              <td>
+              unscheduled
+              </td>
+            </tr>
+            <tr>
+              <td>07:45 AM - 08:30 AM</td>
+              <td>
+              <b>Teacher : </b> Markus Essa <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Philosophy <br>
+              </td>
+              <td>
+              <b>Teacher : </b>Ahmed Shady <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Biology <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Youssef Abdallah  <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Arabic <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Melad Moner <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> English <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Mohamed khaled <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Mathematics <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Mariam Ebrahem <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Geology <br>
+              </td>
+              <td>
+              unscheduled
+              </td>
+            </tr>
+            <tr>
+              <td>08:30 AM - 09:15 AM</td>
+              <td>
+              <b>Teacher : </b> Abdalah Mohamed  <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Chemistry <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Mohamed khaled <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Mathematics <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Melad Moner <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> English <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Talaat Zaky <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Physics <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Youssef Abdallah <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Arabic <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Ahmed Shady <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Biology <br>
+              </td>
+              <td>  unscheduled</td>
+            </tr>
+            <tr>
+              <td>09:15 AM - 10:00 AM</td>
+              <td>
+                <b>Teacher : </b> Marwa Ahmed <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Computer <br>
+                </td>
+              <td>
+              <b>Teacher : </b> Ashraf Gaid <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> History <br>
+              </td>
+              <td>
+              <b>Teacher : </b> khaled Mohsen <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Geography <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Adel Hassan <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Psychology <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Melad Moner <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> English <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Youssef Abdallah <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Arabic <br>
+              </td>
+              <td>  unscheduled</td>
+            </tr>
+            <tr>
+              <td>10:00 AM - 10:30 AM</td>
+              <td colspan ="7"> <h2 class="text-center">Lunch Break</h2>  </td>
+              
+            </tr>
+            <tr>
+              <td>10:30 AM - 11:15 AM</td>
+              <td>
+              <b>Teacher : </b> Youssef Abdallah <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Arabic <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Markus Essa <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Philosophy <br>
+              </td>
+              <td>
+              <b>Teacher : </b> khaled Mohsen <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Geography <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Abdalah Mohamed <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Chemistry <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Talaat Zaky <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Physics <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Melad Moner <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> English <br>
+              </td>
+              <td>
+              unscheduled
+              </td>
+            </tr>
+            <tr>
+              <td>11:15 AM - 12:00 pM</td>
+              <td>
+              <b>Teacher : </b> Mohamed khaled <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Mathematics <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Marwa Ahmed <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Computer <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Talaat Zaky <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Physics <br>
+              </td>
+              <td>
+              <b>Teacher : </b> khaled Mohsen <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Geography <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Mariam Ebrahem <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Geology <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Adel Hassan <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section A <br>
+                  <b>Subject: </b> Psychology <br>
+              </td>
+  
+              <td>
+              unscheduled
+              </td>
+            </tr>
+          </tbody>
       </div>
+    </div>
+  </div>
 
-    <?php } ?>
   </div><!--/. container-fluid -->
 </section>
 <!-- /.content -->
-<!-- Subject -->
-<script>
-  jQuery(document).ready(function() {
-
-    jQuery('#class_id').change(function() {
-      jQuery.ajax({
-        url:'ajax.php',
-        type: 'POST',
-        data: {
-          'class_id': jQuery(this).val()
-        },
-        dataType: 'json',
-        success: function(response) {
-          if (response.count > 0) {
-            jQuery('#section-container').show();
-          } else {
-            jQuery('#section-container').hide();
-          }
-          jQuery('#section_id').html(response.options);
-        }
-      });
-    });
-
-  });
-</script>
-
 
 <?php include('footer.php') ?>
