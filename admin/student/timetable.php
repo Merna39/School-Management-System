@@ -181,37 +181,37 @@
             <tr>
               <td>09:15 AM - 10:00 AM</td>
               <td>
-                <b>Teacher : </b>Teacher 10 <br>
+                <b>Teacher : </b> Marwa Ahmed <br>
                   <b>Class: </b>Class-1 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Computer <br>
                 </td>
               <td>
-              <b>Teacher : </b>Teacher 2 <br>
+              <b>Teacher : </b> Ashraf Gaid <br>
                   <b>Class: </b>Class-1 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> History <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 11 <br>
+              <b>Teacher : </b> khaled Mohsen <br>
                   <b>Class: </b>Class-1 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Geography <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 12 <br>
+              <b>Teacher : </b> Adel Hassan <br>
                   <b>Class: </b>Class-1 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Psychology <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 3 <br>
+              <b>Teacher : </b> Melad Moner <br>
                   <b>Class: </b>Class-1 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> English <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 5 <br>
+              <b>Teacher : </b> Youssef Abdallah <br>
                   <b>Class: </b>Class-1 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Arabic <br>
