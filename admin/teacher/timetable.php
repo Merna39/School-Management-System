@@ -13,7 +13,7 @@
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Student</a></li>
+          <li class="breadcrumb-item"><a href="#">Teacher</a></li>
           <li class="breadcrumb-item active">Time Table</li>
         </ol>
       </div><!-- /.col -->
@@ -27,7 +27,7 @@
 
     <div class="card">
       <div class="card-body">
-        <table class="table table-bordered border-info  table-striped table-hover">
+      <table class="table table-bordered border-info  table-striped table-hover">
           <thead>
             <tr>
               <th>Timing</th>
@@ -41,66 +41,273 @@
             </tr>
           </thead>
           <tbody>
-            <?php
-           $args = array(
-             'type' => 'period',
-             'status' => 'publish',
-           );
-           $periods = get_posts($args);
-           foreach($periods as $period) { 
-             $from = get_metadata($period->id, 'from')[0]->meta_value;
-             $to = get_metadata($period->id, 'to')[0]->meta_value;
-              ?>
 
-              <tr>
-                <td><?php echo date('h:i A' , strtotime($from)) ?> - <?php  echo date('h:i A' , strtotime($to)) ?></td>
-                <?php
-                $days = ['saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
-                foreach ($days as  $day) {
-
-                  $query =  mysqli_query($db_conn, "SELECT * FROM posts AS p 
-                  INNER JOIN metadata AS mc ON(mc.item_id = p.id)
-                  INNER JOIN metadata AS md ON(md.item_id = p.id)
-                  INNER JOIN metadata AS mp ON(mp.item_id = p.id)
-                  WHERE p.type ='timetable' AND p.status ='publish' 
-                  AND md.meta_key ='day_name' AND md.meta_value ='$day'
-                  AND mp.meta_key ='period_id' AND mp.meta_value =$period->id
-                  AND mc.meta_key = 'class_id' AND mc.meta_value = 1");
-
-                   if(mysqli_num_rows($query)>0)
-                   {
-                    while($timetabl = mysqli_fetch_object($query)){ 
-                    
-                      ?>
-                      <td>
-                        <p>
-                          <b>Teacher: </b>
-                          <?php
-                          $teacher_id = get_metadata($timetabl->item_id ,'teacher_id',)[0]
-                          ->meta_value;
-                          echo get_user_data($teacher_id)->name; 
-                          ?> 
-
-                          <br>
-                          <b>Subject: </b>
-                          <?php
-                            $subject_id = get_metadata($timetabl->item_id ,'subject_id',)[0]
-                            ->meta_value;
-                            echo get_post(array('id'=> $subject_id))->title ;
-                          ?> 
-                        </p>
-                      </td>
-                      <?php  }
-                  }else{?>
-                    <td>
-                    unscheduled
-                  </td>
-                  
-                <?php }
-              } ?>
-              </tr>
-          
-              <?php } ?>
+            <tr>
+              <td>07:00 AM - 07:45 AM</td>
+              <td>
+                <p>
+                  <b>Teacher : </b> Mohamed khaled <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Mathematics <br>
+                </p>
+              </td>
+              <td>
+              <p>
+                  <b>Teacher : </b> Melad Moner <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b>English <br>
+                </p>
+              </td>
+              <td>
+              <p>
+                  <b>Teacher : </b> Youssef Abdallah  <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Arabic <br>
+                </p>
+              </td>
+              <td>
+              <p>
+                  <b>Teacher : </b> Ashraf Gaid <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> History <br>
+                </p>
+              </td>
+              <td>
+              <p>
+                  <b>Teacher : </b> Abdalah Mohamed <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Chemistry<br>
+                </p>
+              </td>
+              <td>
+              <p>
+                  <b>Teacher : </b> Talaat Zaky <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b>Physics <br>
+                </p>
+              </td>
+              <td>
+              unscheduled
+              </td>
+            </tr>
+            <tr>
+              <td>07:45 AM - 08:30 AM</td>
+              <td>
+              <b>Teacher : </b> Markus Essa <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Philosophy <br>
+              </td>
+              <td>
+              <b>Teacher : </b>Ahmed Shady <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Biology <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Youssef Abdallah  <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Arabic <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Melad Moner <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> English <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Mohamed khaled <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Mathematics <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Mariam Ebrahem <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Geology <br>
+              </td>
+              <td>
+              unscheduled
+              </td>
+            </tr>
+            <tr>
+              <td>08:30 AM - 09:15 AM</td>
+              <td>
+              <b>Teacher : </b> Abdalah Mohamed  <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Chemistry <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Mohamed khaled <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Mathematics <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Melad Moner <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> English <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Talaat Zaky <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Physics <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Youssef Abdallah <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Arabic <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Ahmed Shady <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Biology <br>
+              </td>
+              <td>  unscheduled</td>
+            </tr>
+            <tr>
+              <td>09:15 AM - 10:00 AM</td>
+              <td>
+                <b>Teacher : </b> Marwa Ahmed <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Computer <br>
+                </td>
+              <td>
+              <b>Teacher : </b> Ashraf Gaid <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> History <br>
+              </td>
+              <td>
+              <b>Teacher : </b> khaled Mohsen <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Geography <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Adel Hassan <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Psychology <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Melad Moner <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> English <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Youssef Abdallah <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Arabic <br>
+              </td>
+              <td>  unscheduled</td>
+            </tr>
+            <tr>
+              <td>10:00 AM - 10:30 AM</td>
+              <td colspan ="7"> <h2 class="text-center">Lunch Break</h2>  </td>
+              
+            </tr>
+            <tr>
+              <td>10:30 AM - 11:15 AM</td>
+              <td>
+              <b>Teacher : </b> Youssef Abdallah <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Arabic <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Markus Essa <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Philosophy <br>
+              </td>
+              <td>
+              <b>Teacher : </b> khaled Mohsen <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Geography <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Abdalah Mohamed <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Chemistry <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Talaat Zaky <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Physics <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Melad Moner <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> English <br>
+              </td>
+              <td>
+              unscheduled
+              </td>
+            </tr>
+            <tr>
+              <td>11:15 AM - 12:00 pM</td>
+              <td>
+              <b>Teacher : </b> Mohamed khaled <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Mathematics <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Marwa Ahmed <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Computer <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Talaat Zaky <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Physics <br>
+              </td>
+              <td>
+              <b>Teacher : </b> khaled Mohsen <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Geography <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Mariam Ebrahem <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Geology <br>
+              </td>
+              <td>
+              <b>Teacher : </b> Adel Hassan <br>
+                  <b>Class: </b>Class-1 <br>
+                  <b>Section: </b> Section B <br>
+                  <b>Subject: </b> Psychology <br>
+              </td>
+  
+              <td>
+              unscheduled
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>

@@ -226,37 +226,37 @@
             <tr>
               <td>10:30 AM - 11:15 AM</td>
               <td>
-              <b>Teacher : </b>Teacher 5 <br>
+              <b>Teacher : </b> Youssef Abdallah <br>
                   <b>Class: </b>Class-1 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Arabic <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 8 <br>
+              <b>Teacher : </b> Markus Essa <br>
                   <b>Class: </b>Class-1 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Philosophy <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 11 <br>
+              <b>Teacher : </b> khaled Mohsen <br>
                   <b>Class: </b>Class-1 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Geography <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 7 <br>
+              <b>Teacher : </b> Abdalah Mohamed <br>
                   <b>Class: </b>Class-1 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Chemistry <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 4 <br>
+              <b>Teacher : </b> Talaat Zaky <br>
                   <b>Class: </b>Class-1 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Physics <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 3 <br>
+              <b>Teacher : </b> Melad Moner <br>
                   <b>Class: </b>Class-1 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> English <br>
@@ -268,37 +268,37 @@
             <tr>
               <td>11:15 AM - 12:00 pM</td>
               <td>
-              <b>Teacher : </b>Teacher 1 <br>
+              <b>Teacher : </b> Mohamed khaled <br>
                   <b>Class: </b>Class-1 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Mathematics <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 10 <br>
+              <b>Teacher : </b> Marwa Ahmed <br>
                   <b>Class: </b>Class-1 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Computer <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 4 <br>
+              <b>Teacher : </b> Talaat Zaky <br>
                   <b>Class: </b>Class-1 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Physics <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 11 <br>
+              <b>Teacher : </b> khaled Mohsen <br>
                   <b>Class: </b>Class-1 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Geography <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 6 <br>
+              <b>Teacher : </b> Mariam Ebrahem <br>
                   <b>Class: </b>Class-1 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Geology <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 12 <br>
+              <b>Teacher : </b> Adel Hassan <br>
                   <b>Class: </b>Class-1 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Psychology <br>
