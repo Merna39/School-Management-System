@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Time Table Of Level 3
+        <h1 class="m-0 text-dark">Time Table Of Level 1
           <a href="?action=add" class="btn btn-primary btn-sm">Add New</a>
         </h1>
       </div><!-- /.col -->

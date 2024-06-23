@@ -127,8 +127,8 @@ if (isset($_POST['submit'])) {
             
               <td>
               <p>
-                  <b>Teacher : </b>Teacher 3 <br>
-                  <b>Class: </b>Class-1 <br>
+                  <b>Teacher : </b> Melad Moner <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b>English <br>
                 </p>
@@ -136,40 +136,40 @@ if (isset($_POST['submit'])) {
             
               <td>
                 <p>
-                  <b>Teacher : </b>Teacher 1 <br>
-                  <b>Class: </b>Class-1 <br>
+                  <b>Teacher : </b> Mohamed khaled <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Mathematics <br>
                 </p>
               </td>
               <td>
               <p>
-                  <b>Teacher : </b>Teacher 2 <br>
-                  <b>Class: </b>Class-1 <br>
+                  <b>Teacher : </b> Ashraf Gaid <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> History <br>
                 </p>
               </td>
               <td>
               <p>
-                  <b>Teacher : </b>Teacher 5 <br>
-                  <b>Class: </b>Class-1 <br>
+                  <b>Teacher : </b> Youssef Abdallah <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Arabic <br>
                 </p>
               </td>
               <td>
               <p>
-                  <b>Teacher : </b>Teacher 4 <br>
-                  <b>Class: </b>Class-1 <br>
+                  <b>Teacher : </b> Talaat Zaky <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b>Physics <br>
                 </p>
               </td>
               <td>
               <p>
-                  <b>Teacher : </b>Teacher 7 <br>
-                  <b>Class: </b>Class-1 <br>
+                  <b>Teacher : </b> Abdalah Mohamed <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Chemistry<br>
                 </p>
@@ -183,39 +183,39 @@ if (isset($_POST['submit'])) {
               <td>07:45 AM - 08:30 AM</td>
               
               <td>
-              <b>Teacher : </b>Teacher 9 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Ahmed Shady <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Biology <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 3 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Melad Moner <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> English <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 5 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Youssef Abdallah <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Arabic <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 6 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Mariam Ebrahem <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Geology <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 8 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Markus Essa <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Philosophy <br>
               </td>
               
               <td>
-              <b>Teacher : </b>Teacher 1<br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Mohamed khaled <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Mathematics <br>
               </td>
@@ -228,39 +228,39 @@ if (isset($_POST['submit'])) {
               <td>08:30 AM - 09:15 AM</td>
             
               <td>
-              <b>Teacher : </b>Teacher 1 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Mohamed khaled  <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Mathematics <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 9 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Ahmed Shady <br>
+                  <b>Class: </b> Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Biology <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 4 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Talaat Zaky <br>
+                  <b>Class: </b> Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Physics <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 5 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Youssef Abdallah <br>
+                  <b>Class: </b> Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Arabic <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 3 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Melad Moner <br>
+                  <b>Class: </b> Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> English <br>
               </td>
             
               <td>
-              <b>Teacher : </b>Teacher 7 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Abdalah Mohamed <br>
+                  <b>Class: </b> Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Chemistry <br>
               </td>
@@ -272,39 +272,39 @@ if (isset($_POST['submit'])) {
               <td>09:15 AM - 10:00 AM</td>
             
                 <td>
-              <b>Teacher : </b>Teacher 3 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Melad Moner <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> English <br>
               </td>
             
               <td>
-                <b>Teacher : </b>Teacher 10 <br>
-                  <b>Class: </b>Class-1 <br>
+                <b>Teacher : </b> Marwa Ahmed <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Computer <br>
                 </td>
               <td>
-              <b>Teacher : </b>Teacher 11 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> khaled Mohsen <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Geography <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 2 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Ashraf Gaid <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> History <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 5 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Youssef Abdallah <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Arabic <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 12 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Adel Hassan <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Psychology <br>
               </td>
@@ -321,39 +321,39 @@ if (isset($_POST['submit'])) {
               <td>10:30 AM - 11:15 AM</td>
             
               <td>
-              <b>Teacher : </b>Teacher 5 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Youssef Abdallah <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Arabic <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 11 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> khaled Mohsen <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Geography <br>
               </td>
             
               <td>
-              <b>Teacher : </b>Teacher 4 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Talaat Zaky <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Physics <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 8 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Markus Essa <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Philosophy <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 3 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Melad Moner <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> English <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 7 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Abdalah Mohamed   <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Chemistry <br>
               </td>
@@ -364,39 +364,39 @@ if (isset($_POST['submit'])) {
             <tr>
               <td>11:15 AM - 12:00 pM</td>
               <td>
-              <b>Teacher : </b>Teacher 10 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Marwa Ahmed <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Computer <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 1 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Mohamed khaled  <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Mathematics <br>
               </td>
               
               <td>
-              <b>Teacher : </b>Teacher 12 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Adel Hassan <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Psychology <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 6 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Mariam Ebrahem <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Geology <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 4 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> Talaat Zaky <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Physics <br>
               </td>
               <td>
-              <b>Teacher : </b>Teacher 11 <br>
-                  <b>Class: </b>Class-1 <br>
+              <b>Teacher : </b> khaled Mohsen <br>
+                  <b>Class: </b>Class-2 <br>
                   <b>Section: </b> Section B <br>
                   <b>Subject: </b> Geography <br>
               </td>
