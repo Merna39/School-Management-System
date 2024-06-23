@@ -192,7 +192,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'view-invoice') { ?>
                 </div>
                 <div class="card-body">
                     <strong>Name: </strong> <?php echo get_users(array('id' => $std_id))[0]->name ?> <br>
-                    <strong>Class: </strong> <?php echo $class->title ?>
+                    <strong>Class:  </strong> <?php echo $class->title ?>
 
                 </div>
             </div>
@@ -207,8 +207,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'view-invoice') { ?>
                                 <th>S.No</th>
                                 <th>Month</th>
                                 <th>Fee Status</th>
-
-                                
                                 <th>Action</th>
                             </tr>
                         </thead>
