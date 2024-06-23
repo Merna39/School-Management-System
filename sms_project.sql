@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2024 at 09:21 PM
+-- Generation Time: Jun 23, 2024 at 08:43 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,25 +42,23 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`, `role`) VALUES
-(1, 'teacher', 'teacher.1@example.com', '25f9e794323b453885f5181f1b624d0b', 'Teacher1', 3, 'teacher'),
-(2, 'teacher', 'teacher.2@example.com', '25f9e794323b453885f5181f1b624d0b', 'Teacher2', 2, 'teacher'),
-(7, 'teacher', 'teacher.3@tech.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'Teacher3 ', 1, 'teacher'),
-(44, 'teacher', 'teacher.4@example.com', 'asdfasdfasdf', 'Teacher4', 2, 'teacher'),
-(45, 'teacher', 'teacher.5@example.com', 'zxcvzxcvzxcv', 'Teacher5', 3, 'teacher'),
-(46, 'teacher', 'teacher.6@example.com', 'asdfasdfasdf', 'Teacher6', 1, 'teacher'),
-(47, 'teacher', 'teacher.7@example.com', 'zxcvzxcvzxcv', 'Teacher7', 2, 'teacher'),
-(48, 'teacher', 'teacher.8@example.com', 'asdfasdfasdf', 'Teacher8', 3, 'teacher'),
-(49, 'teacher', 'teacher.9@example.com', 'zxcvzxcvzxcv', 'Teacher9', 2, 'teacher'),
-(50, 'teacher', 'teacher.10@example.com', 'zxcvzxcvzxcv', 'Teacher10', 2, 'teacher'),
-(67, 'student', 'student.1@example.com', '25f9e794323b453885f5181f1b624d0b', 'student 1', 1, 'student'),
+(1, 'teacher', 'mohamedkhaled@teach.com', '25f9e794323b453885f5181f1b624d0b', 'Mohamed khaled', 3, 'teacher'),
+(2, 'teacher', 'ashrafgaid@teach.com', '25f9e794323b453885f5181f1b624d0b', 'Ashraf Gaid', 2, 'teacher'),
+(7, 'teacher', 'meladmoner@teach.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'Melad Moner', 1, 'teacher'),
+(44, 'teacher', 'talaatzaky@teach.com', 'asdfasdfasdf', 'Talaat Zaky', 2, 'teacher'),
+(45, 'teacher', 'youssefabdalah@.com', 'zxcvzxcvzxcv', 'Youssef Abdalah ', 3, 'teacher'),
+(46, 'teacher', 'mariamerahem@teach.com', 'asdfasdfasdf', 'Mariam Ebrahem', 1, 'teacher'),
+(47, 'teacher', 'abdalahmohamed@teach.com', 'zxcvzxcvzxcv', 'Abdalah Mohamed ', 2, 'teacher'),
+(48, 'teacher', 'markusessa@teach.com', 'asdfasdfasdf', 'Markus Essa', 3, 'teacher'),
+(49, 'teacher', 'ahmedshady@teach.com', 'zxcvzxcvzxcv', 'Ahmed Shady', 2, 'teacher'),
+(50, 'teacher', 'marwaahmed@teach.com', 'zxcvzxcvzxcv', 'Marwa Ahmed', 2, 'teacher'),
+(60, 'teacher', 'khaledmohsen@teach.com', 'zxcvzxcvzxcv', 'khaled Mohsen', 3, 'teacher'),
+(67, 'student', 'aliadel@stud.com', '25f9e794323b453885f5181f1b624d0b', 'Ali Adel', 1, 'student'),
 (68, 'student', 'faridamohmed@gmail.com', '25f9e794323b453885f5181f1b624d0b', 'Farida Mohamed', 2, 'student'),
 (69, 'student', 'amrahmed@stud.com', '781e5e245d69b566979b86e28d23f2c7', 'Amr Ahmed', 1, 'student'),
 (70, 'student', 'ahmedmohamed@stud.com', '781e5e245d69b566979b86e28d23f2c7', 'Ahmed Mohamed', 3, 'student'),
 (84, 'student', 'Ayaahmed@example.com', '660fd8d5bcbfa37c40f5b2b892636fca', 'Aya Ahmed', 2, 'student'),
-(85, 'student', 'mariasamy@example.com', '52f8f5519003a13d537c51a8b7605b38', 'Maria Samy', 2, 'student'),
-(86, 'student', 'mariememad@example.com', 'a9db6984f10ddb24dea73b11fb4875b8', 'Mariem Emad', 3, 'student'),
-(87, 'student', 'ziadnabel@example.com', 'fe5bc755c1b271a5d42673ab0eab5100', 'Ziad Nabel', 1, 'student'),
-(98, 'student', 'reemahmad@example.com', '781e5e245d69b566979b86e28d23f2c7', 'Reem Ahmad', 0, 'student');
+(85, 'student', 'Mariememad@example.com', '4f7a0009b455fb1289657352debb2473', 'Mariem Emad', 3, 'student');
 
 -- --------------------------------------------------------
 
@@ -87,8 +85,7 @@ INSERT INTO `attendance_std` (`id`, `attendance_month`, `modified_date`, `attend
 (5, 'june', '2024-06-14 12:29:39', '', 70, '2024-06-08 13:59:04'),
 (6, 'june', '2024-06-14 12:32:45', '', 84, '2024-06-08 13:59:04'),
 (7, 'june', '2024-06-14 12:48:33', 'a:1:{i:14;a:3:{s:9:\"signin_at\";i:1718358511;s:10:\"signout_at\";i:1718358513;s:4:\"date\";s:2:\"14\";}}', 69, '2024-06-08 13:59:04'),
-(8, 'june', '2024-06-14 12:32:45', '', 85, '2024-06-08 13:59:04'),
-(9, 'june', '2024-06-20 21:53:27', 'a:1:{i:21;a:3:{s:9:\"signin_at\";i:1718909604;s:10:\"signout_at\";i:1718909607;s:4:\"date\";s:2:\"21\";}}', 98, '2024-06-08 13:59:04');
+(8, 'june', '2024-06-14 12:32:45', '', 85, '2024-06-08 13:59:04');
 
 -- --------------------------------------------------------
 
@@ -110,7 +107,7 @@ CREATE TABLE `attendance_tch` (
 --
 
 INSERT INTO `attendance_tch` (`id`, `attendance_month`, `modified_date`, `attendance_value`, `tch_id`, `current_session`) VALUES
-(2, 'june', '2024-06-19 22:37:35', 'a:3:{s:2:\"08\";a:3:{s:9:\"signin_at\";i:1717854858;s:10:\"signout_at\";i:1717854864;s:4:\"date\";s:2:\"08\";}i:11;a:3:{s:9:\"signin_at\";i:1718113855;s:10:\"signout_at\";i:1718113905;s:4:\"date\";s:2:\"11\";}i:20;a:3:{s:9:\"signin_at\";i:1718825832;s:10:\"signout_at\";i:1718825855;s:4:\"date\";s:2:\"20\";}}', 1, '2024-06-08 13:37:49'),
+(2, 'june', '2024-06-11 16:51:45', 'a:2:{s:2:\"08\";a:3:{s:9:\"signin_at\";i:1717854858;s:10:\"signout_at\";i:1717854864;s:4:\"date\";s:2:\"08\";}i:11;a:3:{s:9:\"signin_at\";i:1718113855;s:10:\"signout_at\";i:1718113905;s:4:\"date\";s:2:\"11\";}}', 1, '2024-06-08 13:37:49'),
 (3, 'june', '2024-06-14 13:08:34', 'a:1:{i:14;a:3:{s:9:\"signin_at\";i:1718359709;s:10:\"signout_at\";i:1718359714;s:4:\"date\";s:2:\"14\";}}', 2, '2024-06-08 13:37:49'),
 (4, 'june', '2024-06-14 13:04:54', '', 7, '2024-06-14 10:04:54'),
 (5, 'june', '2024-06-14 13:04:54', '', 44, '2024-06-14 10:04:54'),
@@ -140,12 +137,7 @@ CREATE TABLE `classes` (
 INSERT INTO `classes` (`id`, `title`, `section`, `added_date`) VALUES
 (0, 'Class-1', 'section A ', '2024-03-31'),
 (2, 'Class-2', 'section A , section B', '2024-03-31'),
-(17, '', '', '2024-05-15'),
-(18, '', '', '2024-06-19'),
-(19, '', '', '2024-06-19'),
-(20, '', '', '2024-06-19'),
-(21, 'kluivbl', '', '2024-06-19'),
-(22, '', '', '2024-06-19');
+(17, '', '', '2024-05-15');
 
 -- --------------------------------------------------------
 
@@ -195,8 +187,7 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`msg_id`, `outcoming_msg`, `msg`, `timestamp`) VALUES
-(5, 68, 'it now work correctly', '2024-06-19 22:27:44'),
-(0, 98, 'hi', '2024-06-20 19:20:43');
+(5, 68, 'it now work correctly', '2024-06-20 01:27:44');
 
 -- --------------------------------------------------------
 
@@ -301,30 +292,12 @@ INSERT INTO `metadata` (`id`, `item_id`, `meta_key`, `meta_value`) VALUES
 (99, 104, 'file_attachment', 'footer.php'),
 (106, 106, 'amount', '500'),
 (107, 106, 'status', 'success'),
-(108, 106, 'student_id', '68'),
+(108, 106, 'student_id', '67'),
 (109, 106, 'month', 'January'),
 (110, 107, 'amount', '500'),
 (111, 107, 'status', 'success'),
-(112, 107, 'student_id', '68'),
-(113, 107, 'month', 'May'),
-(114, 108, 'amount', '500'),
-(115, 108, 'status', 'success'),
-(116, 108, 'student_id', '68'),
-(117, 108, 'month', 'May'),
-(118, 109, 'amount', '500'),
-(119, 109, 'status', 'success'),
-(120, 109, 'student_id', '68'),
-(121, 109, 'month', 'January'),
-(122, 110, 'amount', '500'),
-(123, 110, 'status', 'success'),
-(124, 110, 'student_id', '68'),
-(125, 110, 'month', 'January'),
-(126, 111, 'amount', '500'),
-(127, 111, 'status', 'success'),
-(128, 111, 'student_id', '68'),
-(129, 111, 'month', 'February'),
-(130, 113, 'section', '3'),
-(131, 113, 'section', '4');
+(112, 107, 'student_id', '67'),
+(113, 107, 'month', 'Fabruary');
 
 -- --------------------------------------------------------
 
@@ -387,20 +360,8 @@ INSERT INTO `posts` (`id`, `author`, `title`, `description`, `type`, `publish_da
 (103, 1, 'PDF for algebra', 'PDF for algebra', 'study-material', '2024-05-02 23:53:44', '2024-05-02 23:53:44', 'publish', 0),
 (104, 1, 'PDF for english', 'PDF for english', 'study-material', '2024-05-03 00:04:47', '2024-05-03 00:04:47', 'publish', 0),
 (105, 1, 'timetable', 'description', 'timetable', '2024-05-15 17:19:16', '2024-05-15 17:19:16', 'publish', 0),
-(106, 68, 'January - Fee', '', 'payment', '2024-06-18 13:17:00', '2024-06-18 13:17:00', 'success', 0),
-(107, 68, 'May - Fee', '', 'payment', '2024-06-18 13:37:08', '2024-06-18 13:37:08', 'success', 0),
-(108, 68, 'May - Fee', '', 'payment', '2024-06-18 13:37:28', '2024-06-18 13:37:28', 'success', 0),
-(109, 68, 'January - Fee', '', 'payment', '2024-06-18 13:50:11', '2024-06-18 13:50:11', 'success', 0),
-(110, 68, 'January - Fee', '', 'payment', '2024-06-18 13:51:52', '2024-06-18 13:51:52', 'success', 0),
-(111, 68, 'February - Fee', '', 'payment', '2024-06-18 13:52:08', '2024-06-18 13:52:08', 'success', 0),
-(112, 1, 'Section D', 'description', 'section', '2024-06-19 19:46:24', '2024-06-19 19:46:24', 'publish', 0),
-(113, 1, 'Class-5', 'description', 'class', '2024-06-19 21:49:12', '2024-06-19 21:49:12', 'publish', 0),
-(114, 1, 'Section F', 'description', 'section', '2024-06-19 22:34:48', '2024-06-19 22:34:48', 'publish', 0),
-(115, 1, 'Section F', 'description', 'section', '2024-06-19 22:39:10', '2024-06-19 22:39:10', 'publish', 0),
-(116, 1, 'Section F', 'description', 'section', '2024-06-19 22:39:21', '2024-06-19 22:39:21', 'publish', 0),
-(117, 1, 'Section F', 'description', 'section', '2024-06-19 22:40:18', '2024-06-19 22:40:18', 'publish', 0),
-(118, 1, 'Section F', 'description', 'section', '2024-06-19 22:42:43', '2024-06-19 22:42:43', 'publish', 0),
-(119, 1, 'Section F', 'description', 'section', '2024-06-19 22:45:40', '2024-06-19 22:45:40', 'publish', 0);
+(106, 67, 'January - Fee', '', 'payment', '2024-06-22 16:43:41', '2024-06-22 16:43:41', 'success', 0),
+(107, 67, 'Fabruary - Fee', '', 'payment', '2024-06-22 16:43:56', '2024-06-22 16:43:56', 'success', 0);
 
 -- --------------------------------------------------------
 
@@ -465,6 +426,12 @@ INSERT INTO `usermeta` (`id`, `user_id`, `meta_key`, `meta_value`) VALUES
 (130, 68, 'parents_country', 'egypt'),
 (131, 68, 'parents_state', 'jjj'),
 (132, 68, 'parents_zip', '226010MVP'),
+(133, 68, 'school_name', 'MPV'),
+(134, 68, 'previous_class', '1'),
+(135, 68, 'status', 'passed'),
+(136, 68, 'total_marks', '500'),
+(137, 68, 'obtain_mark', '445'),
+(138, 68, 'previous_percentage', '89'),
 (139, 68, 'class', '2'),
 (140, 68, 'section', '3'),
 (141, 68, 'subject_streem', ''),
@@ -476,24 +443,375 @@ INSERT INTO `usermeta` (`id`, `user_id`, `meta_key`, `meta_value`) VALUES
 (147, 69, 'country', 'Egypt'),
 (148, 69, 'state', 'Egypt'),
 (149, 69, 'zip', '35004'),
-(794, 98, 'dob', '2008-02-01'),
-(795, 98, 'mobile', '01553906506'),
-(796, 98, 'payment_method', 'online'),
-(797, 98, 'address', '6 Mohamed Al Rawi Street , Giza '),
-(798, 98, 'country', 'Egypt '),
-(799, 98, 'state', 'Giza'),
-(800, 98, 'zip', '02'),
-(801, 98, 'father_name', 'Ahmad'),
-(802, 98, 'father_mobile', '01235456321'),
-(803, 98, 'mother_name', 'Dalia'),
-(804, 98, 'mother_mobile', '01221455425'),
-(805, 98, 'parents_address', '6 Mohamed Al Rawi Street , Giza '),
-(806, 98, 'parents_country', 'Egypt '),
-(807, 98, 'parents_state', 'Giza'),
-(808, 98, 'parents_zip', '02'),
-(815, 98, 'class', '36'),
-(816, 98, 'section', '3'),
-(818, 98, 'doa', '2024-06-20');
+(150, 69, 'father_name', ''),
+(151, 69, 'father_mobile', ''),
+(152, 69, 'mother_name', ''),
+(153, 69, 'mother_mobile', ''),
+(154, 69, 'parents_address', ''),
+(155, 69, 'parents_country', ''),
+(156, 69, 'parents_state', ''),
+(157, 69, 'parents_zip', ''),
+(158, 69, 'school_name', ''),
+(159, 69, 'previous_class', ''),
+(160, 69, 'status', ''),
+(161, 69, 'total_marks', ''),
+(162, 69, 'obtain_mark', ''),
+(163, 69, 'previous_percentage', ''),
+(164, 69, 'class', ''),
+(165, 69, 'section', ''),
+(166, 69, 'subject_streem', ''),
+(167, 69, 'doa', ''),
+(168, 70, 'dob', '2000-02-22'),
+(169, 70, 'mobile', '657874'),
+(170, 70, 'payment_method', 'offline'),
+(171, 70, 'address', 'e'),
+(172, 70, 'country', 'Egypt'),
+(173, 70, 'state', 'Egypt'),
+(174, 70, 'zip', '35004'),
+(175, 70, 'father_name', ''),
+(176, 70, 'father_mobile', ''),
+(177, 70, 'mother_name', ''),
+(178, 70, 'mother_mobile', ''),
+(179, 70, 'parents_address', ''),
+(180, 70, 'parents_country', ''),
+(181, 70, 'parents_state', ''),
+(182, 70, 'parents_zip', ''),
+(183, 70, 'school_name', ''),
+(184, 70, 'previous_class', ''),
+(185, 70, 'status', ''),
+(186, 70, 'total_marks', ''),
+(187, 70, 'obtain_mark', ''),
+(188, 70, 'previous_percentage', ''),
+(189, 70, 'class', ''),
+(190, 70, 'section', ''),
+(191, 70, 'subject_streem', ''),
+(192, 70, 'doa', ''),
+(193, 71, 'dob', '2000-04-04'),
+(194, 71, 'mobile', '01559881139'),
+(195, 71, 'payment_method', 'offline'),
+(196, 71, 'address', ''),
+(197, 71, 'country', 'Egypt'),
+(198, 71, 'state', 'Africa'),
+(199, 71, 'zip', ''),
+(200, 71, 'father_name', ''),
+(201, 71, 'father_mobile', ''),
+(202, 71, 'mother_name', ''),
+(203, 71, 'mother_mobile', ''),
+(204, 71, 'parents_address', ''),
+(205, 71, 'parents_country', ''),
+(206, 71, 'parents_state', ''),
+(207, 71, 'parents_zip', ''),
+(208, 71, 'school_name', ''),
+(209, 71, 'previous_class', ''),
+(210, 71, 'status', ''),
+(211, 71, 'total_marks', ''),
+(212, 71, 'obtain_mark', ''),
+(213, 71, 'previous_percentage', ''),
+(214, 71, 'class', ''),
+(215, 71, 'section', ''),
+(216, 71, 'subject_streem', ''),
+(217, 71, 'doa', ''),
+(218, 72, 'dob', '2009-01-01'),
+(219, 72, 'mobile', '01559881139'),
+(220, 72, 'payment_method', 'offline'),
+(221, 72, 'address', ''),
+(222, 72, 'country', 'Egypt'),
+(223, 72, 'state', 'Africa'),
+(224, 72, 'zip', ''),
+(225, 72, 'father_name', ''),
+(226, 72, 'father_mobile', ''),
+(227, 72, 'mother_name', ''),
+(228, 72, 'mother_mobile', ''),
+(229, 72, 'parents_address', ''),
+(230, 72, 'parents_country', ''),
+(231, 72, 'parents_state', ''),
+(232, 72, 'parents_zip', ''),
+(233, 72, 'school_name', ''),
+(234, 72, 'previous_class', ''),
+(235, 72, 'status', ''),
+(236, 72, 'total_marks', ''),
+(237, 72, 'obtain_mark', ''),
+(238, 72, 'previous_percentage', ''),
+(239, 72, 'class', ''),
+(240, 72, 'section', ''),
+(241, 72, 'subject_streem', ''),
+(242, 72, 'doa', ''),
+(243, 73, 'dob', '2000-04-05'),
+(244, 73, 'mobile', '01559881139'),
+(245, 73, 'payment_method', 'offline'),
+(246, 73, 'address', ''),
+(247, 73, 'country', 'Egypt'),
+(248, 73, 'state', 'Africa'),
+(249, 73, 'zip', ''),
+(250, 73, 'father_name', ''),
+(251, 73, 'father_mobile', ''),
+(252, 73, 'mother_name', ''),
+(253, 73, 'mother_mobile', ''),
+(254, 73, 'parents_address', ''),
+(255, 73, 'parents_country', ''),
+(256, 73, 'parents_state', ''),
+(257, 73, 'parents_zip', ''),
+(258, 73, 'school_name', ''),
+(259, 73, 'previous_class', ''),
+(260, 73, 'status', ''),
+(261, 73, 'total_marks', ''),
+(262, 73, 'obtain_mark', ''),
+(263, 73, 'previous_percentage', ''),
+(264, 73, 'class', ''),
+(265, 73, 'section', ''),
+(266, 73, 'subject_streem', ''),
+(267, 73, 'doa', ''),
+(268, 74, 'dob', '2000-05-05'),
+(269, 74, 'mobile', '01559881139'),
+(270, 74, 'payment_method', 'offline'),
+(271, 74, 'address', ''),
+(272, 74, 'country', 'Egypt'),
+(273, 74, 'state', 'Africa'),
+(274, 74, 'zip', ''),
+(275, 74, 'father_name', ''),
+(276, 74, 'father_mobile', ''),
+(277, 74, 'mother_name', ''),
+(278, 74, 'mother_mobile', ''),
+(279, 74, 'parents_address', ''),
+(280, 74, 'parents_country', ''),
+(281, 74, 'parents_state', ''),
+(282, 74, 'parents_zip', ''),
+(283, 74, 'school_name', ''),
+(284, 74, 'previous_class', ''),
+(285, 74, 'status', ''),
+(286, 74, 'total_marks', ''),
+(287, 74, 'obtain_mark', ''),
+(288, 74, 'previous_percentage', ''),
+(289, 74, 'class', ''),
+(290, 74, 'section', ''),
+(291, 74, 'subject_streem', ''),
+(292, 74, 'doa', ''),
+(293, 75, 'dob', '2000-04-05'),
+(294, 75, 'mobile', '01559881139'),
+(295, 75, 'payment_method', 'offline'),
+(296, 75, 'address', ''),
+(297, 75, 'country', 'Egypt'),
+(298, 75, 'state', 'Africa'),
+(299, 75, 'zip', ''),
+(300, 75, 'father_name', ''),
+(301, 75, 'father_mobile', ''),
+(302, 75, 'mother_name', ''),
+(303, 75, 'mother_mobile', ''),
+(304, 75, 'parents_address', ''),
+(305, 75, 'parents_country', ''),
+(306, 75, 'parents_state', ''),
+(307, 75, 'parents_zip', ''),
+(308, 75, 'school_name', ''),
+(309, 75, 'previous_class', ''),
+(310, 75, 'status', ''),
+(311, 75, 'total_marks', ''),
+(312, 75, 'obtain_mark', ''),
+(313, 75, 'previous_percentage', ''),
+(314, 75, 'class', ''),
+(315, 75, 'section', ''),
+(316, 75, 'subject_streem', ''),
+(317, 75, 'doa', ''),
+(318, 76, 'dob', '2000-02-02'),
+(319, 76, 'mobile', '564878'),
+(320, 76, 'payment_method', 'offline'),
+(321, 76, 'address', ''),
+(322, 76, 'country', '54'),
+(323, 76, 'state', ''),
+(324, 76, 'zip', ''),
+(325, 76, 'father_name', ''),
+(326, 76, 'father_mobile', ''),
+(327, 76, 'mother_name', ''),
+(328, 76, 'mother_mobile', ''),
+(329, 76, 'parents_address', ''),
+(330, 76, 'parents_country', ''),
+(331, 76, 'parents_state', ''),
+(332, 76, 'parents_zip', ''),
+(333, 76, 'school_name', ''),
+(334, 76, 'previous_class', ''),
+(335, 76, 'status', ''),
+(336, 76, 'total_marks', ''),
+(337, 76, 'obtain_mark', ''),
+(338, 76, 'previous_percentage', ''),
+(339, 76, 'class', ''),
+(340, 76, 'section', ''),
+(341, 76, 'subject_streem', ''),
+(342, 76, 'doa', ''),
+(343, 77, 'dob', '2000-02-04'),
+(344, 77, 'mobile', '+557858796'),
+(345, 77, 'payment_method', 'offline'),
+(346, 77, 'address', '2022-2023'),
+(347, 77, 'country', ''),
+(348, 77, 'state', ''),
+(349, 77, 'zip', ''),
+(350, 77, 'father_name', ''),
+(351, 77, 'father_mobile', ''),
+(352, 77, 'mother_name', ''),
+(353, 77, 'mother_mobile', ''),
+(354, 77, 'parents_address', ''),
+(355, 77, 'parents_country', ''),
+(356, 77, 'parents_state', ''),
+(357, 77, 'parents_zip', ''),
+(358, 77, 'school_name', ''),
+(359, 77, 'previous_class', ''),
+(360, 77, 'status', ''),
+(361, 77, 'total_marks', ''),
+(362, 77, 'obtain_mark', ''),
+(363, 77, 'previous_percentage', ''),
+(364, 77, 'class', ''),
+(365, 77, 'section', ''),
+(366, 77, 'subject_streem', ''),
+(367, 77, 'doa', ''),
+(368, 78, 'dob', '2000-03-02'),
+(369, 78, 'mobile', '879878879'),
+(370, 78, 'payment_method', ''),
+(371, 78, 'address', ''),
+(372, 78, 'country', ''),
+(373, 78, 'state', ''),
+(374, 78, 'zip', ''),
+(375, 78, 'father_name', ''),
+(376, 78, 'father_mobile', ''),
+(377, 78, 'mother_name', ''),
+(378, 78, 'mother_mobile', ''),
+(379, 78, 'parents_address', ''),
+(380, 78, 'parents_country', ''),
+(381, 78, 'parents_state', ''),
+(382, 78, 'parents_zip', ''),
+(383, 78, 'school_name', ''),
+(384, 78, 'previous_class', ''),
+(385, 78, 'status', ''),
+(386, 78, 'total_marks', ''),
+(387, 78, 'obtain_mark', ''),
+(388, 78, 'previous_percentage', ''),
+(389, 78, 'class', ''),
+(390, 78, 'section', ''),
+(391, 78, 'subject_streem', ''),
+(392, 78, 'doa', ''),
+(393, 79, 'dob', '2000-02-02'),
+(394, 79, 'mobile', '5478787'),
+(395, 79, 'payment_method', ''),
+(396, 79, 'address', ''),
+(397, 79, 'country', ''),
+(398, 79, 'state', ''),
+(399, 79, 'zip', ''),
+(400, 79, 'father_name', ''),
+(401, 79, 'father_mobile', ''),
+(402, 79, 'mother_name', ''),
+(403, 79, 'mother_mobile', ''),
+(404, 79, 'parents_address', ''),
+(405, 79, 'parents_country', ''),
+(406, 79, 'parents_state', ''),
+(407, 79, 'parents_zip', ''),
+(408, 79, 'school_name', ''),
+(409, 79, 'previous_class', ''),
+(410, 79, 'status', ''),
+(411, 79, 'total_marks', ''),
+(412, 79, 'obtain_mark', ''),
+(413, 79, 'previous_percentage', ''),
+(414, 79, 'class', ''),
+(415, 79, 'section', ''),
+(416, 79, 'subject_streem', ''),
+(417, 79, 'doa', ''),
+(418, 80, 'dob', '2000-02-05'),
+(419, 80, 'mobile', '+557858796'),
+(420, 80, 'payment_method', ''),
+(421, 80, 'address', ''),
+(422, 80, 'country', ''),
+(423, 80, 'state', ''),
+(424, 80, 'zip', ''),
+(425, 80, 'father_name', ''),
+(426, 80, 'father_mobile', ''),
+(427, 80, 'mother_name', ''),
+(428, 80, 'mother_mobile', ''),
+(429, 80, 'parents_address', ''),
+(430, 80, 'parents_country', ''),
+(431, 80, 'parents_state', ''),
+(432, 80, 'parents_zip', ''),
+(433, 80, 'school_name', ''),
+(434, 80, 'previous_class', ''),
+(435, 80, 'status', ''),
+(436, 80, 'total_marks', ''),
+(437, 80, 'obtain_mark', ''),
+(438, 80, 'previous_percentage', ''),
+(439, 80, 'class', ''),
+(440, 80, 'section', ''),
+(441, 80, 'subject_streem', ''),
+(442, 80, 'doa', ''),
+(443, 81, 'dob', '2000-02-02'),
+(444, 81, 'mobile', '544897789'),
+(445, 81, 'payment_method', ''),
+(446, 81, 'address', '2022-2023'),
+(447, 81, 'country', ''),
+(448, 81, 'state', ''),
+(449, 81, 'zip', ''),
+(450, 81, 'father_name', ''),
+(451, 81, 'father_mobile', ''),
+(452, 81, 'mother_name', ''),
+(453, 81, 'mother_mobile', ''),
+(454, 81, 'parents_address', ''),
+(455, 81, 'parents_country', ''),
+(456, 81, 'parents_state', ''),
+(457, 81, 'parents_zip', ''),
+(458, 81, 'school_name', ''),
+(459, 81, 'previous_class', ''),
+(460, 81, 'status', ''),
+(461, 81, 'total_marks', ''),
+(462, 81, 'obtain_mark', ''),
+(463, 81, 'previous_percentage', ''),
+(464, 81, 'class', ''),
+(465, 81, 'section', ''),
+(466, 81, 'subject_streem', ''),
+(467, 81, 'doa', ''),
+(468, 84, 'dob', '2003-02-03'),
+(469, 84, 'mobile', '01255654236'),
+(470, 84, 'payment_method', 'offline'),
+(471, 84, 'address', ''),
+(472, 84, 'country', 'Egypt '),
+(473, 84, 'state', 'Giza'),
+(474, 84, 'zip', '02'),
+(475, 84, 'father_name', ''),
+(476, 84, 'father_mobile', ''),
+(477, 84, 'mother_name', ''),
+(478, 84, 'mother_mobile', ''),
+(479, 84, 'parents_address', ''),
+(480, 84, 'parents_country', ''),
+(481, 84, 'parents_state', ''),
+(482, 84, 'parents_zip', ''),
+(483, 84, 'school_name', ''),
+(484, 84, 'previous_class', ''),
+(485, 84, 'status', ''),
+(486, 84, 'total_marks', ''),
+(487, 84, 'obtain_mark', ''),
+(488, 84, 'previous_percentage', ''),
+(489, 84, 'class', '2'),
+(490, 84, 'section', '3'),
+(491, 84, 'subject_streem', ''),
+(492, 84, 'doa', '2024-06-08'),
+(493, 85, 'dob', '2004-02-01'),
+(494, 85, 'mobile', '01553956506'),
+(495, 85, 'payment_method', 'offline'),
+(496, 85, 'address', ''),
+(497, 85, 'country', ''),
+(498, 85, 'state', ''),
+(499, 85, 'zip', ''),
+(500, 85, 'father_name', ''),
+(501, 85, 'father_mobile', ''),
+(502, 85, 'mother_name', ''),
+(503, 85, 'mother_mobile', ''),
+(504, 85, 'parents_address', ''),
+(505, 85, 'parents_country', ''),
+(506, 85, 'parents_state', ''),
+(507, 85, 'parents_zip', ''),
+(508, 85, 'school_name', ''),
+(509, 85, 'previous_class', ''),
+(510, 85, 'status', ''),
+(511, 85, 'total_marks', ''),
+(512, 85, 'obtain_mark', ''),
+(513, 85, 'previous_percentage', ''),
+(514, 85, 'class', ''),
+(515, 85, 'section', ''),
+(516, 85, 'subject_streem', ''),
+(517, 85, 'doa', ''),
+(518, 69, 'class', '2');
 
 --
 -- Indexes for dumped tables
@@ -530,6 +848,13 @@ ALTER TABLE `courses`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`msg_id`),
+  ADD KEY `fk_outcoming_msg_accounts` (`outcoming_msg`);
+
+--
 -- Indexes for table `metadata`
 --
 ALTER TABLE `metadata`
@@ -561,13 +886,13 @@ ALTER TABLE `usermeta`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `attendance_std`
 --
 ALTER TABLE `attendance_std`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `attendance_tch`
@@ -579,7 +904,7 @@ ALTER TABLE `attendance_tch`
 -- AUTO_INCREMENT for table `classes`
 --
 ALTER TABLE `classes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `courses`
@@ -588,16 +913,22 @@ ALTER TABLE `courses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `metadata`
 --
 ALTER TABLE `metadata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT for table `sections`
@@ -609,7 +940,17 @@ ALTER TABLE `sections`
 -- AUTO_INCREMENT for table `usermeta`
 --
 ALTER TABLE `usermeta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=819;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=519;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `messages`
+--
+ALTER TABLE `messages`
+  ADD CONSTRAINT `fk_outcoming_msg_accounts` FOREIGN KEY (`outcoming_msg`) REFERENCES `accounts` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
