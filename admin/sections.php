@@ -16,9 +16,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']))
   // if ($db_conn->query($sql) === TRUE) {
   //     header('location: sections.php');
       exit;
-  } else {
-      echo "Error deleting record: " . $db_conn->error;
-  }
+  } 
 
 ?>
 

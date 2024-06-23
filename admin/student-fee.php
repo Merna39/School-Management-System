@@ -256,9 +256,6 @@
                     <tr>
                         <th>S.no.</th>
                         <th>Student Name</th>
-                        <th>Last Payment</th>
-                        <th>Due Payment</th>
-                        <th>Fee Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -269,9 +266,6 @@
                         <tr>
                             <td><?php echo ++$key ?></td>
                             <td><?php echo $student->name ?></td>
-                            <td>4/12</td>
-                            <td></td>
-                            <td></td>
                             <td>
                                 <a href="?action=view&std_id=<?php echo $student->id ?>" class="btn btn-sm btn-info"><i class="fa fa-eye fa-fw"></i> View</a>
                                 <!-- <a href="" class="btn btn-xs btn-dark"><i class="fa fa-pencil-alt fa-fw"></i></a> -->
