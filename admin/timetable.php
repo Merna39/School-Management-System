@@ -108,16 +108,19 @@ if (isset($_POST['submit'])) {
                 <label for="teacher_id">Select Teacher</label>
                 <select require name="teacher_id" id="teacher_id" class="form-control">
                   <option value="">-Select Teacher-</option>
-                  <option value="1">Teacher 1</option>
-                  <option value="2">Teacher 2</option>
-                  <option value="7">Teacher 3</option>
-                  <option value="44">Teacher 4</option>
-                  <option value="45">Teacher 5</option>
-                  <option value="46">Teacher 6</option>
-                  <option value="47">Teacher 7</option>
-                  <option value="48">Teacher 8</option>
-                  <option value="49">Teacher 9</option>
-                  <option value="50">Teacher 10</option>
+                  <option value="1"> Mohamed khaled </option>
+                  <option value="2"> Ashraf Gaid </option>
+                  <option value="7"> Melad Moner </option>
+                  <option value="44"> Talaat Zaky </option>
+                  <option value="45"> Youssef Abdallah </option>
+                  <option value="46"> Mariam Ebrahem </option>
+                  <option value="47"> Abdalah Mohamed </option>
+                  <option value="48"> Markus Essa </option>
+                  <option value="49"> Ahmed Shady </option>
+                  <option value="50"> Marwa Ahmed </option>
+                  <option value="50"> khaled Mohsen </option>
+                  <option value="50"> Adel Hassan </option>
+
                 </select>
               </div>
             </div>
