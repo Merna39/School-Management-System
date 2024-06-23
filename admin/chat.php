@@ -4,7 +4,7 @@ session_start();
 // Function to retrieve user role and name based on account ID
 function getUserInfo($accountId, $db_conn)
 {
-    $query = "SELECT role, name FROM accounts WHERE id = ?";
+    $query = "SELECT role, name, email, level FROM accounts WHERE id = ?";
     $stmt = mysqli_prepare($db_conn, $query);
     mysqli_stmt_bind_param($stmt, 'i', $accountId);
     mysqli_stmt_execute($stmt);
@@ -39,106 +39,152 @@ if (!$userInfo) {
 
 $userRole = $userInfo['role'];
 $userName = $userInfo['name'];
+$userEmail = $userInfo['email'];
+$userLevel = $userInfo['level'];
 
-// Handle message submission based on user role
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve and sanitize message data
-    $message = isset($_POST['message']) ? htmlspecialchars($_POST['message']) : '';
+// Fetch all users for sidebar based on user role and level
+$query = $userRole === 'teacher' ?
+    "SELECT id, name, email FROM accounts WHERE id != ? AND (role = 'teacher' OR (role = 'student' AND level = ?))" :
+    "SELECT id, name, email FROM accounts WHERE id != ?  AND level = ?";
+$stmt = mysqli_prepare($db_conn, $query);
+mysqli_stmt_bind_param($stmt, 'ii', $userId, $userLevel);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
 
-    // Prepare and execute the SQL query using prepared statement
-    $query = "INSERT INTO messages (outcoming_msg, msg, timestamp) VALUES (?, ?, NOW())";
-    $stmt = mysqli_prepare($db_conn, $query);
-
-    if (!$stmt) {
-        die("Error preparing statement: " . mysqli_error($db_conn));
-    }
-
-    // Bind parameters and execute the statement
-    mysqli_stmt_bind_param($stmt, 'is', $userId, $message); // Use $userId as the sender
-    $result = mysqli_stmt_execute($stmt);
-
-    if ($result) {
-        echo "Message sent successfully";
-    } else {
-        echo "Error sending message: " . mysqli_error($db_conn);
-    }
-
-    // Close statement
-    mysqli_stmt_close($stmt);
-}
-
-// Fetch messages with sender information
-$query = "
-    SELECT m.*, a.name AS sender_name
-    FROM messages m
-    JOIN accounts a ON m.outcoming_msg = a.id
-";
-$result = mysqli_query($db_conn, $query);
-
-$messages = [];
+$users = [];
 if ($result) {
     while ($row = mysqli_fetch_assoc($result)) {
-        // Determine if the sender is the current user or another user
-        $senderName = $row['outcoming_msg'] == $userId ? 'You' : $row['sender_name'];
-
-        $messages[] = [
-            'msg' => $row['msg'],
-            'outgoing' => $row['outcoming_msg'] == $userId, // True if message is outgoing (sent by current user)
-            'sender_name' => $senderName,
-            'timestamp' => $row['timestamp']
-        ];
+        $users[] = $row;
     }
 }
 
 mysqli_close($db_conn);
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher Chat</title>
-    <!-- Include Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Include Custom CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
     <style>
         body {
             background-color: #f8f9fa;
             font-family: Arial, sans-serif;
         }
 
-        #chat-container {
-            max-width: 600px;
-            margin: auto;
+        .chat-container {
+            display: flex;
+            height: 100vh;
+            background-color: #2c2f33;
+            color: white;
+        }
+
+        .sidebar {
+            width: 25%;
+            background-color: #23272a;
             padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 50px;
+            overflow-y: auto;
+        }
+
+        .sidebar .user {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            background-color: #2c2f33;
+            border-radius: 10px;
+            transition: background-color 0.2s;
+        }
+
+        .sidebar .user:hover,
+        .sidebar .user.active {
+            background-color: #40444b;
+        }
+
+        .sidebar .user img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .chat-area {
+            width: 75%;
+            display: flex;
+            flex-direction: column;
+            background-color: #36393f;
+            padding: 20px;
+            position: relative;
+        }
+
+        .chat-area .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #40444b;
+            padding-bottom: 10px;
+        }
+
+        .chat-area .header .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .chat-area .header .user-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 60%;
+            margin-right: 10px;
+        }
+
+        .chat-area .header .user-info .name-email {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-area .header .user-info .name-email div {
+            line-height: 1.2;
+        }
+
+        .chat-area .header .back-to-login {
+            margin-left: auto;
+        }
+
+        .chat-area .messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-top: 20px;
+            padding: 20px;
         }
 
         .message {
-            padding: 10px;
-            border-radius: 10px;
-            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 15px;
             display: flex;
             flex-direction: column;
-            max-width: 100%;
+            max-width: 70%;
             word-wrap: break-word;
         }
 
         .message.outgoing {
-            background-color: #E6E6FA; /* Light Blue */
-            color: #000;
+            background-color: #7289da;
+            color: white;
             align-self: flex-end;
             text-align: right;
+            margin-left: auto;
         }
 
         .message.incoming {
-            background-color: #F8F9FA; /* Light Grey */
-            color: black;
+            background-color: #40444b;
+            color: white;
             align-self: flex-start;
             text-align: left;
         }
@@ -146,153 +192,231 @@ mysqli_close($db_conn);
         .message .sender-info {
             font-size: 0.9em;
             font-weight: bold;
-            text-transform: uppercase;
-            color: #6495ED; /* Cornflower Blue */
             margin-bottom: 5px;
-        }
-
-        .message .msg-content {
-            max-width: 100%;
-            word-wrap: break-word;
         }
 
         .message .timestamp {
             font-size: 0.8em;
-            color: #6c757d; /* Gray */
+            color: #b9bbbe;
             margin-top: 5px;
         }
 
-        #messages-container {
-            max-height: 400px;
-            overflow-y: auto;
-            margin-bottom: 20px;
+        .input-group {
+            margin-top: 20px;
         }
 
-        #msg-input {
+        .input-group .form-control {
             border-radius: 20px 0 0 20px;
         }
 
-        .input-group-append .btn {
+        .input-group .input-group-append .btn {
             border-radius: 0 20px 20px 0;
         }
 
-        .navbar-nav .nav-item .nav-link {
-            color: #007bff; /* Blue */
-            font-weight: bold;
+        .notification {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #7289da;
+            color: white;
+            border-radius: 5px;
+            display: none;
         }
 
-        .navbar-nav .nav-item .nav-link:hover {
-            color: #0056b3; /* Darker Blue */
+        .file-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 0 20px 20px 0;
+            /* Match button's rounded corners */
         }
 
-        .navbar-nav .nav-item .nav-link i {
-            margin-left: 5px;
+        .file-label:hover {
+            background-color: #e9ecef;
+            /* Light background color on hover */
+        }
+
+        .file-label i {
+            font-size: 18px;
+            /* Adjust icon size */
+        }
+
+        .input-group-append {
+            display: flex;
+            align-items: center;
+        }
+
+        .input-group-append .btn-primary {
+            border-radius: 20px 0 0 20px;
+            /* Adjust button's rounded corners */
+        }
+
+        .form-control {
+            border-radius: 20px 0 0 20px;
+            /* Adjust input field's rounded corners */
+            flex-grow: 1;
+            /* Take remaining space in the input group */
         }
     </style>
 </head>
+
 <body>
+    <div class="chat-container">
+        <div class="sidebar" id="sidebar">
+            <h3>Chats</h3>
+            <?php foreach ($users as $user) : ?>
+                <?php if ($user['id'] != $userId) : ?>
+                    <div class="user" data-user-id="<?php echo $user['id']; ?>">
+                        <img src="../images/student.png" alt="User Avatar">
+                        <div>
+                            <div><?php echo $user['name']; ?></div>
+                            <small><?php echo $user['email']; ?></small>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
 
-<!-- Navigation bar -->
-<nav class="navbar navbar-expand navbar-white navbar-light shadow-sm">
-    <ul class="navbar-nav ml-auto">
-        <!-- <li class="nav-item">
-            <a href="javascript:history.back()" class="nav-link" title="Go Back">Go Back</a>
-        </li> -->
-        <li class="nav-item">
-            <a href="../logout.php" class="nav-link" title="Logout">Logout <i class="fa fa-sign-out-alt"></i></a>
-        </li>
-    </ul>
-</nav>
+        <div class="chat-area">
+            <div class="header">
+                <div class="user-info">
+                    <img src="../images/student.png" alt="User Avatar">
+                    <div class="name-email">
+                        <div id="chat-header-name"><?php echo $userName; ?></div>
+                        <small id="chat-header-email"><?php echo $userEmail; ?></small>
+                    </div>
+                </div>
+                <a href="../login.php" class="btn btn-danger back-to-login">Back to Login</a>
+            </div>
+            <div class="messages" id="messages-container"></div>
+            <div class="input-group">
+                <input type="text" id="msg-input" class="form-control" placeholder="Type a message...">
+                <div class="input-group-append">
+                    <label for="file-input" class="file-label btn btn-outline-secondary">
+                        Attach File <i class="fas fa-paperclip ml-1"></i>
+                    </label>
+                    <input type="file" id="file-input" accept="image/*,application/pdf" style="display:none;">
+                    <button class="btn btn-primary" type="button" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
 
-<!-- Chat container -->
-<div id="chat-container" class="container">
-    <h2 class="text-center mb-4">Welcome, <?php echo $userName; ?>!</h2>
-    <div id="messages-container" class="mb-3">
-        <!-- Messages will be displayed here -->
-        <?php foreach ($messages as $message) : ?>
-            <?php if ($message['outgoing']) : ?>
-                <div class="message outgoing">
-                    <div class="sender-info">You</div>
-                    <div class="msg-content"><?php echo $message['msg']; ?></div>
-                    <div class="timestamp"><?php echo $message['timestamp']; ?></div>
-                </div>
-            <?php else : ?>
-                <div class="message incoming">
-                    <div class="sender-info"><?php echo $message['sender_name']; ?></div>
-                    <div class="msg-content"><?php echo $message['msg']; ?></div>
-                    <div class="timestamp"><?php echo $message['timestamp']; ?></div>
-                </div>
-            <?php endif; ?>
-        <?php endforeach; ?>
-    </div>
-    <div class="input-group mb-3">
-        <input type="text" id="msg-input" class="form-control" placeholder="Type a message...">
-        <div class="input-group-append">
-            <button class="btn btn-primary" type="button" onclick="sendMessage()">Send</button>
         </div>
     </div>
-</div>
 
-<!-- Include jQuery and Bootstrap JS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>
-    // Function to load messages
-    function loadMessages() {
-        $.ajax({
-            url: 'get_messages.php',
-            type: 'GET',
-            success: function(messages) {
-                var messagesContainer = $('#messages-container');
-                messagesContainer.empty();
-                messages.forEach(function(message) {
-                    var messageClass = message.outgoing ? 'outgoing' : 'incoming';
-                    var senderInfo = '<div class="sender-info">' + (message.outgoing ? 'You' : message.sender_name) + '</div>';
-                    var timestamp = '<div class="timestamp">' + message.timestamp + '</div>';
+    <div class="notification">
+        <!-- Notification Content -->
+    </div>
 
-                    var messageHtml = '<div class="message ' + messageClass + '">';
-                    messageHtml += senderInfo;
-                    messageHtml += '<div class="msg-content">' + message.msg + '</div>';
-                    messageHtml += timestamp;
-                    messageHtml += '</div>';
-                    messagesContainer.append(messageHtml);
-                });
-                // Scroll to bottom of messages container
-                messagesContainer.scrollTop(messagesContainer[0].scrollHeight);
-            },
-            error: function() {
-                console.error('Error loading messages');
-            }
-        });
-    }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        var selectedRecipientId = null;
 
-    // Function to send a message
-    function sendMessage() {
-        var messageInput = $('#msg-input');
-        var message = messageInput.val().trim();
-
-        if (message !== '') {
+        function loadMessages() {
             $.ajax({
-                url: 'send_message.php',
-                type: 'POST',
-                data: { message: message },
-                success: function(response) {
-                    console.log(response);
-                    messageInput.val(''); // Clear input field after sending
-                    loadMessages(); // Reload messages after sending
+                url: 'get_messages.php',
+                type: 'GET',
+                data: {
+                    recipient_id: selectedRecipientId
+                },
+                success: function(messages) {
+                    var messagesContainer = $('#messages-container');
+                    var shouldScroll = messagesContainer.scrollTop() + messagesContainer.innerHeight() >= messagesContainer[0].scrollHeight;
+
+                    messagesContainer.empty();
+                    messages.forEach(function(message) {
+                        var messageClass = message.outgoing ? 'outgoing' : 'incoming';
+                        var senderInfo = '<div class="sender-info">' + (message.outgoing ? 'You' : message.sender_name) + '</div>';
+                        var timestamp = '<div class="timestamp">' + message.timestamp + '</div>';
+
+                        var messageContent = '';
+                        if (message.file_path) {
+                            var fileExtension = message.file_path.split('.').pop().toLowerCase();
+                            if (['jpg', 'jpeg', 'png', 'gif'].includes(fileExtension)) {
+                                messageContent = '<img src="' + message.file_path + '" alt="Image" style="max-width: 100%; border-radius: 10px;">';
+                            } else {
+                                messageContent = '<a href="' + message.file_path + '" target="_blank">Download File</a>';
+                            }
+                        } else {
+                            messageContent = '<div class="msg-content">' + message.msg + '</div>';
+                        }
+
+                        var messageHtml = '<div class="message ' + messageClass + '">';
+                        messageHtml += senderInfo;
+                        messageHtml += messageContent;
+                        messageHtml += timestamp;
+                        messageHtml += '</div>';
+                        messagesContainer.append(messageHtml);
+                    });
+
+                    if (shouldScroll) {
+                        messagesContainer.scrollTop(messagesContainer[0].scrollHeight);
+                    }
+                    showNotification();
                 },
                 error: function() {
-                    console.error('Error sending message');
+                    console.error('Error loading messages');
                 }
             });
         }
-    }
 
-    // Load messages on page load
-    $(document).ready(function() {
-        loadMessages();
-    });
-</script>
+        $(document).ready(function() {
+            $('.user').click(function() {
+                selectedRecipientId = $(this).data('user-id');
+                $('#chat-header-name').text($(this).find('div > div').text());
+                $('#chat-header-email').text($(this).find('small').text());
+                loadMessages();
+                $(this).addClass('active').siblings().removeClass('active');
+            });
+
+            $('#msg-input').keypress(function(event) {
+                if (event.keyCode === 13) {
+                    sendMessage();
+                }
+            });
+
+            setInterval(loadMessages, 5000);
+        });
+
+        function sendMessage() {
+            var messageInput = $('#msg-input');
+            var fileInput = $('#file-input');
+            var message = messageInput.val().trim();
+            var file = fileInput[0].files[0];
+
+            if (message !== '' || file) {
+                var formData = new FormData();
+                formData.append('message', message);
+                formData.append('recipient_id', selectedRecipientId);
+                if (file) {
+                    formData.append('file', file);
+                }
+
+                $.ajax({
+                    url: 'send_message.php',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        messageInput.val('');
+                        fileInput.val('');
+                        loadMessages();
+                    },
+                    error: function() {
+                        console.error('Error sending message');
+                    }
+                });
+            }
+        }
+
+        // function showNotification() {
+        //     var notification = $('.notification');
+        //     notification.fadeIn(400).delay(3000).fadeOut(400);
+        // }
+    </script>
 </body>
+
 </html>
