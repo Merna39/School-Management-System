@@ -147,7 +147,7 @@ if (isset($_POST['submit'])) {
                   </select>
                 </div>
               </div>
-              <div class="col-lg">
+              <!-- <div class="col-lg">
                 <div class="form-group" id="section-container">
                   <label for="subject_id">Select Subject</label>
                   <select require name="subject_id" id="subject_id" class="form-control">
@@ -163,7 +163,7 @@ if (isset($_POST['submit'])) {
                     <?php } ?>
                   </select>
                 </div>
-              </div>
+              </div> -->
               <div class="col-lg">
                 <div class="from-group">
                   <label for="">&nbsp;</label>
@@ -294,11 +294,11 @@ if (isset($_POST['submit'])) {
                             echo get_post(array('id' => $section_id))->title;
                             ?>
                             <br>
-                            <b>Subject: </b>
+                            <!-- <b>Subject: </b>
                             <?php
                             $subject_id = get_metadata($timetable->item_id, 'subject_id',)[0]->meta_value;
                             echo get_post(array('id' => $subject_id))->title;
-                            ?>
+                            ?> -->
                             <br>
                           </p>
                         </td>

@@ -140,9 +140,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="http://localhost/School-Management-System/admin/student/subjects.php" class="nav-link">
+                <a href="http://localhost/School-Management-System/admin/student/sections.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Subjects</p>
+                  <p>Sections</p>
                 </a>
               </li>
               
@@ -172,7 +172,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="http://localhost/School-Management-System/admin/student/timetable.php" class="nav-link">
+                <a href="http://localhost/School-Management-System/admin/student/table-Level-1.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Time Table</p>
                 </a>

@@ -3,13 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD:sms_project (2).sql
--- Generation Time: Jun 24, 2024 at 12:02 AM
-=======
--- Generation Time: Jun 23, 2024 at 06:27 PM
->>>>>>> dd1ef648b5cd8cf97c0ee61b841efca596b0c00c:sms_project.sql
+-- Generation Time: Jun 24, 2024 at 02:57 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -49,7 +45,6 @@ INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`, `rol
 (1, 'teacher', 'mohamedkhaled@teach.com', '25f9e794323b453885f5181f1b624d0b', 'Mohamed khaled', 3, 'teacher'),
 (2, 'teacher', 'ashrafgaid@teach.com', '25f9e794323b453885f5181f1b624d0b', 'Ashraf Gaid', 2, 'teacher'),
 (7, 'teacher', 'meladmoner@teach.sms', 'e807f1fcf82d132f9bb018ca6738a19f', 'Melad Moner', 1, 'teacher'),
-<<<<<<< HEAD:sms_project (2).sql
 (44, 'teacher', 'talaatzaky@teach.com', '25f9e794323b453885f5181f1b624d0b', 'Talaat Zaky', 2, 'teacher'),
 (45, 'teacher', 'youssefabdallah@teach.com', '25f9e794323b453885f5181f1b624d0b', 'Youssef Abdalah ', 3, 'teacher'),
 (46, 'teacher', 'mariamerahem@teach.com', '25f9e794323b453885f5181f1b624d0b', 'Mariam Ebrahem', 1, 'teacher'),
@@ -58,27 +53,12 @@ INSERT INTO `accounts` (`id`, `type`, `email`, `password`, `name`, `level`, `rol
 (49, 'teacher', 'ahmedshady@teach.com', '25f9e794323b453885f5181f1b624d0b', 'Ahmed Shady', 2, 'teacher'),
 (50, 'teacher', 'marwaahmed@teach.com', '25f9e794323b453885f5181f1b624d0b', 'Marwa Ahmed', 2, 'teacher'),
 (60, 'teacher', 'khaledmohsen@teach.com', '25f9e794323b453885f5181f1b624d0b', 'khaled Mohsen', 3, 'teacher'),
-=======
-(44, 'teacher', 'talaatzaky@teach.com', 'asdfasdfasdf', 'Talaat Zaky', 2, 'teacher'),
-(45, 'teacher', 'youssefabdallah@teach.com', 'zxcvzxcvzxcv', 'Youssef Abdallah ', 3, 'teacher'),
-(46, 'teacher', 'mariamerahem@teach.com', 'asdfasdfasdf', 'Mariam Ebrahem', 1, 'teacher'),
-(47, 'teacher', 'abdalahmohamed@teach.com', 'zxcvzxcvzxcv', 'Abdalah Mohamed ', 2, 'teacher'),
-(48, 'teacher', 'markusessa@teach.com', 'asdfasdfasdf', 'Markus Essa', 3, 'teacher'),
-(49, 'teacher', 'ahmedshady@teach.com', 'zxcvzxcvzxcv', 'Ahmed Shady', 2, 'teacher'),
-(50, 'teacher', 'marwaahmed@teach.com', 'zxcvzxcvzxcv', 'Marwa Ahmed', 2, 'teacher'),
-(60, 'teacher', 'khaledmohsen@teach.com', 'zxcvzxcvzxcv', 'khaled Mohsen', 3, 'teacher'),
->>>>>>> dd1ef648b5cd8cf97c0ee61b841efca596b0c00c:sms_project.sql
 (67, 'student', 'aliadel@stud.com', '25f9e794323b453885f5181f1b624d0b', 'Ali Adel', 1, 'student'),
-(68, 'student', 'faridamohmed@stud.com', '25f9e794323b453885f5181f1b624d0b', 'Farida Mohamed', 2, 'student'),
+(68, 'student', 'faridamohmed@gmail.com', '25f9e794323b453885f5181f1b624d0b', 'Farida Mohamed', 2, 'student'),
 (69, 'student', 'amrahmed@stud.com', '781e5e245d69b566979b86e28d23f2c7', 'Amr Ahmed', 1, 'student'),
 (70, 'student', 'ahmedmohamed@stud.com', '781e5e245d69b566979b86e28d23f2c7', 'Ahmed Mohamed', 3, 'student'),
 (84, 'student', 'Ayaahmed@stud.com', '660fd8d5bcbfa37c40f5b2b892636fca', 'Aya Ahmed', 2, 'student'),
-<<<<<<< HEAD:sms_project (2).sql
 (85, 'student', 'Mariememad@stud.com', '4f7a0009b455fb1289657352debb2473', 'Mariem Emad', 2, 'student');
-=======
-(85, 'student', 'Mariememad@stud.com', '4f7a0009b455fb1289657352debb2473', 'Mariem Emad', 3, 'student'),
-(99, 'teacher', 'adelhassan@teach.com', '234567890', 'Adel Hassan', 3, 'teacher');
->>>>>>> dd1ef648b5cd8cf97c0ee61b841efca596b0c00c:sms_project.sql
 
 -- --------------------------------------------------------
 
@@ -164,7 +144,8 @@ INSERT INTO `classes` (`id`, `title`, `section`, `added_date`) VALUES
 (19, '', '', '2024-06-19'),
 (20, '', '', '2024-06-19'),
 (21, 'kluivbl', '', '2024-06-19'),
-(22, '', '', '2024-06-19');
+(22, '', '', '2024-06-19'),
+(23, '', '', '2024-06-24');
 
 -- --------------------------------------------------------
 
@@ -245,7 +226,6 @@ CREATE TABLE `metadata` (
 
 INSERT INTO `metadata` (`id`, `item_id`, `meta_key`, `meta_value`) VALUES
 (1, 2, 'section', '3'),
-(2, 2, 'section', '4'),
 (3, 7, 'day_name', 'Saturday'),
 (4, 7, 'teacher_id', '2'),
 (5, 7, 'subject_id', '12'),
@@ -282,7 +262,7 @@ INSERT INTO `metadata` (`id`, `item_id`, `meta_key`, `meta_value`) VALUES
 (44, 16, 'period_id', '10'),
 (45, 16, 'day_name', 'monday'),
 (46, 16, 'subject_id', '12'),
-(47, 30, 'section', '4'),
+(47, 30, 'section', '112'),
 (48, 31, 'class_id', '1'),
 (49, 31, 'section_id', '4'),
 (50, 31, 'teacher_id', '44'),
@@ -356,7 +336,28 @@ INSERT INTO `metadata` (`id`, `item_id`, `meta_key`, `meta_value`) VALUES
 (132, 123, 'amount', '500'),
 (133, 123, 'status', 'success'),
 (134, 123, 'student_id', '67'),
-(135, 123, 'month', 'January');
+(135, 123, 'month', 'January'),
+(136, 124, 'section', '3'),
+(137, 124, 'section', '4'),
+(138, 124, 'section', '29'),
+(139, 124, 'section', '112'),
+(140, 2, 'section', '26'),
+(141, 2, 'section', '25'),
+(142, 2, 'section', '132'),
+(143, 2, 'section', '126'),
+(144, 2, 'section', '125'),
+(145, 2, 'section', '112'),
+(146, 1, 'section', '4'),
+(147, 1, 'section', '23'),
+(148, 1, 'section', '24'),
+(149, 1, 'section', '12'),
+(150, 1, 'section', '13'),
+(151, 1, 'section', '29'),
+(153, 30, 'section', '132'),
+(154, 30, 'section', '134'),
+(155, 30, 'section', '135'),
+(156, 30, 'section', '127'),
+(157, 30, 'section', '125');
 
 -- --------------------------------------------------------
 
@@ -383,8 +384,8 @@ CREATE TABLE `posts` (
 INSERT INTO `posts` (`id`, `author`, `title`, `description`, `type`, `publish_date`, `modified_date`, `status`, `parent`) VALUES
 (1, 1, 'Class-1', 'Class-1 Description', 'class', '2024-04-07 14:50:10', '2024-04-28 10:52:40', 'publish', 0),
 (2, 1, 'Class-2', 'Class-2 Description', 'Class', '2024-04-07 14:51:40', '2024-04-07 14:51:40', 'publish', 0),
-(3, 1, 'Section A', 'Section A Description', 'Section ', '2024-04-07 14:57:30', '2024-04-07 16:10:20', 'publish', 0),
-(4, 1, 'Section B', 'Section A Description', 'Section ', '2024-04-07 14:57:30', '2024-04-07 16:10:25', 'publish', 0),
+(3, 1, 'Computer', 'Section A Description', 'Section ', '2024-04-07 14:57:30', '2024-06-23 22:27:09', 'publish', 0),
+(4, 1, ' History', 'Section A Description', 'Section ', '2024-04-07 14:57:30', '2024-06-23 22:27:17', 'publish', 0),
 (5, 1, 'First Period', 'First Period Description', 'Period', '2024-04-07 14:57:30', '2024-04-07 16:10:35', 'publish', 0),
 (6, 1, 'Second Period', 'Second Period Description', 'Period', '2024-04-07 14:57:30', '2024-04-07 16:10:40', 'publish', 0),
 (7, 1, 'Saturday-First Period', 'Saturday-First Period Description', 'timetable', '2024-04-07 14:57:30', '2024-04-07 16:10:44', 'publish', 0),
@@ -405,7 +406,7 @@ INSERT INTO `posts` (`id`, `author`, `title`, `description`, `type`, `publish_da
 (24, 1, 'Psychology', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:33:10', 'publish', 0),
 (25, 1, 'Biology', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:33:17', 'publish', 0),
 (26, 1, 'Geology', '', 'subject', '2024-04-08 10:42:56', '2024-04-11 16:33:17', 'publish', 0),
-(29, 1, 'Section C', 'description', 'section', '2024-04-16 21:22:06', '2024-04-16 21:22:06', 'publish', 0),
+(29, 1, ' Geography', 'description', 'section', '2024-04-16 21:22:06', '2024-06-23 22:27:38', 'publish', 0),
 (30, 1, 'Class-3', 'description', 'class', '2024-04-16 21:25:25', '2024-04-16 21:25:25', 'publish', 0),
 (31, 1, '', '', 'timetable', '2024-04-17 10:44:54', '2024-04-16 22:44:54', 'publish', 0),
 (32, 1, '', '', 'timetable', '2024-04-17 10:45:31', '2024-04-16 22:45:31', 'publish', 0),
@@ -424,8 +425,18 @@ INSERT INTO `posts` (`id`, `author`, `title`, `description`, `type`, `publish_da
 (109, 68, 'January - Fee', '', 'payment', '2024-06-18 13:50:11', '2024-06-18 13:50:11', 'success', 0),
 (110, 68, 'January - Fee', '', 'payment', '2024-06-18 13:51:52', '2024-06-18 13:51:52', 'success', 0),
 (111, 68, 'February - Fee', '', 'payment', '2024-06-18 13:52:08', '2024-06-18 13:52:08', 'success', 0),
-(112, 1, 'Section D', 'description', 'section', '2024-06-19 19:46:24', '2024-06-19 19:46:24', 'publish', 0),
-(123, 67, 'January - Fee', '', 'payment', '2024-06-23 14:20:34', '2024-06-23 14:20:34', 'success', 0);
+(112, 1, ' Chemistry', 'description', 'section', '2024-06-19 19:46:24', '2024-06-23 22:27:52', 'publish', 0),
+(123, 67, 'January - Fee', '', 'payment', '2024-06-23 14:20:34', '2024-06-23 14:20:34', 'success', 0),
+(125, 1, 'Mathematics', 'description', 'section', '2024-06-23 22:25:26', '2024-06-23 22:25:26', 'publish', 0),
+(126, 1, 'English', 'description', 'section', '2024-06-23 22:25:34', '2024-06-23 22:25:34', 'publish', 0),
+(127, 1, 'Physics', 'description', 'section', '2024-06-23 22:25:45', '2024-06-23 22:25:45', 'publish', 0),
+(128, 1, 'Philosophy', 'description', 'section', '2024-06-23 22:25:55', '2024-06-23 22:25:55', 'publish', 0),
+(129, 1, 'Psychology', 'description', 'section', '2024-06-23 22:26:05', '2024-06-23 22:26:05', 'publish', 0),
+(130, 1, 'Biology', 'description', 'section', '2024-06-23 22:26:16', '2024-06-23 22:26:16', 'publish', 0),
+(131, 1, 'Geology', 'description', 'section', '2024-06-23 22:26:33', '2024-06-23 22:26:33', 'publish', 0),
+(132, 1, 'Arabic', 'description', 'section', '2024-06-23 22:26:54', '2024-06-23 22:26:54', 'publish', 0),
+(134, 1, 'Algebra', 'description', 'section', '2024-06-23 23:00:27', '2024-06-23 23:00:27', 'publish', 0),
+(135, 1, 'Statistics', 'description', 'section', '2024-06-23 23:01:36', '2024-06-23 23:01:36', 'publish', 0);
 
 -- --------------------------------------------------------
 
@@ -586,7 +597,7 @@ ALTER TABLE `usermeta`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT for table `attendance_std`
@@ -604,7 +615,7 @@ ALTER TABLE `attendance_tch`
 -- AUTO_INCREMENT for table `classes`
 --
 ALTER TABLE `classes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `courses`
@@ -616,13 +627,13 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `metadata`
 --
 ALTER TABLE `metadata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- AUTO_INCREMENT for table `sections`
